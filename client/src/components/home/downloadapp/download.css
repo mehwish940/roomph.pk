@@ -1,0 +1,17 @@
+.upperText{
+    font-family: Montserrat Bold;
+    font-size: 14px;
+}
+.lowerText{
+    font-family: Montserrat Thin;
+    font-size: 15px;
+}
+
+@media screen and (min-width: 500px) {
+    .upperText{
+        font-size: 20px;
+    }
+    .lowerText{
+        font-size: 21px;
+    }
+  }

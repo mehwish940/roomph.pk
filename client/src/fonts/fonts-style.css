@@ -1,0 +1,39 @@
+/* Roboto */
+@font-face {
+font-family: 'roboto-regular';
+src: url('../fonts/Roboto-Regular.ttf') format("ttf");
+font-style: normal;
+/*src: url("Montserrat/Montserrat-Regular.otf") format("otf");
+src: url("Montserrat/Montserrat-Regular.woff") format("woff");*/
+}
+@font-face {
+font-family: 'roboto-light';
+  src: url('Roboto-Light.ttf') format("ttf");
+font-style: normal;
+}
+@font-face {
+font-family: 'roboto-black';
+src: url('Roboto-Black.ttf') format("ttf");
+font-style: normal;
+}
+@font-face {
+  font-family: 'roboto-medium';
+  src: url('Roboto-Medium.ttf') format("ttf");
+}
+@font-face {
+  font-family: 'roboto-thin';
+  src: url('Roboto-Thin.ttf') format("ttf");
+}
+@font-face {
+  font-family: 'roboto-bold';
+  src: url('Roboto-Bold.ttf') format("ttf");
+}
+@font-face {
+  font-family: 'gothamroundedbook';
+  src: url('GothamRoundedBook_21018.ttf') format("ttf");
+}
+@font-face {
+  font-family: 'gothamroundedmedium';
+  src: url('GothamRoundedMedium_21022.ttf') format("ttf");
+}
+

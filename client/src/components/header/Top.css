@@ -1,0 +1,119 @@
+@import "../../font.css";
+.roomphLogo {
+  width: 80%;
+}
+@media screen and (min-width: 570px) {
+  .roomphLogo {
+    padding: 0;
+    width: 150%;
+  }
+}
+
+.arrowBtn {
+  border: none;
+  background: none;
+}
+
+.Deals {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.dealsBtn {
+  width: 80px;
+  height: 21px;
+  font-size: 11px;
+  font-family: Roboto Light;
+  letter-spacing: 1px;
+  font-weight: 250;
+  color: #fff;
+  background-color: #EF4E22;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 1px 1px 1px 1px rgb(205, 206, 206);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.dealsBtn:focus {
+  outline: none;
+}
+
+.dealsBtn:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+@media screen and (min-width: 570px) {
+  .dealsBtn {
+    margin-left: 50px;
+    height: 25px;
+  }
+}
+
+.signinBtn {
+  font-family: JTMarnie Light;
+  font-weight: 600;
+  font-size: 12px;
+  border: none;
+  color: #EF4E22; 
+  background-color: white; 
+  border-color: white; 
+  white-space:nowrap;
+}
+
+.signinBtn:focus,
+.signinBtn:hover {
+  outline: none;
+}
+
+@media screen and (min-width: 570px) {
+  .signinBtn {
+    font-size: 18px;
+  }
+}
+
+
+
+.buttonApp {
+  width: 80px;
+  height: 22px;
+  font-size: 11px;
+  font-family: JTMarnie Light;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #EF4E22;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 1px 1px 1px 1px rgb(205, 206, 206);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.wrap a:link,
+.wrap a:visited {
+  background-color: #fff;
+  color: #EF4E22;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.wrap a:hover,
+.wrap a:active {
+  background-color: #EF4E22;
+}

@@ -1,0 +1,50 @@
+@import "../../../font.css";
+
+.section {
+  background-color: #EF4E22;
+}
+
+.explore h6 {
+  color: white;
+  font-family: Montserrat Thin;
+  font-size: 17px;
+}
+
+.roomph {
+  font-family: Montserrat Bold;
+  color: white; 
+  font-size:20px;
+  font-weight: 800; 
+  margin: 0; 
+  padding: 0; 
+  line-height: 18px;
+}
+@media screen and (max-width: 380px) {
+  .roomph {
+    font-size:16px;
+  }
+}
+
+.explore p {
+  color: white;
+  font-family: Montserrat Thin;
+  font-size: 10px;
+}
+
+.All {
+  box-sizing: border-box;
+}
+
+.ecolumn {
+  float: left;
+  width: 33.33%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Clearfix (clear floats) */
+.erow::after {
+  content: "";
+  clear: both;
+  display: table;
+}

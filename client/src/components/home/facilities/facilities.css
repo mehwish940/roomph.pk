@@ -1,0 +1,74 @@
+@import "../../../font.css";
+.All {
+    box-sizing: border-box;
+  }
+  .Fc h5{
+    font-family: Montserrat Bold;
+    font-size: 22px;
+    white-space: nowrap;
+  }
+  .fcolumn {
+    float: center;
+    width: 70%;
+    padding: 5px;
+  }
+
+  .FT{
+    font-family: Gotham Medium;
+    font-size: 18px;
+  }
+  .Constit {
+    font-family: Montserrat Bold;
+    font-size: 18px;
+  }
+  /* Clearfix (clear floats) */
+  .frow::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .column {
+    float: left;
+    width: 10.33%;
+  }
+  @media screen and (max-width:480px) {
+    .column p{
+      text-align: left;
+      width: 670%;
+      height: 100%;
+      margin-left: 5px;
+      font-family: Montserrat Thin;
+      font-size: 15px;
+      align-items: top;
+    }
+  }
+  @media screen and (min-width:480px) {
+    .column p{
+      text-align: left;
+      width: 670%;
+      height: 100%;
+      margin-left: 5px;
+      display: flex;
+      font-family: Gotham Rounded Book;
+      justify-content: left;
+      align-items: center;
+    }
+  }
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  #borderM{
+    border: 1px solid rgb(201, 201, 201);
+    border-left: none; 
+    border-top: none; 
+    border-bottom: none;
+    height:42px;
+  }
+  @media screen and (min-width:470px) {
+    #borderM{
+      height:100%;
+    }
+  }

@@ -1,0 +1,21 @@
+.BButton {
+    width: 80px;
+    height: 20px;
+    font-size: 9px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #856ac5;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+  
+  .BButton:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-1px);
+  }

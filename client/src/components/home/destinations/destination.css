@@ -1,0 +1,40 @@
+@import "../../../font.css";
+.mpD{
+    font-family: Montserrat Bold;
+    font-size: 22px;
+    white-space: nowrap;
+}
+.aligned a, .cities a{
+   color:black;
+   font-family: Montserrat Bold;
+   text-transform: capitalize;
+   font-size: 17px;
+}
+
+.RP{
+    font-family: Montserrat Thin;
+}
+.viewAllBtn a{
+    color:black;
+    font-size: 15px;
+}
+.aligned {
+    display: flex;
+    align-items: center;
+}
+
+.aligned span {
+    padding: 15px;
+    width: 500px;
+}
+@media screen and (max-width: 360px) {
+    .aligned span {
+        padding: 1px;
+    }
+  }
+
+.cityPic{
+    width:120px;
+    height:100px;
+}
+
