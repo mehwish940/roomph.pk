@@ -12,7 +12,10 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "build": "cd client && npm run build",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
   "dependencies": {
     "axios": "^0.26.1",
