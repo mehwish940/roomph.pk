@@ -17,8 +17,8 @@ render() {
         <Router history={history}>
                   <Switch>
                       <Route path="/" exact component={Home} />
-                      <Route path="/propertydetails" component={PropertyDetails} />
-                      <Route path="/propertylisting" component={PropertyListing} />
+                      <Route path="/propertydetails/:city/:checkin/:checkout/:id" component={PropertyDetails} />
+                      <Route path="/propertylisting/:city/:checkin/:checkout" component={PropertyListing} />
                       <Route path="/customerinformation" component={CustomerInformation} />
                       <Route path="/thankyou" component={Thankyou} />
                       <Route path="/download" exact component={() => <Download />} />

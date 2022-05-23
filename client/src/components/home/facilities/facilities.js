@@ -48,12 +48,12 @@ export class Facilities extends Component {
             <Col className="All mb-3" xs={12}>
               <div className="row">
                 <div className="column">
-                  <img className="pr-2" src="images/Asset99.svg" alt="Star" />
+                  <img className="starPict pr-2" src="images/Asset99.svg" alt="Star" />
                 </div>
                 <div className="column">
-                  <img className="pr-2" src="images/Asset99.svg" alt="Star" /> </div>
+                  <img className="starPict pr-2" src="images/Asset99.svg" alt="Star" /> </div>
                 <div className="column mr-2" style={{ border: "1px solid rgb(201, 201, 201)", borderLeft: "none", borderTop: "none", borderBottom: "none" }}>
-                  <img className="pr-2" src="images/Asset99.svg" alt="Star" /> </div>
+                  <img className="starPict pr-2" src="images/Asset99.svg" alt="Star" /> </div>
                 <div className="column">
                   <p>Hotel ensures a comfortable guest experience. <b>Plus.</b></p>
                 </div>
@@ -63,9 +63,9 @@ export class Facilities extends Component {
                 <div className="column">
                 </div>
                 <div className="column">
-                  <img className="pr-2" src="images/Asset99.svg" alt="Star" /> </div>
+                  <img className="starPict pr-2" src="images/Asset99.svg" alt="Star" /> </div>
                 <div className="column  mr-2" style={{ border: "1px solid rgb(201, 201, 201)", borderLeft: "none", borderTop: "none", borderBottom: "none" }}>
-                  <img className="pr-2" src="images/Asset99.svg" alt="Star" /> </div>
+                  <img className="starPict pr-2" src="images/Asset99.svg" alt="Star" /> </div>
                 <div className="column">
                   <p>Improvement on 1R experience. <b> Standard.</b> </p>
                 </div>
@@ -77,7 +77,7 @@ export class Facilities extends Component {
                 <div className="column">
                 </div>
                 <div className="column mr-2" id="borderM">
-                  <img className="pr-2" src="images/Asset99.svg" alt="Star" />
+                  <img className="starPict pr-2" src="images/Asset99.svg" alt="Star" />
                 </div>
                 <div className="column">
                   <p>Lowest prices, minimum standards. <b>Basic.</b></p>

@@ -1,7 +1,7 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Topbar from "../header/Topbar";
+import Topbar from "./Topbar/Topbar";
 import Search from "./search/search";
 import SimpleSlider from './slider/slider';
 import Destination from './destinations/destinations';
@@ -23,7 +23,7 @@ class HomePage extends React.Component {
     return (
       <div className="HomePage">
         <div class="icon-bar">
-          <a href="https://wa.me/+923016441046" target="_blank" class="whatsapp"><img src="images/Asset3.svg" alt="" /></a>
+          <a href="https://wa.me/+923016441046" target="_blank" rel="noopener noreferrer" class="whatsapp"><img src="images/Asset3.svg" width={40} alt="" /></a>
         </div>
         <Topbar />
         <Search />

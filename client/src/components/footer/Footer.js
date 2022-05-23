@@ -17,8 +17,8 @@ export class Footer extends Component {
           </Row>
           <Row></Row>
           <Row></Row>
-          <Row className="mt-4" style={{ margin: "5px", padding: "5px", border: "1px solid #b8babb", borderBottom:"none" }}>
-            <Col xs={5} md={4}
+          <Row className="mt-4" style={{margin: "5px", padding: "5px", border: "1px solid #b8babb", borderBottom:"none" }}>
+            <Col xs={6} md={4}
               // data-aos="fade-up"
               className="d-flex mb-1 mt-3 justify-content-center  flex-column flex-wrap as"
             >
@@ -28,25 +28,24 @@ export class Footer extends Component {
               <Link className="mt-1" to='/'>Loyalty</Link>
               <Link className="mt-1" to='/'>Blog</Link>
               <Link className="mt-1" to='/'>Careers</Link>
-
             </Col>
 
-            <Col xs={7} md={4}
+            <Col  xs={6} md={4}
               // data-aos="fade-up"
               className="text-center social-icons"
             >
-              <img className="mt-2 ml-5 im" src="images/logo2.svg" alt="logo" />
-              <div className="zrow">
+              <img className="mt-3 im" src={process.env.PUBLIC_URL + "/images/logo2.svg"} alt="logo" />
+              <div className="zrow mr-5">
                 <div className="zcolumn">
-                  <a><img className="" src="images/Asset12.svg" alt="Star" style={{ width: "150%" }} /></a>
+                  <a href="/"><img className="mr-5" src={process.env.PUBLIC_URL + "/images/Asset12.svg"} alt="Star" style={{ width: "150%" }} /></a>
                 </div>
                 <div className="zcolumn">
-                  <a><img className="" src="images/Asset13.svg" alt="Star" style={{ width: "150%" }} /></a>
+                  <a href="/"><img className="" src={process.env.PUBLIC_URL + "/images/Asset13.svg"} alt="Star" style={{ width: "150%" }} /></a>
                 </div>
                 <div className="zcolumn">
-                  <a><img className="" src="images/Asset14.svg" alt="Star" style={{ width: "150%" }} /></a> </div>
+                  <a href="/"><img className="" src={process.env.PUBLIC_URL + "/images/Asset14.svg"} alt="Star" style={{ width: "150%" }} /></a> </div>
                 <div className="zcolumn">
-                  <a><img className="" src="images/Asset15.svg" alt="Star" style={{ width: "150%" }} /></a></div>
+                  <a href="/"><img className="" src={process.env.PUBLIC_URL + "/images/Asset15.svg"} alt="Star" style={{ width: "150%" }} /></a></div>
               </div>
               {/* <ul className="social-icons">
                 <li>
@@ -71,7 +70,7 @@ export class Footer extends Component {
                 </li>
               </ul> */}
             </Col>
-            <Col xs={12} md={4}
+            <Col  xs={12} md={4}
               // data-aos="fade-up"
               className="mt-3"
             >

@@ -20,7 +20,7 @@
 
 .blH h4 {
   font-family: Montserrat Bold;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .bl a {
@@ -37,6 +37,9 @@
 
 .imh {
   border-radius: 30px 30px 30px 30px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .bcard:hover {

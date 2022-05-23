@@ -1,32 +1,140 @@
-img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
 .thumbnail {
     position: relative;
     display: inline-block;
 }
+.imgWid0 {
+    width: 3.5vw;
+    vertical-align: text-bottom;
+}
+.imgWidr {
+    width: 6vw;
+}
+
+.area {
+    vertical-align: text-top;
+}
+.dfl{
+    margin: 0;
+    padding: 0;
+}
+.chatBtn{
+    border:none;
+    background-color: #7ed34f;
+    width: 40px;
+    padding: 2px;
+    color: white;
+    border-radius: 20px;
+}
+.VAL{
+    vertical-align: text-bottom;
+}
+.sliderImgs {
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 190px;
+    object-position: bottom;
+}
+.reviewCount{
+   background-image: url('./Asset20.svg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   padding: 5px;
+   color: #ff3d00;
+   font-weight:700;
+}
+
+@media screen and (max-width: 480px) {
+    .rev {
+        font-size: 3.9vw;
+    }
+
+    .left {
+        font-size: 3vw;
+    }
+
+    .rs {
+        font-size: 3vw;
+    }
+
+    .free {
+        font-size: 2vw;
+    }
+
+    .hotel {
+        font-size: 3.6vw;
+    }
+
+    .area {
+        font-size: 3.9vw;
+        vertical-align: text-top;
+    }
+
+    .imgWid1 {
+        width: 12vw;
+        vertical-align: text-top;
+    }
+
+    .chat {
+        font-size: 2.4vw;
+    }
+
+}
+
+@media screen and (min-width: 480px) {
+    .rs {
+        font-size: 3vw;
+        float: right;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .para {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .para {
+        font-size: 12px;
+    }
+}
 
 .caption {
     position: absolute;
+    top: 20px;
+    width: 50px;
+    border: 1px solid white;
+    border-radius: 5px 30px 30px 5px;
+    background-color: #fff;
+}
+
+.caption1 {
+    position: absolute;
     top: 100%;
     width: 100%;
-    height: 25px;
+    height: 50px;
     left: 50%;
     background-color: black;
-    transform: translate( -50%, -50% );
+    transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
 }
 
+@media screen and (max-width: 480px) {
+    .caption1 {
+        height: 40px;
+    }
+}
+
 .Buttons {
     width: 80px;
-    height: 20px;
-    font-size: 9px;
-    font-weight: 500;
+    height: 30px;
+    font-size: 16px;
     color: #fff;
+    font-family: Montserrat Regular;
     background-color: #EF4E22;
     border: none;
     border-radius: 45px;
@@ -34,11 +142,11 @@ img {
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    }
-  
-  .Buttons:hover {
+}
+
+.Buttons:hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
     transform: translateY(-1px);
-  }
+}

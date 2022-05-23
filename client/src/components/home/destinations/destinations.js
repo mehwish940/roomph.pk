@@ -16,7 +16,7 @@ function ContextAwareToggle({ children, eventKey, callback }) {
   return (
     <button
       type="button"
-      style={{ border: 'none', fontSize: '15px' }}
+      style={{ border: 'none', fontSize: '15px',background:'none' }}
       onClick={decoratedOnClick}
     >
       {children}
@@ -98,8 +98,9 @@ export class Destination extends Component {
             <Row className="mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                  {/* Do margin:2 padding:2 for deployment */}
                     <a href="/">{this.state.city_name1}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount1} Rooms Available</span></span>
                 </div>
               </Col>
@@ -107,7 +108,7 @@ export class Destination extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset32.svg" alt="" />
+                  <img className="cityPic" src="images/Asset32.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name2}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount2} Rooms Available</span></span>
                 </div>
@@ -116,7 +117,7 @@ export class Destination extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name3}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount3} Rooms Available</span></span>
                 </div>
@@ -245,7 +246,7 @@ class Example extends Component {
             <Row className="mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name4}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount4} Rooms Available</span></span>
                 </div>
@@ -254,7 +255,7 @@ class Example extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset32.svg" alt="" />
+                  <img className="cityPic" src="images/Asset32.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name5}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount5} Rooms Available</span></span>
                 </div>
@@ -263,7 +264,7 @@ class Example extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name6}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount6} Rooms Available</span></span>
                 </div>
@@ -272,7 +273,7 @@ class Example extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name7}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount7} Rooms Available</span></span>
                 </div>
@@ -281,7 +282,7 @@ class Example extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name8}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount8} Rooms Available</span></span>
                 </div>
@@ -290,7 +291,7 @@ class Example extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name9}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount9} Rooms Available</span></span>
                 </div>
@@ -299,7 +300,7 @@ class Example extends Component {
             <Row className="mt-1 mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img style={{ borderRadius: "15px 0px 0px 15px", borderStyle: "outset", borderRight: "none", borderTop: "none" }} className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset30.svg" alt="" />
                   <span className="mt-1" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
                     <a href="/">{this.state.city_name10}</a><br /><span style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount10} Rooms Available</span></span>
                 </div>

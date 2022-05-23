@@ -1,0 +1,54 @@
+@import "../../../../font.css";
+.Ful{
+    margin-left: 1em;
+}
+.TR{
+    font-family: Montserrat Bold;
+    font-size: 22px;
+}
+.revHotelPic{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.hotelName{
+    font-family: Montserrat Bold;
+    font-size: 18px;
+}
+.reviewText{
+    font-size: 16px;
+}
+@media only screen and (min-width: 700px) {
+    .Ful{
+        margin-left: 4em;
+    }
+    .hotel h5{
+        margin-top: 1em;
+        font-size: 25px;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    .hotel h5{
+        margin-top: 1.7em;
+        font-size: 30px;
+    }
+  }
+
+  @media only screen and (max-width: 380px) {
+    .hotelName{
+        font-size: 18px;
+    }
+    .reviewText{
+        font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 380px) {
+    .hotelName{
+        font-size: 15px;
+    }
+    .reviewText{
+        font-size: 13px;
+    }
+  }

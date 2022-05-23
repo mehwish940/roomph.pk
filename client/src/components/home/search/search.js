@@ -1,6 +1,7 @@
 import React, { Component, useState, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./search.css";
+import { withRouter, Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -22,15 +23,17 @@ let handleOpen = false;
 let handleClose = true;
 let handleOpen1 = false;
 let handleClose1 = true;
+var checkIn = '';
+var checkOut = '';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 300,
+  width: 370,
+  height: 220,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
@@ -39,11 +42,10 @@ const style1 = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 370,
   overflow: 'scroll',
   height: 550,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
@@ -73,6 +75,8 @@ function DataRange(props) {
     var diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
     var fromMonth = new Date(from.toISOString()).toLocaleString('en-pk',{weekday:'short',month:'short'});
     var toMonth = new Date(to.toISOString()).toLocaleString('en-pk',{weekday:'short',month:'short'});
+    checkIn = `${from.getFullYear()}-${from.getMonth()+1}-${from.getDate()}`;
+    checkOut = `${to.getFullYear()}-${to.getMonth()+1}-${to.getDate()}`;
     if(diffDays <= 1) {
       diffDays = `${diffDays+1} night`;
     }
@@ -92,7 +96,10 @@ function DataRange(props) {
         months={2}
         direction="vertical"
       />
+      <p>{checkIn}</p>
       <p className="text-center" style={{fontSize:"14px"}}>{fromMonth}{' '}{from.getDate()}{' '}-{' '}{toMonth}{' '}{to.getDate()} ({diffDays})</p>
+      <p className="text-center" style={{fontSize:"14px"}}>{from.getFullYear()}-{from.getMonth()+1}-{from.getDate()}-----{to.getFullYear()}-{to.getMonth()+1}-{to.getDate()}</p>
+      {from.toISOString().split('T')[0]} - {to.toISOString().split('T')[0]}
     </div>
   }
 }
@@ -137,7 +144,7 @@ function BasicModal1(props) {
         >
           <Box sx={{ ...style, padding: 0 }}>
             <button onClick={handleClose1} className="mt-2 ml-2" style={{ border: "none", background: "none" }}><MdOutlineKeyboardArrowLeft /></button>
-            <Container style={{ margin: "15px", borderRadius: "15px 15px 15px 15px", border: "1px solid rgb(203, 203, 203)", width: "260px" }}>
+            <Container style={{borderRadius: "15px 15px 15px 15px", border: "1px solid rgb(203, 203, 203)", width: "260px" }}>
               <Row>
                 <Col>
                   <IncDecCounter />
@@ -157,7 +164,7 @@ function BasicModal1(props) {
 export class Search extends Component {
   //Transfer Response between React and Nodejs
   state = {
-    response: '',
+    paragaraph: '',image:'',
     post: '',
     responseToPost: '',
   };
@@ -166,7 +173,7 @@ export class Search extends Component {
     this.callApi()
       .then(res => this.setState({
         paragraph: res.express.Collection.Rows[0].Description,
-        image: res.express.Collection.Rows[0].Image
+        image: res.express.Collection.Rows[0].Image,
       }))
       .catch(err => console.log(err));
   }
@@ -181,16 +188,21 @@ export class Search extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    const response = await fetch('/api/world', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ post: this.state.post }),
-    });
-    const body = await response.text();
+    // const response = await fetch('/api/world', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ post: this.state.post }),
+    // });
+    // const body = await response.text();
 
-    this.setState({ responseToPost: body });
+    //this.setState({ responseToPost: body });
+    //history.push(`/propertylisting/${post.code}`);
+      console.clear();
+      console.log(JSON.stringify({ post: this.state.post }));
+      this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}`);
+
   };
 
   render() {
@@ -218,7 +230,7 @@ export class Search extends Component {
                 <IncDecCounter /> */}
 
           <Container>
-
+          <p>{this.state.count}</p>
             <Row>
               <Col xs={10} className="mx-auto text-center selection-h">
                 <h6>
@@ -237,7 +249,9 @@ export class Search extends Component {
                     placeholder="Enter place, hotel, or guesthouse"
                     onChange={e => this.setState({ post: e.target.value })}
                   />
-                  <button style={{ position: "absolute", top: "80px", display: "block", left: "-45px"}} className="ml-5 mt-5 SearchButton" type="submit">SEARCH</button>
+                  {/* <Link to='/propertylisting/islamabad'> */}
+                  <button style={{ position: "absolute", top: "80px"}} className="mt-5 SearchButton" type="submit">SEARCH</button>
+                  {/* </Link> */}
                 </form>
                 {/* <form className="nosubmit">
                     <input className="nosubmit" type="search" placeholder="Enter place, hotel, or guesthouse" />
@@ -256,4 +270,4 @@ export class Search extends Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);

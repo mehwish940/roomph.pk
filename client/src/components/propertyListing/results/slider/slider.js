@@ -35,25 +35,18 @@ export default class CustomArrows extends Component {
       prevArrow: <SamplePrevArrow />
     };
     return (
-       <Container className="mb-3">
-          <Row>
-            
-            <Col xs={10} className="">
-                <div>
+       <div>
                 <Slider {...settings}>
                 <div>
-                    <img src="images/City01.png" alt="Discount" width={"100%"} height={"100%"} style={{borderRadius: "15px 15px 15px 15px"}} />
+                    <img src={process.env.PUBLIC_URL + "/images/City01.png"} alt="Discount" height={"260px"} />
                 </div>
                 <div>
-                    <img src="images/City02.png" alt="Discount" width={"100%"} height={"100%"} style={{borderRadius: "15px 15px 15px 15px"}}/>
+                    <img src={process.env.PUBLIC_URL + "/images/City02.png"} alt="Discount" height={"260px"}/>
                 </div>
                 
                 </Slider>
             </div>
-            </Col>
-           
-          </Row>
-        </Container>
+    
       
     );
   }

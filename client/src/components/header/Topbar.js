@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import "./Top.css";
-import Signin from '../home/registeration/signin';
+import Signin from '../registeration/signin';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
@@ -15,7 +14,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   pt: 2,
   px: 4,
@@ -32,7 +30,7 @@ export default function Topbar() {
   };
 
   return (
-    <section style={{ backgroundColor: "#fff"}} className="m-1"   >
+    <section style={{ backgroundColor: "#EF4E22"}} className="p-1"   >
       <div>
         <Modal
           aria-labelledby="transition-modal-title"
@@ -46,19 +44,19 @@ export default function Topbar() {
           </Box>
         </Modal>
       </div>
-      <Container>
+      <Container fluid>
         <Row>
-          <a href="/"><img className="roomphLogo ml-2" src="images/logo.svg" alt="logo" /></a>
+          <a href="/"><img className="roomphLogo ml-2" src={process.env.PUBLIC_URL + "/images/logo3.svg"} alt="logo" /></a>
           <Col xxs={4} className="">
-            <div className="Deals">
-              <button className="dealsBtn">View Deals</button>
+            <div className="Deals1">
+              <button className="dealsBtn1">View Deals</button>
             </div>
           </Col>
           <Col xxs={8} className="">
-            <div className="wrap">
-              <button className="mr-2 mt-1 signinBtn" onClick={handleOpen}>Sign in</button>
+            <div className="wrap1">
+              <button className="mr-2 mt-1 signinBtn1" onClick={handleOpen}>Sign in</button>
               <Link className="d-lg-none" to="/download" target="_blank">
-                <button className="d-lg-none buttonApp" >Use App</button>
+                <button className="d-lg-none buttonApp1" >Use App</button>
               </Link>
             </div>
           </Col>

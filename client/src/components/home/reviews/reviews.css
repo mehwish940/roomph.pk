@@ -4,7 +4,12 @@
 }
 .TR{
     font-family: Montserrat Bold;
-    font-size: 24px;
+    font-size: 22px;
+}
+.revHotelPic{
+    display: block;
+    width: 100%;
+    height: auto;
 }
 .hotelName{
     font-family: Montserrat Bold;

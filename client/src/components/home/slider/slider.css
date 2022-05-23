@@ -3,6 +3,11 @@
     text-align: center;
     color: white;
   }
+  .disPic{
+  display: block;
+  width: 100%;
+  height: auto;
+  }
   .Slcentered {
     position: absolute;
     top: 50%;

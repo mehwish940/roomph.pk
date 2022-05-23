@@ -26,7 +26,7 @@ export class Reviews extends Component {
               <Container style={{ border:"1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} className="mt-3">
-                    <img className="blogPic" src="images/blog/thumb/blog.jpg" alt="Room" style={{ borderRadius: "40%"}} />
+                    <img className="revHotelPic" src="images/blog/thumb/blog.jpg" alt="Room" style={{ borderRadius: "40%"}} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>King Plaza Hotel</h5>
@@ -50,7 +50,7 @@ export class Reviews extends Component {
             <Container style={{ border:"1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} className="mt-3">
-                    <img className="blogPic" src="images/blog/thumb/blog.jpg" alt="Room" style={{ borderRadius: "40%"}} />
+                    <img className="revHotelPic" src="images/blog/thumb/blog.jpg" alt="Room" style={{ borderRadius: "40%"}} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>King Plaza Hotel</h5>

@@ -61,27 +61,21 @@ export default class CustomArrows extends Component {
     return (
       <Container className="mb-3">
         <Row className="justify-content-center">
-          <Col lg={2}>
-
-          </Col>
           <Col xs={11} lg={8} className="">
             <div>
               <Slider {...settings}>
                 <div>
-                  <div class="Slcontainer">
-                    <img src="images/discount.png" alt="discounts" style={{ width: "100%",borderRadius: "15px 15px 15px 15px" }} />
-                    <p class="Slcentered" style={{fontFamily:"Gotham Rounded Medium",fontSize:"16px"}}>{this.state.textt}</p>
+                  <div className="Slcontainer">
+                    <img className="disPic"  src="images/discount.png" alt="discounts" style={{borderRadius: "15px 15px 15px 15px" }} />
+                    <p className="Slcentered" style={{fontFamily:"Gotham Rounded Medium",fontSize:"16px"}}>{this.state.textt}</p>
                   </div>
                 </div>
                 <div>
-                  <img src="images/discount.png" alt="Discount" style={{ borderRadius: "15px 15px 15px 15px" }} />
+                  <img className="disPic" src="images/discount.png" alt="Discount" style={{ borderRadius: "15px 15px 15px 15px" }} />
                 </div>
 
               </Slider>
             </div>
-          </Col>
-          <Col lg={2}>
-
           </Col>
         </Row>
       </Container>

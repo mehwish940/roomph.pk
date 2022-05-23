@@ -2,9 +2,9 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Topbar from "../header/Topbar";
-import Topbar2 from './Topbar2/Topbar2';
 import Footer from "../footer/Footer";
 import Results from './results/results';
+import { withRouter } from "react-router-dom";
 
 class SearchResultsPage extends React.Component {
   componentDidMount() {
@@ -16,7 +16,6 @@ class SearchResultsPage extends React.Component {
     return (
         <div className="SearchResultsPage">
           <Topbar />
-          <Topbar2 />
           <Results />
           <Footer />
         </div>
@@ -24,4 +23,4 @@ class SearchResultsPage extends React.Component {
   }
 }
 
-export default SearchResultsPage;
+export default withRouter(SearchResultsPage);

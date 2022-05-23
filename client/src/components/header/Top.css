@@ -14,29 +14,30 @@
   background: none;
 }
 
-.Deals {
+.Deals1 {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: left;
 }
 
-.wrap {
+.wrap1 {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: right;
 }
 
-.dealsBtn {
+.dealsBtn1 {
   width: 80px;
   height: 21px;
   font-size: 11px;
+  padding-top: 3px;
   font-family: Roboto Light;
   letter-spacing: 1px;
   font-weight: 250;
-  color: #fff;
-  background-color: #EF4E22;
+  color: #EF4E22;
+  background-color: #fff;
   border: none;
   border-radius: 45px;
   box-shadow: 1px 1px 1px 1px rgb(205, 206, 206);
@@ -44,11 +45,11 @@
   cursor: pointer;
   outline: none;
 }
-.dealsBtn:focus {
+.dealsBtn1:focus {
   outline: none;
 }
 
-.dealsBtn:hover {
+.dealsBtn1:hover {
   background-color: #2EE59D;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
@@ -56,39 +57,38 @@
   transform: translateY(-1px);
 }
 @media screen and (min-width: 570px) {
-  .dealsBtn {
+  .dealsBtn1 {
     margin-left: 50px;
     height: 25px;
   }
 }
 
-.signinBtn {
+.signinBtn1 {
   font-family: JTMarnie Light;
   font-weight: 600;
   font-size: 12px;
   border: none;
-  color: #EF4E22; 
-  background-color: white; 
+  color: #fff; 
+  background-color: #EF4E22; 
   border-color: white; 
   white-space:nowrap;
 }
 
-.signinBtn:focus,
-.signinBtn:hover {
+.signinBtn1:focus,
+.signinBtn1:hover {
   outline: none;
 }
 
 @media screen and (min-width: 570px) {
-  .signinBtn {
+  .signinBtn1 {
     font-size: 18px;
   }
 }
 
-
-
-.buttonApp {
+.buttonApp1 {
   width: 80px;
   height: 22px;
+  padding-top: 3px;
   font-size: 11px;
   font-family: JTMarnie Light;
   letter-spacing: 1px;
@@ -102,10 +102,10 @@
   cursor: pointer;
   outline: none;
 }
-.wrap a:link,
-.wrap a:visited {
-  background-color: #fff;
-  color: #EF4E22;
+.wrap1 a:link,
+.wrap1 a:visited {
+  background-color: #EF4E22;
+  color: #fff;
   font-size: 12px;
   letter-spacing: 0.5px;
   text-align: right;
@@ -113,7 +113,7 @@
   display: inline-block;
 }
 
-.wrap a:hover,
-.wrap a:active {
+.wrap1 a:hover,
+.wrap1 a:active {
   background-color: #EF4E22;
 }

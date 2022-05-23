@@ -34,7 +34,7 @@ function IncDecCounter() {
             </Col>
             <Col xs={4}>
               <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={decNum}><AiOutlineMinusCircle /></button>
-              <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incNum}><AiOutlinePlusCircle /></button>
+              <button className="PMB pl-1" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incNum}><AiOutlinePlusCircle /></button>
             </Col>
           </Row>
         </Container>

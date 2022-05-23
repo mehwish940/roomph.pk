@@ -19,7 +19,10 @@
   vertical-align: middle;
   width: 50%;
 }
-
+.socialIcns{
+  margin: 0;
+  padding:'0';
+}
 .footerC:before {
   right: 0.5em;
   margin-left: -50%;
@@ -127,13 +130,6 @@
   width: 17.33%;
   padding: 0px;
 }
-
-@media screen and (min-width: 570px) {
-  .zcolumn {
-    float: left;
-  }
-}
-
 /* Clearfix (clear floats) */
 .zrow::after {
   content: "";
@@ -143,7 +139,6 @@
 
 .im {
   width: 70%;
-  padding-right: 10px;
 }
 
 @media screen and (min-width: 570px) {
