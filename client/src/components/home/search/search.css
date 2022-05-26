@@ -6,7 +6,7 @@
 }
 
 .sea {
-  height: 165px;
+  height: 180px;
 }
 
 .selection {
@@ -144,7 +144,9 @@
 .mBs:hover {
   outline: none;
 }
-
+.PMB{
+  font-size: 20px;
+}
 .PMB:focus,
 .PMB:hover {
   outline: none;
@@ -188,7 +190,7 @@
 
 .SearchButton {
   width: 90%;
-  height: 25px;
+  height: 28px;
   font-size: 14px;
   font-family: Gotham Rounded Bold;
   color: #fff;

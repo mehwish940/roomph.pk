@@ -17,10 +17,10 @@ render() {
         <Router history={history}>
                   <Switch>
                       <Route path="/" exact component={Home} />
-                      <Route path="/propertydetails/:city/:checkin/:checkout/:id" component={PropertyDetails} />
-                      <Route path="/propertylisting/:city/:checkin/:checkout" component={PropertyListing} />
-                      <Route path="/customerinformation" component={CustomerInformation} />
-                      <Route path="/thankyou" component={Thankyou} />
+                      <Route path="/propertylisting/:city/:checkin/:checkout/:adults/:rooms/:nights" component={PropertyListing} />
+                      <Route path="/propertydetails/:city/:checkin/:checkout/:adults/:rooms/:nights/:id" component={PropertyDetails} />
+                      <Route path="/customerinformation/:city/:checkin/:checkout/:adults/:rooms/:nights/:id" component={CustomerInformation} />
+                      <Route path="/thankyou/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:name/:email/:phone/:ucity/:promo" component={Thankyou} />
                       <Route path="/download" exact component={() => <Download />} />
                   </Switch>
           </Router>

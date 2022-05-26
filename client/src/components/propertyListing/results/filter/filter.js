@@ -138,7 +138,7 @@ class BootstrapModal extends React.Component {
                     <Modal.Header>
                     <button onClick={() => this.handleModalShowHide()} className="mt-2 ml-2" style={{border:"none", background:"none"}}><MdOutlineKeyboardArrowLeft /></button>
                     </Modal.Header>
-                    <div className="ml-4 m0- p-0">
+                    <div className="mx-auto m-0 p-0">
                         <p className='m-0 p-0' style={{fontFamily:'Gotham Rounded Bold'}}>Price per night</p>
                         <CustomizedSlider />
                     </div>

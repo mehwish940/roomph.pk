@@ -171,12 +171,12 @@ class Example extends Component {
   };
   render() {
   return (
-    <Accordion defaultActiveKey="0">
-      <ContextAwareToggle eventKey="1"><u>View All</u></ContextAwareToggle>
-      <Accordion.Collapse eventKey="1">
+    <Accordion defaultActiveKey="0" className="m-0 p-0">
+      <ContextAwareToggle eventKey="1" className="m-0 p-0"><u>View All</u></ContextAwareToggle>
+      <Accordion.Collapse eventKey="1" className="m-0 p-0">
        <Container>
        {/* For Larger Screens */}
-       <div className="">
+       <div className="d-none d-md-block">
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="" >
                 <img className="" src="images/Asset30.svg" alt="City" />
@@ -242,7 +242,8 @@ class Example extends Component {
             </Row>   
           </div>
           {/* For Small Screens */}
-          {/* <div className="d-md-none">
+          
+          <div className="d-md-none">
             <Row className="mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
@@ -306,7 +307,7 @@ class Example extends Component {
                 </div>
               </Col>
             </Row>
-          </div> */}
+          </div>
        </Container>
       </Accordion.Collapse>
 

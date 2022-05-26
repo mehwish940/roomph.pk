@@ -10,8 +10,14 @@ const port = process.env.PORT || 5000;
 let city = "";
 let checkin = "";
 let checkout = "";
+let adults = "";
+let rooms = "";
 let data = "";
 let ndata = "";
+let uName = "";
+let email = "";
+let phoneNo = "";
+let uCity = "";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -99,8 +105,10 @@ app.post('/api/world', (req, response) => {
     city = req.body.postCity;
     checkin = req.body.postCheckIn;
     checkout = req.body.postCheckOut;
+    adults = req.body.postAdults;
+    rooms = req.body.postRooms;
     axios
-        .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/getaccommodationsearchtest?userid=10002&password=YGiDp9ex0022019&accommodationids=&agentid=1&cityname=${city}&checkin=${checkin}&checkout=${checkout}&limits=100&offset=0&Sortby=1&Sort=0&&multilanguageid=1&fullbook=1&rooms=1&adults=2`)
+        .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/getaccommodationsearchtest?userid=10002&password=YGiDp9ex0022019&accommodationids=&agentid=1&cityname=${city}&checkin=${checkin}&checkout=${checkout}&limits=10&offset=0&Sortby=1&Sort=0&&multilanguageid=1&fullbook=1&rooms=${rooms}&adults=${adults}`)
         .then(res => {
             var json;
             console.log(`statusCode: ${res.status}`);
@@ -133,6 +141,40 @@ app.post('/api/world', (req, response) => {
 
 });
 
+app.post('/api/world1', (req, response) => {
+    city = req.body.postCity;
+    checkin = req.body.postCheckIn;
+    checkout = req.body.postCheckOut;
+    adults = req.body.postAdults;
+    rooms = req.body.postRooms;
+    accommodationId = req.body.postId;
+    uName = req.body.postName;
+    email = req.body.postEmail;
+    phoneNo = req.body.postPhone;
+    uCity = req.body.postUcity;
+
+    axios 
+        .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=2&rateplanids=1&extraids=0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname={name}&booker_lastname=Ali&booker_email=${email}&booker_telephone=${phoneNo}&cc_expirydate=012020&cc_holdername=asfd&cc_type=VI&booker_street=usama+test&booker_zipcode=52370&booker_city=${uCity}&booker_country=pakistan&guest_qtys=${adults}&guest_names=${uName}&guest_emails=u7amaaslam@gmail.com&guest_telephones=03016441046&comments=asd&totalprice=999.99&ratesbydate=999.99&payment_method=&charged_amount=&channelids=&reservation_type=&promotion_code=&pms=0&discounted_price=0&converted_currency=&converted_price=0&sourceid=homeshopping&cc_no=4111111111111111&cc_cvc=123`)
+        
+// http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=10247&roomids=2&rateplanids=1&extraids=0&roomqty=1&checkin=2022-05-29&checkout=2022-06-12&booker_firstname=Usama&booker_lastname=Aslam&booker_email=u7amaaslam@gmail.com&booker_telephone=03016441046&cc_expirydate=012020&cc_holdername=asfd&cc_type=VI&booker_street=hamzhai+test&booker_zipcode=52370&booker_city=lahore&booker_country=pakistan&guest_qtys=2&guest_names=Hamza&guest_emails=Hamza&guest_telephones=09890989909&comments=asd&totalprice=999.99&ratesbydate=999.99&payment_method=&charged_amount=&channelids=&reservation_type=&promotion_code=&pms=0&discounted_price=0&converted_currency=&converted_price=0&sourceid=homeshopping&cc_no=4111111111111111&cc_cvc=123
+        .then(res => {
+            var json;
+            console.log(`statusCode: ${res.status}`);
+            const xml = res.data;
+            xml2js.parseString(xml, (err, result) => {
+                if (err) {
+                    throw err;
+                }
+                json = JSON.stringify(result);
+                console.log(json);
+                response.send(json);
+            });
+        })
+        .catch(error => {
+            console.error(error)
+        })
+
+});
 //Build
 // Step 1:
 app.use(express.static(path.resolve(__dirname, "./client/build")));
@@ -140,5 +182,4 @@ app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.get("*", function(request, response) {
     response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
-
 app.listen(port, () => console.log(`Listening on port ${port}`));

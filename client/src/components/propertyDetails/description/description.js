@@ -21,7 +21,10 @@ import './Top.css';
 
 let checkIn = '';
 let checkOut = '';
-var monthsArr =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var Adults = '';
+var Rooms = '';
+var nights = '';
+var monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 //Slider
 function SampleNextArrow(props) {
@@ -77,16 +80,16 @@ class AsNavFor extends Component {
             <img className="CarouselImg" src={process.env.PUBLIC_URL + "/images/City01.png"} alt="" />
           </div>
           <div>
-            <img className="CarouselImg" src={process.env.PUBLIC_URL +"/images/City02.png"} alt="" />
+            <img className="CarouselImg" src={process.env.PUBLIC_URL + "/images/City02.png"} alt="" />
           </div>
           <div>
-        <img className="CarouselImg" src={process.env.PUBLIC_URL +"/images/City03.png"} alt="" />
+            <img className="CarouselImg" src={process.env.PUBLIC_URL + "/images/City03.png"} alt="" />
           </div>
           <div>
-            <img className="CarouselImg" src={process.env.PUBLIC_URL +"/images/City04.png"} alt="" />
+            <img className="CarouselImg" src={process.env.PUBLIC_URL + "/images/City04.png"} alt="" />
           </div>
           <div>
-            <img className="CarouselImg" src={process.env.PUBLIC_URL +"/images/City01.png"} alt="" />
+            <img className="CarouselImg" src={process.env.PUBLIC_URL + "/images/City01.png"} alt="" />
           </div>
         </Slider>
         <Slider
@@ -97,51 +100,51 @@ class AsNavFor extends Component {
           focusOnSelect={true}
         >
           <div>
-            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL +"/images/City01.png"} alt="" />
+            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL + "/images/City01.png"} alt="" />
           </div>
           <div>
-            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL +"/images/City02.png"} alt="" />
+            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL + "/images/City02.png"} alt="" />
           </div>
           <div>
-            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL +"/images/City03.png"} alt="" />
+            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL + "/images/City03.png"} alt="" />
           </div>
           <div>
-            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL +"/images/City04.png"} alt="" />
+            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL + "/images/City04.png"} alt="" />
           </div>
           <div>
-            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL +"/images/City01.png"} alt="" />
+            <img className="pr-1 CarouselImg1" src={process.env.PUBLIC_URL + "/images/City01.png"} alt="" />
           </div>
         </Slider>
       </div>
     );
   }
-} 
+}
 //Slider End
 
 
 //Lightbox 
 const images = [
-  process.env.PUBLIC_URL +'/images/City01.png',
+  process.env.PUBLIC_URL + '/images/City01.png',
   process.env.PUBLIC_URL + '/images/City02.png',
   process.env.PUBLIC_URL + '/images/City03.png',
   process.env.PUBLIC_URL + '/images/City04.png',
-  ];
+];
 
 class LightboxExample extends Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        photoIndex: 0,
-        isOpen: false,
-      };
-    }
-  
-    render() {
-      const { photoIndex, isOpen } = this.state;
-  
-      return (
-        <div>
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      photoIndex: 0,
+      isOpen: false,
+    };
+  }
+
+  render() {
+    const { photoIndex, isOpen } = this.state;
+
+    return (
+      <div>
         <Container className="mt-3">
           <Row>
             <Col xs={12}>
@@ -149,33 +152,33 @@ class LightboxExample extends Component {
             </Col>
           </Row>
         </Container>
-      
-          <button className="Btn mb-3 ml-3" type="button" onClick={() => this.setState({ isOpen: true })}>
-            View All Photos
-          </button>
-  
-          {isOpen && (
-            <Lightbox
-              mainSrc={images[photoIndex]}
-              nextSrc={images[(photoIndex + 1) % images.length]}
-              prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-              onCloseRequest={() => this.setState({ isOpen: false })}
-              onMovePrevRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + images.length - 1) % images.length,
-                })
-              }
-              onMoveNextRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + 1) % images.length,
-                })
-              }
-            />
-          )}
-        </div>
-      );
-    }
+
+        <button className="Btn mb-3 ml-3" type="button" onClick={() => this.setState({ isOpen: true })}>
+          View All Photos
+        </button>
+
+        {isOpen && (
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+          />
+        )}
+      </div>
+    );
   }
+}
 //Lightbox End
 
 //Getting Property Details
@@ -209,7 +212,7 @@ const Properties = ({ properties }) => {
             <Row>
               <Col className="mt-2 mx-auto" xs={12}>
                 <p className="ml-1" style={{ fontFamily: 'Gotham Rounded Bold', whiteSpace: 'nowrap', lineHeight: '50%' }}><span className="mr-2">{properties.AccommodationName}</span><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><span className="float-right"><span style={{ fontSize: '16px', color: 'red' }}>Rs.</span> <span style={{ color: 'red' }}>{properties.Max_MinRate}</span> <br /><span style={{ fontSize: '10px', marginLeft: '5px' }}>avg. per night</span></span></p>
-                <p className="ml-2 rev dfl" style={{ whiteSpace: 'nowrap', margin: '0', padding: '0', lineHeight: '50%' }}><span style={{ fontFamily: 'Gotham Rounded Bold',fontSize:'14px'}}>Very Good</span><span className="reviewCount1 float-left mr-2 pt-2">{properties.UserRating}</span></p><p style={{ fontFamily: 'Gotham Rounded Book', margin: '0', padding: '0', fontSize: '14px' }}><span><u>{properties.Rating} review</u></span></p>
+                <p className="ml-2 rev dfl" style={{ whiteSpace: 'nowrap', margin: '0', padding: '0', lineHeight: '50%' }}><span style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '14px' }}>Very Good</span><span className="reviewCount1 float-left mr-2 pt-2">{properties.UserRating}</span></p><p style={{ fontFamily: 'Gotham Rounded Book', margin: '0', padding: '0', fontSize: '14px' }}><span><u>{properties.Rating} review</u></span></p>
               </Col>
             </Row>
             <Row className="mt-2">
@@ -248,10 +251,10 @@ const Properties = ({ properties }) => {
                 <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Now</i></b></span> <img className="facility" src={process.env.PUBLIC_URL + "/images/Asset28.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Non-Refundable</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
               </Col>
               <Col xs={8}>
-                <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.MinRate}</span>  </p>
+                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.MinRate}</span>  </p>
               </Col>
               <Col xs={4}>
-                <div className="dropdown float-right">
+                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
                   <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
                   <div className="dropdown-content">
                     <a href="">1</a>
@@ -264,10 +267,10 @@ const Properties = ({ properties }) => {
                 <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
               </Col>
               <Col xs={8}>
-                <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.MaxRate}</span>  </p>
+                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.MaxRate}</span>  </p>
               </Col>
               <Col xs={4}>
-                <div className="dropdown float-right">
+                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
                   <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
                   <div className="dropdown-content">
                     <a href="">1</a>
@@ -280,10 +283,10 @@ const Properties = ({ properties }) => {
                 <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
               </Col>
               <Col xs={8}>
-                <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.Max_MinRate}</span>  </p>
+                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.Max_MinRate}</span>  </p>
               </Col>
               <Col xs={4}>
-                <div className="dropdown float-right">
+                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
                   <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
                   <div className="dropdown-content">
                     <a href="">1</a>
@@ -293,7 +296,7 @@ const Properties = ({ properties }) => {
                 </div>
               </Col>
               <Col className="mx-auto">
-                <button className="DSearchButton mb-3" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }} onClick={() => History.push('/customerinformation')}>Book Now</button>
+                <button className="DSearchButton mb-3" onClick={() => History.push(`/customerinformation/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>Book Now</button>
               </Col>
             </Row>
             <Row className="mt-3">
@@ -387,13 +390,16 @@ export class Description extends Component {
     idd = this.props.match.params.id;
     checkIn = this.props.match.params.checkin;
     checkOut = this.props.match.params.checkout;
+    Adults = this.props.match.params.adults;
+    Rooms = this.props.match.params.rooms;
+    nights = this.props.match.params.nights;
     console.log(this.props.match.params.city);
     const response = await fetch('/api/world', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout }),
+      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms }),
     })
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -406,15 +412,16 @@ export class Description extends Component {
       <section className="mb-3">
         {/* <p>{this.state.Count}</p> */}
         <Container fluid>
-        {/* Topbar */}
+          {/* Topbar */}
           <Row className="p-2" style={{ backgroundColor: "white", borderRadius: "0px 0px 20px 20px", border: "1px solid rgb(205, 206, 206)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)" }}>
+            {/* For Larger Screens */}
             <Col className="d-none d-md-block" xs={10} style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
               <Row className="p-2">
                 <Col>
                   <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none' }}>{this.props.match.params.city}</button>
                   <div >
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} </button>
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . 2 guests</button>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3) - 1]}{monthsArr[this.props.match.params.checkin.slice(5, -2) - 1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3) - 1]}{monthsArr[this.props.match.params.checkout.slice(5, -2) - 1]} </button>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . {this.props.match.params.adults} guests</button>
                   </div>
                 </Col>
                 <Col xs={2} className="my-auto mx-auto">
@@ -422,16 +429,17 @@ export class Description extends Component {
                 </Col>
               </Row>
             </Col>
+            {/* For Smaller Screens */}
             <Col xs={8} className="d-md-none" style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
               <Row className="">
                 <Col>
                   <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none' }}>{this.props.match.params.city}</button>
-                  <div>
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none' }}></button>
+                  <div style={{ height: '15px' }}>
+
                   </div>
-                  <div style={{ position: 'absolute', top: '20px' }}>
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} </button>
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . 2 guests</button>
+                  <div style={{ position: 'absolute', top: '15px' }}>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3) - 1]}{monthsArr[this.props.match.params.checkin.slice(5, -2) - 1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3) - 1]}{monthsArr[this.props.match.params.checkout.slice(5, -2) - 1]} </button>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . {this.props.match.params.adults} guests</button>
                   </div>
                 </Col>
                 <Col xs={2} className="my-auto mx-auto">

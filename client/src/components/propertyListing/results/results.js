@@ -10,6 +10,9 @@ import Filter from './filter/filter';
 
 var checkIn = '';
 var checkOut = '';
+var Adults = '';
+var Rooms = '';
+var nights = '';
 var monthsArr =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -69,8 +72,8 @@ const Properties = ({ properties }) => {
               <CustomArrows imgSrc={properties.ImageURL} />
             </Col>
             <Col className="">
-              <p className="dfl free mt-3" style={{ fontFamily: 'Montserrat Regular', whiteSpace: 'nowrap' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '12px' }}>{properties.Cancellation} Cancellation</span></p>
-              <button className="dfl hotel mt-1 ml-md-2 ml-1" style={{ fontFamily: 'Gotham Rounded Bold', background:'none', border:'none' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${properties.AccommodationId}`)}>{properties.AccommodationName}</button>
+              <p className="dfl free mt-3" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '12px' }}>{properties.Cancellation} Cancellation</span></p>
+              <button className="dfl hotel mt-1 ml-md-2 ml-1" style={{ fontFamily: 'Gotham Rounded Bold', background:'none', border:'none' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</button>
               <p className="" style={{ fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><b className="area"> {properties.CityName}</b></p>
               <p className="reviewCount ml-2 float-right">{properties.UserRating}</p><p className="rev dfl" style={{ float: 'right', whiteSpace: 'nowrap', textAlign: 'right', margin: '0', padding: '0',lineHeight:'100%' }}><span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p style={{ fontFamily: 'Gotham Rounded Book', float: 'right', margin: '0', padding: '0', fontSize: '14px' }}><u>{properties.Rating} review</u></p>
               <br /><br />
@@ -108,13 +111,16 @@ export class Results extends Component {
     checkIn = this.props.match.params.checkin;
     //console.log(typeof this.props.match.params.checkin)
     checkOut = this.props.match.params.checkout;
+    Adults = this.props.match.params.adults;
+    Rooms = this.props.match.params.rooms;
+    nights = this.props.match.params.nights;
     console.log(this.props.match.params.city);
     const response = await fetch('/api/world', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout }),
+      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms }),
     })
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -131,14 +137,15 @@ export class Results extends Component {
         <img src={this.state.img} alt="" /> */}
         <Container fluid>
           <Row className="p-2" style={{ backgroundColor: "white", borderRadius: "0px 0px 20px 20px", border: "1px solid rgb(205, 206, 206)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)" }}>
+            {/* For larger Screens */}
             <Col className="d-none d-md-block" xs={10} style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
               <Row className="p-2">
                 <Col>
-                  <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none',textTransform:'capitalize' }}>{this.props.match.params.city}</button>
+                  <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none',textTransform:'capitalize'}}>{this.props.match.params.city}</button>
                   <div >
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} </button>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkin.slice(5, -2)-1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} </button>
                     {/* <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {(new Date()).toLocaleString('default', { month: 'short' })} - {this.props.match.params.checkout.substring(7)}th {(new Date()).toLocaleString('default', { month: 'short' })} </button> */}
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . 2 guests</button>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . {this.props.match.params.adults} guests</button>
                   </div>
                 </Col>
                 <Col xs={2} className="my-auto mx-auto">
@@ -146,16 +153,18 @@ export class Results extends Component {
                 </Col>
               </Row>
             </Col>
+
+            {/* For Smaller Screens */}
             <Col xs={8} className="d-md-none" style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
               <Row className="">
                 <Col>
                   <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none',textTransform:'capitalize' }}>{this.props.match.params.city}</button>
-                  <div>
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none' }}></button>
+                  <div style={{height:'15px'}}>
+
                   </div>
-                  <div style={{ position: 'absolute', top: '20px' }}>
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} </button>
-                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . 2 guests</button>
+                  <div style={{ position: 'absolute', top: '15px' }}>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{this.props.match.params.checkin.substring(7)}th {monthsArr[this.props.match.params.checkin.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkin.slice(5, -2)-1]} - {this.props.match.params.checkout.substring(7)}th  {monthsArr[this.props.match.params.checkout.slice(5, -3)-1]}{monthsArr[this.props.match.params.checkout.slice(5, -2)-1]} </button>
+                    <button className="topbarBtn" style={{ fontFamily: 'Gotham Rounded Book', background: 'none' }}>{' '} . {this.props.match.params.adults} guests</button>
                   </div>
                 </Col>
                 <Col xs={2} className="my-auto mx-auto">

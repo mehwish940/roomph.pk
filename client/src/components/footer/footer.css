@@ -127,8 +127,11 @@
 } */
 .zcolumn {
   float: right;
-  width: 17.33%;
+  width: 24.33%;
   padding: 0px;
+}
+.zrow{
+  margin-left: 14px;
 }
 /* Clearfix (clear floats) */
 .zrow::after {

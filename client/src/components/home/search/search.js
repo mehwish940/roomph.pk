@@ -13,11 +13,11 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { addDays } from 'date-fns';
 import en_PK from 'date-fns/locale/en-IN';
-import IncDecCounter from "./room-adult-counter/room";
-import IncDecCounter1 from "./room-adult-counter/child";
-import IncDecCounter2 from "./room-adult-counter/adults";
 import { BsFillCalendarEventFill } from "react-icons/bs";
 import { BsFillPeopleFill } from "react-icons/bs";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { AiOutlineMinusCircle } from "react-icons/ai";
+
 
 let handleOpen = false;
 let handleClose = true;
@@ -25,6 +25,112 @@ let handleOpen1 = false;
 let handleClose1 = true;
 var checkIn = '';
 var checkOut = '';
+var Adults = '';
+var Rooms = '';
+var diffDays = '';
+
+function RoomsAdultsChild() {
+  let [adults, setAdultsNum] = useState(0);
+  let [child, setChildNum] = useState(0);
+  let [rooms, setRoomsNum] = useState(0);
+  let incAdults = () => {
+    if (adults < 10) {
+      setAdultsNum(Number(adults) + 1);
+    }
+  };
+  let decAdults = () => {
+    if (adults > 0) {
+      setAdultsNum(adults - 1);
+    }
+  }
+  let handleChangeAdults = (e) => {
+    setAdultsNum(e.target.value);
+  }
+
+  
+  let incChild = () => {
+    if (child < 10) {
+      setChildNum(Number(child) + 1);
+    }
+  };
+  let decChild = () => {
+    if (child > 0) {
+      setChildNum(child - 1);
+    }
+  }
+  let handleChangeChild = (e) => {
+    setChildNum(e.target.value);
+  }
+
+
+  let incRooms = () => {
+    if (rooms < 10) {
+      setRoomsNum(Number(rooms) + 1);
+    }
+  };
+  let decRooms = () => {
+    if (rooms > 0) {
+      setRoomsNum(rooms - 1);
+    }
+  }
+  let handleChangeRooms = (e) => {
+    setRoomsNum(e.target.value);
+  }
+
+  return (
+    <>
+      <form>
+        <Container>
+        <Row>
+           <p hidden> {Adults = adults} {Rooms = rooms}</p>
+            <Col xs={4} className="mt-2">
+              <label style={{fontFamily:"Gotham Medium", color:"#EF4E22",fontSize:"16px"}}>
+                Adults
+              </label>
+            </Col>
+            <Col xs={4} className="mt-2">
+              <input style={{ width: "30px",border:"none", color:"#EF4E22",fontFamily:"Gotham Medium",fontSize:"16px" }} type="text" value={adults} onChange={handleChangeAdults} />
+            </Col>
+            <Col xs={4}  className="mt-2"> 
+              <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={decAdults}><AiOutlineMinusCircle /></button>
+              <button className="PMB  pl-1" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incAdults}><AiOutlinePlusCircle /></button>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col xs={4} className="mt-2">
+              <label style={{fontFamily:"Gotham Medium", color:"#EF4E22",fontSize:"16px"}}>
+                Child
+              </label>
+            </Col>
+            <Col xs={4} className="mt-2">
+              <input style={{ width: "30px",border:"none", color:"#EF4E22",fontFamily:"Gotham Medium",fontSize:"16px" }} type="text" value={child} onChange={handleChangeChild} />
+            </Col>
+            <Col xs={4}  className="mt-2">
+              <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={decChild}><AiOutlineMinusCircle /></button>
+              <button className="PMB  pl-1" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incChild}><AiOutlinePlusCircle /></button>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col xs={4} className="mt-2">
+              <label style={{fontFamily:"Gotham Medium",fontSize:"16px", color:"#EF4E22"}}>
+                Rooms
+              </label>
+            </Col>
+            <Col xs={4} className="mt-2">
+              <input style={{ width: "30px",border:"none", color:"#EF4E22",fontFamily:"Gotham Medium",fontSize:"16px" }} type="text" value={rooms} onChange={handleChangeRooms} />
+            </Col>
+            <Col xs={4}  className="mt-2">
+              <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={decRooms}><AiOutlineMinusCircle /></button>
+              <button className="PMB  pl-1" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incRooms}><AiOutlinePlusCircle /></button>
+            </Col>
+          </Row>
+        </Container>
+      </form>
+    </>
+  );
+}
 
 const style = {
   position: 'absolute',
@@ -32,7 +138,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 370,
-  height: 220,
+  height: 260,
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 4,
@@ -53,7 +159,7 @@ const style1 = {
 
 function DataRange(props) {
   const [to, setTo] = useState(new Date());
-  const [from, setFrom] = useState(addDays(new Date(), 0));
+  const [from, setFrom] = useState(addDays(new Date(), 2));
 
   const handleSelect = useCallback(({ selection: { startDate, endDate } }) => {
     setFrom(startDate);
@@ -72,18 +178,22 @@ function DataRange(props) {
     const oneDay = 24 * 60 * 60 * 1000;
     const firstDate = new Date(from.toISOString());
     const secondDate = new Date(to.toISOString());
-    var diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+    diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
     var fromMonth = new Date(from.toISOString()).toLocaleString('en-pk',{weekday:'short',month:'short'});
     var toMonth = new Date(to.toISOString()).toLocaleString('en-pk',{weekday:'short',month:'short'});
     checkIn = `${from.getFullYear()}-${from.getMonth()+1}-${from.getDate()}`;
     checkOut = `${to.getFullYear()}-${to.getMonth()+1}-${to.getDate()}`;
+    var nights = '';
     if(diffDays <= 1) {
-      diffDays = `${diffDays+1} night`;
+      nights = `${diffDays+1} night`;
     }
     else{
-      diffDays = `${diffDays+1} nights`;
+      nights = `${diffDays+1} nights`;
     }
     return <div>
+    <div style={{backgroundColor:'white', width:'320px',height:'50px',position:'absolute',top:'8px',zIndex:'100'}}>
+      <button onClick={handleClose} className="mt-2 ml-2" style={{ border: "none", background: "none",zIndex:'200' }}><MdOutlineKeyboardArrowLeft /></button>
+    </div>
       <DateRange
         locale={en_PK}
         color={"#EF4E22"}
@@ -96,10 +206,10 @@ function DataRange(props) {
         months={2}
         direction="vertical"
       />
-      <p>{checkIn}</p>
-      <p className="text-center" style={{fontSize:"14px"}}>{fromMonth}{' '}{from.getDate()}{' '}-{' '}{toMonth}{' '}{to.getDate()} ({diffDays})</p>
-      <p className="text-center" style={{fontSize:"14px"}}>{from.getFullYear()}-{from.getMonth()+1}-{from.getDate()}-----{to.getFullYear()}-{to.getMonth()+1}-{to.getDate()}</p>
-      {from.toISOString().split('T')[0]} - {to.toISOString().split('T')[0]}
+      {/* <p>{checkIn}</p> */}
+      <p className="text-center" style={{fontSize:"14px"}}>{fromMonth}{' '}{from.getDate()}{' '}-{' '}{toMonth}{' '}{to.getDate()} ({nights})</p>
+      {/* <p className="text-center" style={{fontSize:"14px"}}>{from.getFullYear()}-{from.getMonth()+1}-{from.getDate()}-----{to.getFullYear()}-{to.getMonth()+1}-{to.getDate()}</p>
+      {from.toISOString().split('T')[0]} - {to.toISOString().split('T')[0]} */}
     </div>
   }
 }
@@ -117,7 +227,6 @@ function BasicModal(props) {
           aria-describedby="transition-modal-description"
         >
           <Box sx={{ ...style1, margin: 0, padding: 0, paddingLeft: 3 }}>
-            <button onClick={handleClose} className="mt-2 ml-2" style={{ border: "none", background: "none" }}><MdOutlineKeyboardArrowLeft /></button>
             <DataRange display={true} />
             <div class="text-center">
               <button className="dateDoneBtn mb-3" type="submit" onClick={handleClose}>Done</button>
@@ -147,9 +256,7 @@ function BasicModal1(props) {
             <Container style={{borderRadius: "15px 15px 15px 15px", border: "1px solid rgb(203, 203, 203)", width: "260px" }}>
               <Row>
                 <Col>
-                  <IncDecCounter />
-                  <IncDecCounter2 />
-                  <IncDecCounter1 />
+                  <RoomsAdultsChild />
                   <button className="incDoneBtn mb-3" type="submit" onClick={handleClose1}>Done</button>
                 </Col>
               </Row>
@@ -201,7 +308,7 @@ export class Search extends Component {
     //history.push(`/propertylisting/${post.code}`);
       console.clear();
       console.log(JSON.stringify({ post: this.state.post }));
-      this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}`);
+      this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays+1}`);
 
   };
 
