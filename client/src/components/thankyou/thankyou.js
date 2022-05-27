@@ -34,12 +34,12 @@ const Properties = ({ properties }) => {
                 </p>
               </Col>
               <Col className="mt-3" xs={7}>
-                <img className="" style={{ borderRadius: '15px' }} src={properties.ImageURL} alt="Room" width={"190px"} height={"110px"} />
+                <img className="" style={{ borderRadius: '15px' }} src={properties.ImageURL} alt="Room" width={"180px"} height={"110px"} />
               </Col>
               <Col className="" xs={12}>
                 <p className="m-0 p-0" style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px' }}>
-                  <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-in: </span> <b>{checkIn.substring(7)}th {monthsArr[checkIn.slice(5, -3) - 1]}{monthsArr[checkIn.slice(5, -2) - 1]} {checkIn.substring(0, 4)}, {(new Date(checkIn)).toLocaleString('en-pk',{weekday:'long'})}</b><br />
-                  <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-out: </span> <b> {checkOut.substring(7)}th  {monthsArr[checkOut.slice(5, -3) - 1]}{monthsArr[checkOut.slice(5, -2) - 1]} {checkOut.substring(0, 4)}, {(new Date(checkOut)).toLocaleString('en-pk',{weekday:'long'})}</b><br />
+                  <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-in: </span> <b>{checkIn.substring(7)}th {monthsArr[checkIn.slice(5, -3) - 1]}{monthsArr[checkIn.slice(5, -2) - 1]} {checkIn.substring(0, 4)}, {(new Date(checkIn)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
+                  <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-out: </span> <b> {checkOut.substring(7)}th  {monthsArr[checkOut.slice(5, -3) - 1]}{monthsArr[checkOut.slice(5, -2) - 1]} {checkOut.substring(0, 4)}, {(new Date(checkOut)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
                   <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}> Stay: </span>  <b> {nights} Nights, {Rooms} Rooms, {Adults} Adults</b>
                 </p>
               </Col>
@@ -85,7 +85,7 @@ class Thankyou extends Component {
         })
       })
       .catch(err => console.log(err));
-      this.callApi1()
+    this.callApi1()
       .then(res => {
         //console.clear();
         //const json = JSON.stringify(res);
@@ -98,7 +98,7 @@ class Thankyou extends Component {
         })
       })
       .catch(err => console.log(err));
-      
+
   }
 
   callApi = async () => {
@@ -206,4 +206,4 @@ class Thankyou extends Component {
   }
 }
 
-export default  withRouter(Thankyou);
+export default withRouter(Thankyou);

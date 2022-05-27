@@ -153,7 +153,7 @@ class LightboxExample extends Component {
           </Row>
         </Container>
 
-        <button className="Btn mb-3 ml-3" type="button" onClick={() => this.setState({ isOpen: true })}>
+        <button className="Btn mb-3 ml-3" style={{fontSize:'14px', width:'120px'}} type="button" onClick={() => this.setState({ isOpen: true })}>
           View All Photos
         </button>
 
@@ -206,13 +206,13 @@ const Properties = ({ properties }) => {
             {/* <Container fluid> */}
             <Row>
               <Col xs={12} className="">
-                <button className="Button" type="button"> Best Seller </button>
+                <button className="Button" style={{fontSize:'14px', width:'100px'}} type="button"> Best Seller </button>
               </Col>
             </Row>
             <Row>
               <Col className="mt-2 mx-auto" xs={12}>
-                <p className="ml-1" style={{ fontFamily: 'Gotham Rounded Bold', whiteSpace: 'nowrap', lineHeight: '50%' }}><span className="mr-2">{properties.AccommodationName}</span><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><span className="float-right"><span style={{ fontSize: '16px', color: 'red' }}>Rs.</span> <span style={{ color: 'red' }}>{properties.Max_MinRate}</span> <br /><span style={{ fontSize: '10px', marginLeft: '5px' }}>avg. per night</span></span></p>
-                <p className="ml-2 rev dfl" style={{ whiteSpace: 'nowrap', margin: '0', padding: '0', lineHeight: '50%' }}><span style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '14px' }}>Very Good</span><span className="reviewCount1 float-left mr-2 pt-2">{properties.UserRating}</span></p><p style={{ fontFamily: 'Gotham Rounded Book', margin: '0', padding: '0', fontSize: '14px' }}><span><u>{properties.Rating} review</u></span></p>
+                <p className="ml-1" style={{fontSize:'24px', fontFamily: 'Gotham Rounded Bold', whiteSpace: 'nowrap', lineHeight: '50%' }}><span className="mr-2">{properties.AccommodationName}</span><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" /><span className="price float-right"><span style={{ fontSize: '14px', color: 'red' }}>Rs.</span> <span style={{ color: 'red' }}>{properties.Max_MinRate}</span> <br /><span style={{ fontSize: '10px', marginLeft: '5px' }}>avg. per night</span></span></p>
+                <p className="ml-2 rev dfl" style={{ whiteSpace: 'nowrap', margin: '0', padding: '0', lineHeight: '50%' }}><span style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '14px' }}>Very Good</span><span className="reviewCount1 float-left mr-2">{properties.UserRating}</span></p><p style={{ fontFamily: 'Gotham Rounded Book', margin: '0', padding: '0', fontSize: '14px' }}><span><u>{properties.Rating} review</u></span></p>
               </Col>
             </Row>
             <Row className="mt-2">
@@ -223,12 +223,12 @@ const Properties = ({ properties }) => {
             </Row>
             <Row>
               <Col xs={12}>
-                <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '14px' }}><BiMap className="mapPic1" /> {properties.Address}</p>
+                <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '14px' }}><BiMap className="mapPic"/> {properties.Address}</p>
               </Col>
             </Row>
             <Row>
               <Col xs={12}>
-                <h6 style={{ fontFamily: 'Gotham Rounded Medium' }}>Reviews For {properties.AccommodationName}</h6>
+                <h6 style={{ fontFamily: 'Gotham Rounded Medium', fontWeight:'600' }}>Reviews For {properties.AccommodationName}</h6>
               </Col>
               <Col xs={12}>
                 <Reviews />
@@ -248,7 +248,7 @@ const Properties = ({ properties }) => {
 
               </Col>
               <Col className="mt-3" xs={12}>
-                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Now</i></b></span> <img className="facility" src={process.env.PUBLIC_URL + "/images/Asset28.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Non-Refundable</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
+                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Now</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset28.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Non-Refundable</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
               </Col>
               <Col xs={8}>
                 <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.MinRate}</span>  </p>
@@ -280,7 +280,7 @@ const Properties = ({ properties }) => {
                 </div>
               </Col>
               <Col className="mt-3" xs={12}>
-                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
+                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
               </Col>
               <Col xs={8}>
                 <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.Max_MinRate}</span>  </p>

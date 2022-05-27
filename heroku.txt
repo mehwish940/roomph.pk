@@ -1,0 +1,14 @@
+https://roomph-pk.herokuapp.com/ 
+ 
+ 
+ 1967  git commit -m "Update"
+ 1968  npm run dev
+ 1969  git commit -m "Update"
+ 1970  git add .
+ 1971  git push
+ 1972  git add .
+ 1973  git commit -m "Update"
+ 1974  git push
+ 1975  heroku login
+ 1976  git push heroku master
+ 1977  history

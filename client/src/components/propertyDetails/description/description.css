@@ -101,6 +101,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding: 5px;
+    padding-top: 10px;
+    margin-top: -4px;
+    font-size: 14px;
     color: #ff3d00;
-    font-weight:700;
+    font-weight:900;
+ }
+ .price{
+   margin-top: 2px;
  }

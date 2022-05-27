@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import History from '../../history';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { AiOutlineClose } from "react-icons/ai";
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -28,11 +29,12 @@ var checkOut = '';
 var Adults = '';
 var Rooms = '';
 var diffDays = '';
+var monthsArr = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function RoomsAdultsChild() {
-  let [adults, setAdultsNum] = useState(0);
+  let [adults, setAdultsNum] = useState(2);
   let [child, setChildNum] = useState(0);
-  let [rooms, setRoomsNum] = useState(0);
+  let [rooms, setRoomsNum] = useState(1);
   let incAdults = () => {
     if (adults < 10) {
       setAdultsNum(Number(adults) + 1);
@@ -47,7 +49,7 @@ function RoomsAdultsChild() {
     setAdultsNum(e.target.value);
   }
 
-  
+
   let incChild = () => {
     if (child < 10) {
       setChildNum(Number(child) + 1);
@@ -82,50 +84,45 @@ function RoomsAdultsChild() {
       <form>
         <Container>
         <Row>
-           <p hidden> {Adults = adults} {Rooms = rooms}</p>
-            <Col xs={4} className="mt-2">
-              <label style={{fontFamily:"Gotham Medium", color:"#EF4E22",fontSize:"16px"}}>
-                Adults
-              </label>
-            </Col>
-            <Col xs={4} className="mt-2">
-              <input style={{ width: "30px",border:"none", color:"#EF4E22",fontFamily:"Gotham Medium",fontSize:"16px" }} type="text" value={adults} onChange={handleChangeAdults} />
-            </Col>
-            <Col xs={4}  className="mt-2"> 
-              <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={decAdults}><AiOutlineMinusCircle /></button>
-              <button className="PMB  pl-1" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incAdults}><AiOutlinePlusCircle /></button>
+            <Col className="mt-2">
+              <div style={{ whiteSpace: 'nowrap' }}>
+                <label className="ml-1" style={{ fontFamily: "Gotham Medium", fontSize: "16px", color: "#EF4E22" }}>
+                  Rooms
+                </label>
+                <button className="PMB pl-5" type="button" style={{ border: "none", background: "none", color: "#EF4E22" }} onClick={decRooms}><AiOutlineMinusCircle /></button>
+                <input className="PMB pl-2" style={{ width: "30px", border: "none", color: "#EF4E22", fontFamily: "Gotham Medium", fontSize: "16px" }} type="text" value={rooms} onChange={handleChangeRooms} />
+                <button className="PMB  pl-1" type="button" style={{ border: "none", background: "none", color: "#EF4E22" }} onClick={incRooms}><AiOutlinePlusCircle /></button>
+              </div>
             </Col>
           </Row>
 
           <Row>
-            <Col xs={4} className="mt-2">
-              <label style={{fontFamily:"Gotham Medium", color:"#EF4E22",fontSize:"16px"}}>
-                Child
-              </label>
-            </Col>
-            <Col xs={4} className="mt-2">
-              <input style={{ width: "30px",border:"none", color:"#EF4E22",fontFamily:"Gotham Medium",fontSize:"16px" }} type="text" value={child} onChange={handleChangeChild} />
-            </Col>
-            <Col xs={4}  className="mt-2">
-              <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={decChild}><AiOutlineMinusCircle /></button>
-              <button className="PMB  pl-1" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incChild}><AiOutlinePlusCircle /></button>
+            <p hidden> {Adults = adults} {Rooms = rooms}</p>
+            <Col className="mt-2">
+              <div style={{ whiteSpace: 'nowrap' }}>
+                <label className="ml-1" style={{ fontFamily: "Gotham Medium", color: "#EF4E22", fontSize: "16px" }}>
+                  Adults
+                </label>
+                <button className="PMB pl-5" type="button" style={{marginLeft: '3px', border: "none", background: "none", color: "#EF4E22" }} onClick={decAdults}><AiOutlineMinusCircle /></button>
+                <input className="PMB pl-2" style={{ width: "30px", border: "none", color: "#EF4E22", fontFamily: "Gotham Medium", fontSize: "16px" }} type="text" value={adults} onChange={handleChangeAdults} />
+                <button className="PMB  pl-1" type="button" style={{ border: "none", background: "none", color: "#EF4E22" }} onClick={incAdults}><AiOutlinePlusCircle /></button>
+              </div>
             </Col>
           </Row>
 
           <Row>
-            <Col xs={4} className="mt-2">
-              <label style={{fontFamily:"Gotham Medium",fontSize:"16px", color:"#EF4E22"}}>
-                Rooms
-              </label>
-            </Col>
-            <Col xs={4} className="mt-2">
-              <input style={{ width: "30px",border:"none", color:"#EF4E22",fontFamily:"Gotham Medium",fontSize:"16px" }} type="text" value={rooms} onChange={handleChangeRooms} />
-            </Col>
-            <Col xs={4}  className="mt-2">
-              <button className="PMB" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={decRooms}><AiOutlineMinusCircle /></button>
-              <button className="PMB  pl-1" type="button" style={{border:"none",background:"none",color:"#EF4E22"}} onClick={incRooms}><AiOutlinePlusCircle /></button>
+            <Col className="mt-2">
+              <div style={{ whiteSpace: 'nowrap' }}>
+                <label className="ml-1" style={{ fontFamily: "Gotham Medium", color: "#EF4E22", fontSize: "16px" }}>
+                  Child
+                </label>
+                <button className="PMB pl-5" type="button" style={{ marginLeft: '14px', border: "none", background: "none", color: "#EF4E22" }} onClick={decChild}><AiOutlineMinusCircle /></button>
+                <input className="PMB pl-2" style={{ width: "30px", border: "none", color: "#EF4E22", fontFamily: "Gotham Medium", fontSize: "16px" }} type="text" value={child} onChange={handleChangeChild} />
+                <button className="PMB  pl-1" type="button" style={{ border: "none", background: "none", color: "#EF4E22" }} onClick={incChild}><AiOutlinePlusCircle /></button>
+              </div>
             </Col>
           </Row>
+
         </Container>
       </form>
     </>
@@ -179,21 +176,25 @@ function DataRange(props) {
     const firstDate = new Date(from.toISOString());
     const secondDate = new Date(to.toISOString());
     diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-    var fromMonth = new Date(from.toISOString()).toLocaleString('en-pk',{weekday:'short',month:'short'});
-    var toMonth = new Date(to.toISOString()).toLocaleString('en-pk',{weekday:'short',month:'short'});
-    checkIn = `${from.getFullYear()}-${from.getMonth()+1}-${from.getDate()}`;
-    checkOut = `${to.getFullYear()}-${to.getMonth()+1}-${to.getDate()}`;
+    var fromMonth = new Date(from.toISOString()).toLocaleString('en-pk', { weekday: 'short', month: 'short' });
+    var toMonth = new Date(to.toISOString()).toLocaleString('en-pk', { weekday: 'short', month: 'short' });
+    checkIn = `${from.getFullYear()}-${from.getMonth() + 1}-${from.getDate()}`;
+    checkOut = `${to.getFullYear()}-${to.getMonth() + 1}-${to.getDate()}`;
     var nights = '';
-    if(diffDays <= 1) {
-      nights = `${diffDays+1} night`;
+    if (diffDays <= 1) {
+      nights = `${diffDays + 1} night`;
     }
-    else{
-      nights = `${diffDays+1} nights`;
+    else {
+      nights = `${diffDays + 1} nights`;
     }
     return <div>
-    <div style={{backgroundColor:'white', width:'320px',height:'50px',position:'absolute',top:'8px',zIndex:'100'}}>
-      <button onClick={handleClose} className="mt-2 ml-2" style={{ border: "none", background: "none",zIndex:'200' }}><MdOutlineKeyboardArrowLeft /></button>
-    </div>
+      <div style={{ backgroundColor: 'white', width: '330px', height: '75px', position: 'absolute', zIndex: '100' }}>
+        <button onClick={handleClose} className="mt-2 float-right" style={{ border: "none", background: "none", zIndex: '200' }}><AiOutlineClose style={{ color: '#616161' }} /></button>
+        <p className="" style={{ position: 'absolute', top: '45px', right: '4px', fontFamily: 'Roboto Medium' }}>{new Date(from.toISOString()).toLocaleString('en-pk', { month: 'long' })}{' '}{from.getFullYear()}</p>
+      </div>
+      <div style={{ backgroundColor: 'white', width: '330px', top: '370px', height: '35px', position: 'absolute', zIndex: '100' }}>
+        <p className="float-right mr-2" style={{ fontFamily: 'Roboto Medium' }}>{monthsArr[from.getMonth() + 1]}{' '}{to.getFullYear()}</p>
+      </div>
       <DateRange
         locale={en_PK}
         color={"#EF4E22"}
@@ -207,7 +208,7 @@ function DataRange(props) {
         direction="vertical"
       />
       {/* <p>{checkIn}</p> */}
-      <p className="text-center" style={{fontSize:"14px"}}>{fromMonth}{' '}{from.getDate()}{' '}-{' '}{toMonth}{' '}{to.getDate()} ({nights})</p>
+      <p className="text-center" style={{ fontSize: "14px" }}>{fromMonth}{' '}{from.getDate()}{' '}-{' '}{toMonth}{' '}{to.getDate()} ({nights})</p>
       {/* <p className="text-center" style={{fontSize:"14px"}}>{from.getFullYear()}-{from.getMonth()+1}-{from.getDate()}-----{to.getFullYear()}-{to.getMonth()+1}-{to.getDate()}</p>
       {from.toISOString().split('T')[0]} - {to.toISOString().split('T')[0]} */}
     </div>
@@ -253,7 +254,7 @@ function BasicModal1(props) {
         >
           <Box sx={{ ...style, padding: 0 }}>
             <button onClick={handleClose1} className="mt-2 ml-2" style={{ border: "none", background: "none" }}><MdOutlineKeyboardArrowLeft /></button>
-            <Container style={{borderRadius: "15px 15px 15px 15px", border: "1px solid rgb(203, 203, 203)", width: "260px" }}>
+            <Container style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid rgb(203, 203, 203)", width: "260px" }}>
               <Row>
                 <Col>
                   <RoomsAdultsChild />
@@ -271,7 +272,7 @@ function BasicModal1(props) {
 export class Search extends Component {
   //Transfer Response between React and Nodejs
   state = {
-    paragaraph: '',image:'',
+    paragaraph: '', image: '',
     post: '',
     responseToPost: '',
   };
@@ -306,9 +307,9 @@ export class Search extends Component {
 
     //this.setState({ responseToPost: body });
     //history.push(`/propertylisting/${post.code}`);
-      console.clear();
-      console.log(JSON.stringify({ post: this.state.post }));
-      this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays+1}`);
+    console.clear();
+    console.log(JSON.stringify({ post: this.state.post }));
+    this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}`);
 
   };
 
@@ -337,13 +338,13 @@ export class Search extends Component {
                 <IncDecCounter /> */}
 
           <Container>
-          <p>{this.state.count}</p>
+            <p>{this.state.count}</p>
             <Row>
               <Col xs={10} className="mx-auto text-center selection-h">
                 <h6>
                   {this.state.paragraph}
                 </h6>
-                <p style={{margin:"0", padding:"0"}}>..Only Happy Surprises</p>
+                <p style={{ margin: "0", padding: "0" }}>..Only Happy Surprises</p>
               </Col>
             </Row>
             <Row className="sea">
@@ -357,7 +358,7 @@ export class Search extends Component {
                     onChange={e => this.setState({ post: e.target.value })}
                   />
                   {/* <Link to='/propertylisting/islamabad'> */}
-                  <button style={{ position: "absolute", top: "80px"}} className="mt-5 SearchButton" type="submit">SEARCH</button>
+                  <button style={{ position: "absolute", top: "80px" }} className="mt-5 SearchButton" type="submit">SEARCH</button>
                   {/* </Link> */}
                 </form>
                 {/* <form className="nosubmit">

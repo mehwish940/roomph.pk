@@ -24,17 +24,13 @@
 }
 
 .aligned span {
-    padding: 15px;
     width: 500px;
+    
 }
-@media screen and (max-width: 360px) {
-    .aligned span {
-        padding: 1px;
-    }
-  }
 
 .cityPic{
     width:100px;
+    margin-top: 10px;
     height:80px;
 }
 
