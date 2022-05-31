@@ -22,8 +22,11 @@ import './Top.css';
 let checkIn = '';
 let checkOut = '';
 var Adults = '';
+var roomq = ' ';
+var CityName = '';
 var Rooms = '';
 var nights = '';
+var splitString = '';
 var monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 //Slider
@@ -234,71 +237,7 @@ const Properties = ({ properties }) => {
                 <Reviews />
               </Col>
             </Row>
-            <Row className="mx-1" style={{ borderRadius: "0px 10px 10px 10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
-              <Col style={{ margin: '0', padding: '0' }}>
-                <Slider1 />
-              </Col>
-              <Col className="mt-1">
-                <p className="m-1 p-0" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '16px' }}><b>{properties.MinRoomName}</b></p>
-                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset6.svg"} width={15} alt="" />Free Wi-Fi</p>
-                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset26.svg"} width={15} alt="" />1 double bed</p>
-                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset25.svg"} width={15} alt="" />80m2/861 ft2</p>
-                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset24.svg"} width={15} alt="" />Garden view</p>
-                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset23.svg"} width={15} alt="" />Shower</p>
 
-              </Col>
-              <Col className="mt-3" xs={12}>
-                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Now</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset28.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Non-Refundable</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
-              </Col>
-              <Col xs={8}>
-                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.MinRate}</span>  </p>
-              </Col>
-              <Col xs={4}>
-                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
-                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
-                  <div className="dropdown-content">
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
-                  </div>
-                </div>
-              </Col>
-              <Col className="mt-3" xs={12}>
-                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
-              </Col>
-              <Col xs={8}>
-                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.MaxRate}</span>  </p>
-              </Col>
-              <Col xs={4}>
-                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
-                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
-                  <div className="dropdown-content">
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
-                  </div>
-                </div>
-              </Col>
-              <Col className="mt-3" xs={12}>
-                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
-              </Col>
-              <Col xs={8}>
-                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties.Max_MinRate}</span>  </p>
-              </Col>
-              <Col xs={4}>
-                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
-                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
-                  <div className="dropdown-content">
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
-                  </div>
-                </div>
-              </Col>
-              <Col className="mx-auto">
-                <button className="DSearchButton mb-3" onClick={() => History.push(`/customerinformation/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>Book Now</button>
-              </Col>
-            </Row>
             <Row className="mt-3">
               <Col xs={12}>
                 <h6 style={{ fontFamily: 'Gotham Rounded Medium', margin: '0', padding: '0' }}>Know More About {properties.AccommodationName}</h6>
@@ -334,6 +273,88 @@ const Properties = ({ properties }) => {
     </div>
   )
 };
+function handleSelectRoom1(){
+  roomq = 1;
+}
+function handleSelectRoom2(){
+  roomq = 2;
+}
+const Properties1 = ({ properties1 }) => {
+  return (
+    <div>
+      {properties1.map((properties1) => (
+       <Container fluid>
+       <Row className="mx-1 mt-3" style={{ borderRadius: "0px 10px 10px 10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
+              <Col style={{ margin: '0', padding: '0' }}>
+                <Slider1 />
+              </Col>
+              <Col className="mt-1">
+                <p className="m-1 p-0" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '16px' }}><b>{properties1.RoomName}</b></p>
+                {/* <p hidden>{splitString = (properties1.RoomFacilityName[0]).split(" "); {splitString[1]}}</p> */}
+                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset6.svg"} width={15} alt="" />Free Wifi</p>
+                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset26.svg"} width={15} alt="" />1 double bed</p>
+                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset25.svg"} width={15} alt="" />80m2/861 ft2</p>
+                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset24.svg"} width={15} alt="" />Garden view</p>
+                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset23.svg"} width={15} alt="" />Shower</p>
+
+              </Col>
+              <Col className="mt-3" xs={12}>
+                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Now</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset28.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>{properties1.RatePlanDetails[0].RatePlans[0].RatePlanName}</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
+              </Col>
+              <Col xs={8}>
+                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties1.RatePlanDetails[0].RatePlans[0].Rate}</span>  </p>
+              </Col>
+              <Col xs={4}>
+                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
+                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                  <div className="dropdown-content">
+                    <a onClick={handleSelectRoom1} >1</a>
+                    <a onClick={handleSelectRoom2} href="">2</a>
+                    <a href="">3</a>
+                  </div>
+                </div>
+              </Col>
+              <Col className="mt-3" xs={12}>
+                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
+              </Col>
+              <Col xs={8}>
+                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>???</span>  </p>
+              </Col>
+              <Col xs={4}>
+                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
+                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                  <div className="dropdown-content">
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                  </div>
+                </div>
+              </Col>
+              <Col className="mt-3" xs={12}>
+                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>Roomph Special Rate - <i>Pay Later</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>Free Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
+              </Col>
+              <Col xs={8}>
+                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>???</span>  </p>
+              </Col>
+              <Col xs={4}>
+                <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
+                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                  <div className="dropdown-content">
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                  </div>
+                </div>
+              </Col>
+              <Col className="mx-auto">
+                <button className="DSearchButton mb-3" onClick={() => History.push(`/customerinformation/${CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${idd}/${properties1.RoomId}/${properties1.RatePlanDetails[0].RatePlans[0].RatePlanId}/${roomq}/${properties1.RatePlanDetails[0].RatePlans[0].Rate}`)}>Book Now</button>
+              </Col>
+            </Row>
+       </Container>
+      ))}
+    </div>
+  )
+};
 
 //Getting Property Details End
 
@@ -366,7 +387,7 @@ function BasicSelect() {
 
 export class Description extends Component {
   state = {
-    properties: [], pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
+    properties: [],properties1: [], pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
     post: '',
     responseToPost: '',
   };
@@ -384,6 +405,19 @@ export class Description extends Component {
         })
       })
       .catch(err => console.log(err));
+      
+      this.callApi1()
+      .then(res => {
+        //console.clear();
+        //const json = JSON.stringify(res);
+        console.log(res);
+        this.setState({
+          properties1: res.Success.Result[0].HotelRooms,
+          // img: res.Success.result[0].AccommodationImages[0].URL[0]
+        })
+      })
+      .catch(err => console.log(err));
+
   }
 
   callApi = async () => {
@@ -394,12 +428,31 @@ export class Description extends Component {
     Rooms = this.props.match.params.rooms;
     nights = this.props.match.params.nights;
     console.log(this.props.match.params.city);
-    const response = await fetch('/api/world', {
+    const response = await fetch('/api/proprtyDetails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms }),
+    })
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    console.log(body);
+    this.setState({ responseToPost: body });
+    return body;
+  };
+
+  callApi1 = async () => {
+    idd = this.props.match.params.id;
+    checkIn = this.props.match.params.checkin;
+    checkOut = this.props.match.params.checkout;
+    CityName = this.props.match.params.city;
+    const response = await fetch('/api/getRooms', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ postID: idd, postCheckIn: checkIn, postCheckOut: checkOut }),
     })
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -458,6 +511,7 @@ export class Description extends Component {
         <LightboxExample />
 
         <Properties properties={this.state.properties} />
+        <Properties1 properties1={this.state.properties1} />
 
         {/* <Container fluid>
           <Row>

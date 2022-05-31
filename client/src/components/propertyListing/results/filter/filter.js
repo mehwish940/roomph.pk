@@ -6,21 +6,52 @@ import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import Box from '@mui/material/Box';
+import { withRouter } from "react-router-dom";
+import history from '../../../history';
 import Checkbox from '@mui/material/Checkbox';
 import './filter.css';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
+var priceStart = ' ';
+var priceEnd = ' ';
+var rating = ' ';
+var premium = ' ';
+var category = ' ';
+
 
 function Checkboxes() {
+  const [checked, setChecked] = React.useState(false);
+  const handleChange1 = (event) => {
+    category = 4;
+  };
+  const handleChange2 = (event) => {
+    category = 3;
+    setChecked(event.target.checked);
+  };
+  const handleChange3 = (event) => {
+    category = 2;
+  };
+  const handleChange4 = (event) => {
+    category = 1;
+  };
+  const handleChange5 = (event) => {
+    category = 'Hotel';
+  };
+  const handleChange6 = (event) => {
+    category = 'Apartment';
+  };
+  const handleChange7 = (event) => {
+    category = 'Guest house';
+  };
     return (
       <div>
-        <Checkbox className='m-0 p-0 ml-1 mt-3' {...label} color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset16.svg"} width={80} alt=""/><br />
-        <Checkbox className='m-0 p-0 ml-1' {...label} color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
-        <Checkbox className='m-0 p-0 ml-1' {...label} color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
-        <Checkbox className='m-0 p-0 ml-1' {...label} color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
-        <Checkbox className='m-0 p-0 ml-1' {...label} color="success" /><span style={{fontFamily:'Gotham Rounded Bold'}}>Hotel</span><br />
-        <Checkbox className='m-0 p-0 ml-1' {...label} color="success" /><span style={{fontFamily:'Gotham Rounded Bold'}}>Apartment</span><br />
-        <Checkbox className='m-0 p-0 ml-1' {...label} color="success" /><span style={{fontFamily:'Gotham Rounded Bold'}}>Guest House</span>
+        <Checkbox onChange={handleChange1} inputProps={{ 'aria-label': 'controlled' }} className='m-0 p-0 ml-1 mt-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset16.png"} width={80} alt=""/><br />
+        <Checkbox checked={checked} onChange={handleChange2} className='m-0 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
+        <Checkbox onChange={handleChange3} className='m-0 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
+        <Checkbox onChange={handleChange4} className='m-0 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
+        <Checkbox onChange={handleChange5} className='m-0 p-0 ml-1' color="success" /><span style={{fontFamily:'Gotham Rounded Bold'}}>Hotel</span><br />
+        <Checkbox onChange={handleChange6} className='m-0 p-0 ml-1' color="success" /><span style={{fontFamily:'Gotham Rounded Bold'}}>Apartment</span><br />
+        <Checkbox onChange={handleChange7} className='m-0 p-0 ml-1' color="success" /><span style={{fontFamily:'Gotham Rounded Bold'}}>Guest House</span>
       </div>
     );
   }
@@ -110,6 +141,7 @@ function Checkboxes() {
         />
         <p className='m-0 p-0 ml-1' style={{fontFamily:'Gotham Rounded Bold'}}>Min <span className="float-right" style={{fontFamily:'Gotham Rounded Bold'}}>Max</span></p>
         <button className="pkr">PKR <span className='ml-2'>{value[0]}</span></button>
+        <p hidden>{priceStart = value[0]}{priceEnd = value[1]}</p>
         <hr class="mb-1 p-0" style={{ display: 'inline-block', width: '140px', borderTop: '1px dotted black' }} />
         <button className="pkr">PKR {value[1]}</button>
       </Box>
@@ -139,12 +171,13 @@ class BootstrapModal extends React.Component {
                     <button onClick={() => this.handleModalShowHide()} className="mt-2 ml-2" style={{border:"none", background:"none"}}><MdOutlineKeyboardArrowLeft /></button>
                     </Modal.Header>
                     <div className="mx-auto m-0 p-0">
-                        <p className='m-0 p-0' style={{fontFamily:'Gotham Rounded Bold'}}>Price per night</p>
+                        <p className='m-0 p-0' style={{fontFamily:'Gotham Rounded Bold'}}>Price per night {this.props.nights}</p>
                         <CustomizedSlider />
                     </div>
                     <div className="mt-1 mb-3" style={{ marginLeft: '15px' }}>
                         <Checkboxes />
                     </div>
+                    <button onClick={() => { history.push(`/propertylisting/${this.props.city}/${this.props.checkIn}/${this.props.checkOut}/${this.props.adults}/${this.props.rooms}/${this.props.nights}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`); this.handleModalShowHide(); window.location.reload(false);}}>Done</button>
                 </Modal>
 
             </div>
@@ -153,4 +186,4 @@ class BootstrapModal extends React.Component {
 
 }
 
-export default BootstrapModal;
+export default withRouter(BootstrapModal);

@@ -67,7 +67,7 @@ const Properties = ({ properties }) => {
 
 class Thankyou extends Component {
   state = {
-    properties: [], pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
+    properties: [], pImgs: [], CityName: '',bookingId:'', Cancellation: '', Count: '', img: '',
     post: '',
     responseToPost: '',
   };
@@ -80,7 +80,8 @@ class Thankyou extends Component {
         this.setState({
           properties: res.Success.result,
           Count: res.Success.result[0].TotalCount,
-          CityName: res.Success.result[0].CityName
+          CityName: res.Success.result[0].CityName,
+         
           // img: res.Success.result[0].AccommodationImages[0].URL[0]
         })
       })
@@ -91,9 +92,7 @@ class Thankyou extends Component {
         //const json = JSON.stringify(res);
         console.log(res);
         this.setState({
-          properties: res.Success.result,
-          Count: res.Success.result[0].TotalCount,
-          CityName: res.Success.result[0].CityName
+          bookingId: res.ReservationCreate.Success[0].Result[0].BookingID
           // img: res.Success.result[0].AccommodationImages[0].URL[0]
         })
       })
@@ -131,12 +130,12 @@ class Thankyou extends Component {
     Rooms = this.props.match.params.rooms;
     nights = this.props.match.params.nights;
     console.log(this.props.match.params.city);
-    const response = await fetch('/api/world1', {
+    const response = await fetch('/api/book', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms, postId: idd, postName: this.props.match.params.name, postEmail: this.props.match.params.email, postPhone: this.props.match.params.phone, postUcity: this.props.match.params.ucity }),
+      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms, postId: idd, postName: this.props.match.params.name, postEmail: this.props.match.params.email, postPhone: this.props.match.params.phone, postUcity: this.props.match.params.ucity, postRoomId: this.props.match.params.roomId, postPlanId: this.props.match.params.planId, postRoomQ: this.props.match.params.roomq, postRate: this.props.match.params.rate  }),
     })
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -157,7 +156,7 @@ class Thankyou extends Component {
                 <ul className="ml-3" style={{ fontFamily: 'Gotham Rounded Book', fontSize: '12px' }}>
                   <li style={{ color: 'red' }}><span style={{ color: 'black' }}>You chose to pay at the property. Roomph will not charge your credit card.</span></li>
                   <li style={{ color: 'red', marginTop: '5px' }}><span style={{ color: 'black' }}>In the next 10 minutes, you will receive an email containing your booking details.</span></li>
-                  <li style={{ color: 'red', marginTop: '5px' }}><span style={{ color: 'black' }}>Your Booking ID is 6555500.</span></li>
+                  <li style={{ color: 'red', marginTop: '5px' }}><span style={{ color: 'black' }}>Your Booking ID is {this.state.bookingId}.</span></li>
                   <li style={{ color: 'red', marginTop: '5px' }}><span style={{ color: 'black' }}>Please present this information at the check-in.</span></li>
                   <li style={{ color: 'red', marginTop: '5px' }}><span style={{ color: 'black' }}>To help manage your bookings, you can sign-in to Roomph if you did’nt book as a guest.</span></li>
                 </ul>

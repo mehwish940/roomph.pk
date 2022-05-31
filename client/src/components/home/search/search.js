@@ -27,6 +27,14 @@ let handleClose1 = true;
 var checkIn = '';
 var checkOut = '';
 var Adults = '';
+var priceStart = ' ';
+var priceEnd = ' ';
+var rating = ' ';
+var premium = ' ';
+var category = ' ';
+var hotel = ' ';
+var apartment = ' ';
+var guesthouse = ' ';
 var Rooms = '';
 var diffDays = '';
 var monthsArr = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -309,7 +317,7 @@ export class Search extends Component {
     //history.push(`/propertylisting/${post.code}`);
     console.clear();
     console.log(JSON.stringify({ post: this.state.post }));
-    this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}`);
+    this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`);
 
   };
 

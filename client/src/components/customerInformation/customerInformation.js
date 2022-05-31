@@ -114,7 +114,7 @@ class CustomerInformation extends Component {
     var phoneNo = this.state.phoneNo;
     var uCity = this.state.uCity;
     var promoCode = this.state.promoCode;
-    History.push(`/thankyou/${this.props.match.params.city}/${this.props.match.params.checkin}/${this.props.match.params.checkout}/${this.props.match.params.adults}/${this.props.match.params.rooms}/${this.props.match.params.nights}/${idd}/${name}/${email}/${phoneNo}/${uCity}/${promoCode}`)
+    History.push(`/thankyou/${this.props.match.params.city}/${this.props.match.params.checkin}/${this.props.match.params.checkout}/${this.props.match.params.adults}/${this.props.match.params.rooms}/${this.props.match.params.nights}/${idd}/${name}/${email}/${phoneNo}/${uCity}/${promoCode}/${this.props.match.params.roomId}/${this.props.match.params.planId}/${this.props.match.params.roomq}/${this.props.match.params.rate}`)
     // window.location.href = `https://youtube.com/${name}/${email}`;
   }
 
@@ -142,7 +142,7 @@ class CustomerInformation extends Component {
     Rooms = this.props.match.params.rooms;
     nights = this.props.match.params.nights;
     console.log(this.props.match.params.city);
-    const response = await fetch('/api/world', {
+    const response = await fetch('/api/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
