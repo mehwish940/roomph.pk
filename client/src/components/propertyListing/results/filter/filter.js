@@ -171,13 +171,13 @@ class BootstrapModal extends React.Component {
                     <button onClick={() => this.handleModalShowHide()} className="mt-2 ml-2" style={{border:"none", background:"none"}}><MdOutlineKeyboardArrowLeft /></button>
                     </Modal.Header>
                     <div className="mx-auto m-0 p-0">
-                        <p className='m-0 p-0' style={{fontFamily:'Gotham Rounded Bold'}}>Price per night {this.props.nights}</p>
+                        <p className='m-0 p-0' style={{fontFamily:'Gotham Rounded Bold'}}>Price per night</p>
                         <CustomizedSlider />
                     </div>
                     <div className="mt-1 mb-3" style={{ marginLeft: '15px' }}>
                         <Checkboxes />
                     </div>
-                    <button onClick={() => { history.push(`/propertylisting/${this.props.city}/${this.props.checkIn}/${this.props.checkOut}/${this.props.adults}/${this.props.rooms}/${this.props.nights}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`); this.handleModalShowHide(); window.location.reload(false);}}>Done</button>
+                    <button className="dateDoneBtn mx-auto mb-3" onClick={() => { history.push(`/propertylisting/${this.props.city}/${this.props.checkIn}/${this.props.checkOut}/${this.props.adults}/${this.props.rooms}/${this.props.nights}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`); this.handleModalShowHide(); window.location.reload(false);}}>Done</button>
                 </Modal>
 
             </div>

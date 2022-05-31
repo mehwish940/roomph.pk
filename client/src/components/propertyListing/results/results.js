@@ -245,7 +245,7 @@ export class Results extends Component {
                 <span style={{ fontSize: '10px', fontFamily: 'Montserrat Regular', whiteSpace: 'nowrap' }}>Get the best deal from one of our experts</span></p>
             </Col>
             <Col xs={2} lg={2} className="my-auto" >
-              <button className="chat chatBtn float-left ml-1" style={{whiteSpace:'nowrap'}}>Chat with us</button>
+              <button className="chat chatBtn float-left ml-2" style={{whiteSpace:'nowrap'}}>Chat with us</button>
             </Col>
           </Row>
         </Container>
