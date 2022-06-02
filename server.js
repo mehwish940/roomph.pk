@@ -67,6 +67,20 @@ app.get('/api/hello1', (req, res) => {
 
 });
 
+app.get('/api/reviews', (req, res) => {
+    axios
+        .get(`https://www.roomph.pk/roomph_api/get_reviews`)
+        .then(resp => {
+            data = resp.data;
+            //console.log(data);
+            res.send({ express: data });
+        })
+        .catch(error => {
+            console.error(error)
+        })
+
+});
+
 app.get('/api/hello2', (req, res) => {
     axios
         .get(`https://www.roomph.pk/roomph_api/get_topcities`)
@@ -120,7 +134,7 @@ app.post('/api/world', (req, response) => {
     premium = req.body.postPremium;
     rating = req.body.postRating;
     category = req.body.postCategory;
-    console.log(category);
+    console.log(rating,category);
     axios
         .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/getaccommodationsearchtest?userid=10002&password=YGiDp9ex0022019&accommodationids=&agentid=1&cityname=${city}&checkin=${checkin}&checkout=${checkout}&limits=10&offset=0&Sortby=1&Sort=0&&multilanguageid=1&fullbook=1&rooms=${rooms}&adults=${adults}&pricerangestart=${priceRangeStart}&pricerangeend=${priceRangeEnd}&ratings=${rating}&propertycategory=${category}`)
         .then(res => {

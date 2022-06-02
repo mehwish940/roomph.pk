@@ -31,6 +31,18 @@
 .cityPic{
     width:100px;
     margin-top: 10px;
-    height:80px;
+    height:55px;
+}
+.cityA{
+    float: left;
+    margin-left: 20px;
+    padding-top: 4px;
+}
+.cityC{
+    float: left;
+}
+.cityNameCountt{
+    height: 55px;
+    width: 100px;
 }
 

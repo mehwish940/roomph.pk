@@ -5,6 +5,35 @@ import './reviews.css';
 
 
 export class Reviews extends Component {
+  state = {
+    AccommodationName: '', review: '', fullName: '', CityName: '', thumbnail: '', propertyCount3: '',
+    post: '',
+    responseToPost: '',
+  };
+
+  componentDidMount() {
+
+    this.callApi()
+      .then(res => {
+        console.log(res.express);
+        this.setState({
+        AccommodationName: res.express.Collection.Rows[0].AccommodationName,
+        review: res.express.Collection.Rows[0].review,
+        fullName: res.express.Collection.Rows[0].fullname,
+        cityName: res.express.Collection.Rows[0].CityName,
+        reviewDate: res.express.Collection.Rows[0].created_date,
+        thumbnail: res.express.Collection.Rows[0].Thumbnail
+      })})
+      .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/reviews');
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    console.log(body);
+    return body;
+  };
   render() {
     const settings = {
       dots: false,
@@ -19,64 +48,57 @@ export class Reviews extends Component {
 
     return (
       <div>
-        <h4 className="TR mb-3 text-center">Traveler Reviews</h4>
         <Slider {...settings}>
           <div className="Ful">
-            <section className="mb-3 ml-3 mr-3">
+            <section className="mb-3 ml-4">
               <Container style={{ border:"1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} className="mt-3">
-                    <img className="revHotelPic" src="images/blog/thumb/blog.jpg" alt="Room" style={{ borderRadius: "40%"}} />
+                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%"}} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
-                    <h5 className="hotelName" style={{ color: "#414042" }}>King Plaza Hotel</h5>
+                    <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
                   </Col>
                 </Row>
                 <Row className="mt-2 reviewText">
                   <Col xs={12}>
-                    <p style={{margin:"0",padding:"0", fontFamily: "Montserrat Thin"}}>“Looks exactly what is posted here in Roomph. Great service and awesome stay!”</p>
+                    <p style={{margin:"0",padding:"0", fontFamily: "Montserrat Thin", textAlign:'justify'}}>“{this.state.review}”</p>
                   </Col>
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px"}}>- Bilal from Karachi on Feb 18th, 2022</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px"}}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>
             </section>
           </div>
           <div className="Ful">
-            <section className=" ml-3 mr-3">
+            <section className=" ml-4">
             <Container style={{ border:"1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} className="mt-3">
-                    <img className="revHotelPic" src="images/blog/thumb/blog.jpg" alt="Room" style={{ borderRadius: "40%"}} />
+                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%"}} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
-                    <h5 className="hotelName" style={{ color: "#414042" }}>King Plaza Hotel</h5>
+                    <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
                   </Col>
                 </Row>
                 <Row className="mt-2 reviewText">
                   <Col xs={12}>
-                    <p style={{margin:"0",padding:"0", fontFamily: "Montserrat Thin"}}>“Looks exactly what is posted here in Roomph. Great service and awesome stay!”</p>
+                    <p style={{margin:"0",padding:"0", fontFamily: "Montserrat Thin", textAlign:'justify'}}>“{this.state.review}”</p>
                   </Col>
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px"}}>- Bilal from Karachi on Feb 18th, 2022</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px"}}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>
             </section>
           </div>
         </Slider>
-        <Container>
-          <Row>
-            <Col xs={12} className="text-center">
-              <hr className="mt-3" style={{ color: "rgb(179, 179, 179)", borderColor: "rgb(179, 179, 179)" }} />
-            </Col>
-          </Row>
-        </Container>
+        <p className="text-center viewAllBtn" style={{fontSize:'14px'}}><u>View All</u></p>
       </div>
 
     );

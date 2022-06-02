@@ -17,7 +17,7 @@ export class Footer extends Component {
           </Row>
           <Row></Row>
           <Row></Row>
-          <Row className="mt-4" style={{margin: "5px", padding: "5px", border: "1px solid #b8babb", borderBottom:"none" }}>
+          <Row className="mt-3" style={{margin: "5px", padding: "5px", border: "1px solid #b8babb", borderBottom:'none' }}>
             <Col xs={6} md={4}
               // data-aos="fade-up"
               className="d-flex mb-1 mt-3 justify-content-center  flex-column flex-wrap as"
@@ -35,7 +35,12 @@ export class Footer extends Component {
               className="text-center social-icons"
             >
               <img className="mt-3 im" src={process.env.PUBLIC_URL + "/images/logo2.svg"} alt="logo" />
-              <div className="zrow mr-5">
+              <Row>
+                <Col>
+                <img className="ftPic" src={process.env.PUBLIC_URL + "/images/Asset12.svg"} alt="Star"/><img className="ftPic" src={process.env.PUBLIC_URL + "/images/Asset13.svg"} alt="Star"/><img className="ftPic" src={process.env.PUBLIC_URL + "/images/Asset14.svg"} alt="Star"/><img className="ftPic" src={process.env.PUBLIC_URL + "/images/Asset15.svg"} alt="Star"/>
+                </Col> 
+              </Row>
+              {/* <div className="zrow mr-5">
                 <div className="zcolumn">
                   <a href="/"><img className="mr-5" src={process.env.PUBLIC_URL + "/images/Asset12.svg"} alt="Star" style={{ width: "150%" }} /></a>
                 </div>
@@ -46,7 +51,7 @@ export class Footer extends Component {
                   <a href="/"><img className="" src={process.env.PUBLIC_URL + "/images/Asset14.svg"} alt="Star" style={{ width: "150%" }} /></a> </div>
                 <div className="zcolumn">
                   <a href="/"><img className="" src={process.env.PUBLIC_URL + "/images/Asset15.svg"} alt="Star" style={{ width: "150%" }} /></a></div>
-              </div>
+              </div> */}
               {/* <ul className="social-icons">
                 <li>
                   <a className="facebook" href="#fb">
@@ -74,11 +79,14 @@ export class Footer extends Component {
               // data-aos="fade-up"
               className="mt-3"
             >
-              <p className="mt-1" style={{fontSize:"13px", textAlign: "center" }}>
+              <p className="mt-1 m-0 p-0" style={{fontSize:"13px", textAlign: "center" }}>
                 Roomph! Is now Pakistan’s largest and fastest growing hotel company focused on the budget hotel sector. We value what is most important to our customers and select only the best rooms and properties on location, value, and cleanliness. With Roomph can count on quality, consistency, and bargain prices… with strong Wi-Fi and AC every time!
               </p>
-              <p className="footerC d-lg-none d-md-none" style={{ fontFamily: "Montserrat Thin" }}>2022 - All rights reserved</p>
+              <p className="footerC mt-3 d-lg-none d-md-none m-0 p-0" style={{ fontFamily: "Montserrat Thin" }}>2022 - All rights reserved</p>
             </Col>
+          </Row>
+          <Row className="mb-2">
+            <Col className="mb-2"></Col>
           </Row>
         </Container>
         <Container className="d-none d-md-block d-lg-block">

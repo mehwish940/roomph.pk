@@ -15,7 +15,7 @@ function CTB(){
     
   }
   return (
-    <button style={{border:'none', background:'none'}} onClick={() => changeText("View Less")}><u>{buttonText}</u></button>
+    <button className="mt-3" style={{border:'none', background:'none'}} onClick={() => changeText("View Less")}><u>{buttonText}</u></button>
   )
 }
 function ContextAwareToggle({ children, eventKey, callback }) {
@@ -79,10 +79,10 @@ export class Destination extends Component {
                </Col> */}
           </Row>
           {/* For Large Screens */}
-          <div className="d-none d-md-block">
+          {/* <div className="d-none d-md-block">
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="" >
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a className="" href="/">{this.state.city_name1}</a>
@@ -91,7 +91,7 @@ export class Destination extends Component {
             </Row>
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="" >
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset30.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name2}</a>
@@ -100,49 +100,50 @@ export class Destination extends Component {
             </Row>
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="">
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset31.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name3}</a>
                 <p className="RP">{this.state.propertyCount3} Rooms Available</p>
               </Col>
             </Row>
-          </div>
-          {/* For Small Screens */}
-          <div className="d-md-none">
+          </div> */}
+          {/* For Small Screens d-md-none */}
+          <div className="">
             <Row className="mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                  <img className="cityPic" src="images/Asset30.svg" alt="" />
+                  <img className="cityPic" src="images/Asset32.png" alt="" />
                   <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name1}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount1} Rooms Available</p></span>
+                    <a className="ml-3" href="/">{this.state.city_name1}</a>
+                    <p className="ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount1} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
+            <Row className=" mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset32.svg" alt="" />
+                <img className="cityPic" src="images/Asset30.png" alt="" />
                   <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name2}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount2} Rooms Available</p></span>
+                    <a className="ml-3" href="/">{this.state.city_name2}</a>
+                    <p className="ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount2} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
+            <Row className=" mx-auto">
               <Col xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
+                <img className="cityPic" src="images/Asset31.png" alt="" />
                   <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                   <a href="/">{this.state.city_name3}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount3} Rooms Available</p></span>
+                   <a className="ml-3" href="/">{this.state.city_name3}</a>
+                    <p className="ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount3} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
           </div>
+          
           <Row>
-            <Col xs={12} className="mt-3 text-center viewAllBtn">
+            <Col xs={12} className="text-center viewAllBtn">
               <Example />
             </Col>
           </Row>
@@ -188,15 +189,14 @@ class Example extends Component {
   };
   render() {
   return (
-    <Accordion defaultActiveKey="0" className="m-0 p-0">
-      <ContextAwareToggle eventKey="1" className="m-0 p-0"><CTB /></ContextAwareToggle>
-      <Accordion.Collapse eventKey="1" className="m-0 p-0">
-       <Container className="m-0 p-0">
+    <Accordion defaultActiveKey="0">
+      <Accordion.Collapse eventKey="1">
+       <Container>
        {/* For Larger Screens */}
-       <div className="d-none d-md-block">
+       {/* <div className="d-none d-md-block">
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="" >
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a className="" href="/">{this.state.city_name4}</a>
@@ -205,7 +205,7 @@ class Example extends Component {
             </Row>
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="" >
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name5}</a>
@@ -214,7 +214,7 @@ class Example extends Component {
             </Row>
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="">
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name6}</a>
@@ -223,7 +223,7 @@ class Example extends Component {
             </Row>
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="">
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name7}</a>
@@ -232,7 +232,7 @@ class Example extends Component {
             </Row>
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="">
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name8}</a>
@@ -241,7 +241,7 @@ class Example extends Component {
             </Row>
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="">
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name9}</a>
@@ -250,91 +250,91 @@ class Example extends Component {
             </Row>   
             <Row className="mt-3" style={{ borderRadius: "15px 15px 15px 15px", borderStyle: "outset" }}>
               <Col xs={4} lg={3} className="">
-                <img className="" src="images/Asset30.svg" alt="City" />
+                <img className="" src="images/Asset32.png" alt="City" />
               </Col>
               <Col xs={8} className="mt-4 cities">
                 <a href="/">{this.state.city_name10}</a>
                 <p className="RP">{this.state.propertyCount10} Rooms Available</p>
               </Col>
             </Row>   
-          </div>
-          {/* For Small Screens */}
+          </div> */}
+          {/* For Small Screens d-md-none */}
           
-          <div className="d-md-none">
+          <div className="">
             <Row className="mx-auto">
-              <Col xs={12}>
+              <Col className="m-0 p-0" xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
-                  <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name4}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount4} Rooms Available</p></span>
+                <img className="cityPic" src="images/Asset32.png" alt="" />
+                  <span className="mt-2 cityNameCountt" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                    <a className="cityA" href="/">{this.state.city_name4}</a>
+                    <p className="cityC ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount4} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
-              <Col xs={12}>
+            <Row className=" mx-auto">
+              <Col className="m-0 p-0" xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
-                  <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name5}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount5} Rooms Available</p></span>
+                <img className="cityPic" src="images/Asset32.png" alt="" />
+                  <span className="mt-2 cityNameCountt" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                    <a className="cityA" href="/">{this.state.city_name5}</a>
+                    <p className="cityC ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount5} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
-              <Col xs={12}>
+            <Row className=" mx-auto">
+              <Col className="m-0 p-0" xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
-                  <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name6}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount6} Rooms Available</p></span>
+                <img className="cityPic" src="images/Asset32.png" alt="" />
+                  <span className="mt-2 cityNameCountt" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                    <a className="cityA" href="/">{this.state.city_name6}</a>
+                    <p className="cityC ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount6} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
-              <Col xs={12}>
+            <Row className=" mx-auto">
+              <Col className="m-0 p-0" xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
-                  <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name7}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount7} Rooms Available</p></span>
+                <img className="cityPic" src="images/Asset32.png" alt="" />
+                  <span className="mt-2 cityNameCountt" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                    <a className="cityA" href="/">{this.state.city_name7}</a>
+                    <p className="cityC ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount7} Rooms Available</p></span>
                  </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
-              <Col xs={12}>
+            <Row className=" mx-auto">
+              <Col className="m-0 p-0" xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
-                  <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name8}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount8} Rooms Available</p></span>
+                <img className="cityPic" src="images/Asset32.png" alt="" />
+                  <span className="mt-2 cityNameCountt" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                    <a className="cityA" href="/">{this.state.city_name8}</a>
+                    <p className="cityC ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount8} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
-              <Col xs={12}>
+            <Row className=" mx-auto">
+              <Col className="m-0 p-0" xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
-                  <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name9}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount9} Rooms Available</p></span>
+                <img className="cityPic" src="images/Asset32.png" alt="" />
+                  <span className="mt-2 cityNameCountt" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                    <a className="cityA" href="/">{this.state.city_name9}</a>
+                    <p className="cityC ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount9} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
-            <Row className="mt-1 mx-auto">
-              <Col xs={12}>
+            <Row className=" mx-auto">
+              <Col className="m-0 p-0" xs={12}>
                 <div className="aligned" >
-                <img className="cityPic" src="images/Asset30.svg" alt="" />
-                  <span className="mt-2 cityNameCount" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
-                    <a href="/">{this.state.city_name10}</a>
-                    <p style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount10} Rooms Available</p></span>
+                <img className="cityPic" src="images/Asset32.png" alt="" />
+                  <span className="mt-2 cityNameCountt" style={{ borderRadius: "0px 15px 15px 0px", borderStyle: "outset", borderLeft: "none" }}>
+                    <a className="cityA" href="/">{this.state.city_name10}</a>
+                    <p className="cityC ml-3" style={{ fontSize: "14px", fontFamily: "Montserrat Thin", margin: "0", padding: "0" }}>{this.state.propertyCount10} Rooms Available</p></span>
                 </div>
               </Col>
             </Row>
           </div>
        </Container>
       </Accordion.Collapse>
-
+      <ContextAwareToggle eventKey="1"><CTB /></ContextAwareToggle>
     </Accordion>
   );
 }

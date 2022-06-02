@@ -1,5 +1,6 @@
-import React, { Component, useState, useCallback, useMemo } from "react";
+import React, { Component, useState, useCallback, useMemo, Fragment } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import PropTypes from "prop-types";
 import "./search.css";
 import { withRouter, Link } from "react-router-dom";
 import Box from '@mui/material/Box';
@@ -18,7 +19,8 @@ import { BsFillCalendarEventFill } from "react-icons/bs";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
-
+// import Autocomplete from "./Autocomplete";
+require("./styles.css");
 
 let handleOpen = false;
 let handleClose = true;
@@ -26,18 +28,160 @@ let handleOpen1 = false;
 let handleClose1 = true;
 var checkIn = '';
 var checkOut = '';
+var chkIn = 'Check-in-date';
+var chkOut = 'Check-out-date';
 var Adults = '';
+var userInput = '';
 var priceStart = ' ';
 var priceEnd = ' ';
 var rating = ' ';
 var premium = ' ';
-var category = '0';
+var category = ' ';
 var hotel = ' ';
 var apartment = ' ';
 var guesthouse = ' ';
 var Rooms = '';
 var diffDays = '';
 var monthsArr = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+class Autocomplete extends Component {
+  static propTypes = {
+    suggestions: PropTypes.instanceOf(Array)
+  };
+
+  static defaultProps = {
+    suggestions: []
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // The active selection's index
+      activeSuggestion: 0,
+      // The suggestions that match the user's input
+      filteredSuggestions: [],
+      // Whether or not the suggestion list is shown
+      showSuggestions: false,
+      // What the user has entered
+      userInput: ""
+    };
+  }
+
+  onChange = e => {
+    const { suggestions } = this.props;
+    userInput = e.currentTarget.value;
+
+    // Filter our suggestions that don't contain the user's input
+    const filteredSuggestions = suggestions.filter(
+      suggestion =>
+        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+    );
+
+    this.setState({
+      activeSuggestion: 0,
+      filteredSuggestions,
+      showSuggestions: true,
+      userInput: e.currentTarget.value
+    });
+  };
+
+  onClick = e => {
+    this.setState({
+      activeSuggestion: 0,
+      filteredSuggestions: [],
+      showSuggestions: false,
+      userInput: e.currentTarget.innerText
+    });
+  };
+
+  onKeyDown = e => {
+    const { activeSuggestion, filteredSuggestions } = this.state;
+
+    // User pressed the enter key
+    if (e.keyCode === 13) {
+      this.setState({
+        activeSuggestion: 0,
+        showSuggestions: false,
+        userInput: filteredSuggestions[activeSuggestion]
+      });
+    }
+    // User pressed the up arrow
+    else if (e.keyCode === 38) {
+      if (activeSuggestion === 0) {
+        return;
+      }
+
+      this.setState({ activeSuggestion: activeSuggestion - 1 });
+    }
+    // User pressed the down arrow
+    else if (e.keyCode === 40) {
+      if (activeSuggestion - 1 === filteredSuggestions.length) {
+        return;
+      }
+
+      this.setState({ activeSuggestion: activeSuggestion + 1 });
+    }
+  };
+
+  render() {
+    const {
+      onChange,
+      onClick,
+      onKeyDown,
+      state: {
+        activeSuggestion,
+        filteredSuggestions,
+        showSuggestions,
+        userInput
+      }
+    } = this;
+
+    let suggestionsListComponent;
+
+    if (showSuggestions && userInput) {
+      if (filteredSuggestions.length) {
+        suggestionsListComponent = (
+          <ul class="suggestions">
+            {filteredSuggestions.map((suggestion, index) => {
+              let className;
+
+              // Flag the active suggestion with a class
+              if (index === activeSuggestion) {
+                className = "suggestion-active";
+              }
+
+              return (
+                <li className={className} key={suggestion} onClick={onClick}>
+                  {suggestion}
+                </li>
+              );
+            })}
+          </ul>
+        );
+      } else {
+        suggestionsListComponent = (
+          <div class="no-suggestions">
+            <em>No suggestions, you're on your own!</em>
+          </div>
+        );
+      }
+    }
+
+    return (
+      <Fragment>
+        <input
+          type="text"
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          value={userInput}
+          className="nosubmit"
+        />
+        {suggestionsListComponent}
+      </Fragment>
+    );
+  }
+}
 
 function RoomsAdultsChild() {
   let [adults, setAdultsNum] = useState(2);
@@ -91,7 +235,7 @@ function RoomsAdultsChild() {
     <>
       <form>
         <Container>
-        <Row>
+          <Row>
             <Col className="mt-2">
               <div style={{ whiteSpace: 'nowrap' }}>
                 <label className="ml-1" style={{ fontFamily: "Gotham Medium", fontSize: "16px", color: "#EF4E22" }}>
@@ -111,7 +255,7 @@ function RoomsAdultsChild() {
                 <label className="ml-1" style={{ fontFamily: "Gotham Medium", color: "#EF4E22", fontSize: "16px" }}>
                   Adults
                 </label>
-                <button className="PMB pl-5" type="button" style={{marginLeft: '3px', border: "none", background: "none", color: "#EF4E22" }} onClick={decAdults}><AiOutlineMinusCircle /></button>
+                <button className="PMB pl-5" type="button" style={{ marginLeft: '3px', border: "none", background: "none", color: "#EF4E22" }} onClick={decAdults}><AiOutlineMinusCircle /></button>
                 <input className="PMB pl-2" style={{ width: "30px", border: "none", color: "#EF4E22", fontFamily: "Gotham Medium", fontSize: "16px" }} type="text" value={adults} onChange={handleChangeAdults} />
                 <button className="PMB  pl-1" type="button" style={{ border: "none", background: "none", color: "#EF4E22" }} onClick={incAdults}><AiOutlinePlusCircle /></button>
               </div>
@@ -200,7 +344,7 @@ function DataRange(props) {
         <button onClick={handleClose} className="mt-2 float-right" style={{ border: "none", background: "none", zIndex: '200' }}><AiOutlineClose style={{ color: '#616161' }} /></button>
         <p className="" style={{ position: 'absolute', top: '45px', right: '4px', fontFamily: 'Roboto Medium' }}>{new Date(from.toISOString()).toLocaleString('en-pk', { month: 'long' })}{' '}{from.getFullYear()}</p>
       </div>
-      <div style={{ backgroundColor: 'white', width: '330px', top: '370px', height: '35px', position: 'absolute', zIndex: '100' }}>
+      <div style={{ backgroundColor: 'white', width: '330px', top: '350px', height: '35px', position: 'absolute', zIndex: '100' }}>
         <p className="float-right mr-2" style={{ fontFamily: 'Roboto Medium' }}>{monthsArr[from.getMonth() + 1]}{' '}{to.getFullYear()}</p>
       </div>
       <DateRange
@@ -215,7 +359,6 @@ function DataRange(props) {
         months={2}
         direction="vertical"
       />
-      {/* <p>{checkIn}</p> */}
       <p className="text-center" style={{ fontSize: "14px" }}>{fromMonth}{' '}{from.getDate()}{' '}-{' '}{toMonth}{' '}{to.getDate()} ({nights})</p>
       {/* <p className="text-center" style={{fontSize:"14px"}}>{from.getFullYear()}-{from.getMonth()+1}-{from.getDate()}-----{to.getFullYear()}-{to.getMonth()+1}-{to.getDate()}</p>
       {from.toISOString().split('T')[0]} - {to.toISOString().split('T')[0]} */}
@@ -237,7 +380,7 @@ function BasicModal(props) {
         >
           <Box sx={{ ...style1, margin: 0, padding: 0, paddingLeft: 3 }}>
             <DataRange display={true} />
-            <div class="text-center">
+            <div class="text-centerasse">
               <button className="dateDoneBtn mb-3" type="submit" onClick={handleClose}>Done</button>
             </div>
           </Box>
@@ -338,7 +481,7 @@ export class Search extends Component {
         </form>
         <p>{this.state.responseToPost}</p> */}
 
-        <section id="section" style={{ backgroundImage: `url(https://www.roomph.pk/${this.state.image})` }} className="selection py-5 mb-3">
+        <section id="section" style={{ backgroundImage: `linear-gradient(to right, rgba(6, 33, 82, .5), rgba(6, 33, 82, .5)),url(https://www.roomph.pk/${this.state.image})` }} className="selection py-5 mb-3">
           <BasicModal display={true} />
           <BasicModal1 display={true} />
           {/* <DataRange display={true} />
@@ -357,6 +500,127 @@ export class Search extends Component {
             </Row>
             <Row className="sea">
               <Col xs={10} sm={8} md={6} lg={5} className="Search mx-auto" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid white" }}>
+                {/* <Autocomplete
+                  suggestions={[
+                    "Karachi",
+                    "Islamabad",
+                    "Lahore",
+                    "Multan",
+                    "Murree",
+                    "Abbottabad",
+                    "Bahawalpur",
+                    "Faisalabad",
+                    "Rahim Yar",
+                    "Skardu",
+                    "Sukkur",
+                    "Dera Ghazi",
+                    "Rawalpindi",
+                    "Swat",
+                    "Naran",
+                    "Gilgit",
+                    "Kandhkot",
+                    "Balakot",
+                    "Hunza",
+                    "Mirpur AJK",
+                    "Mansehra city",
+                    "Peshawar",
+                    "Muzaffarabad",
+                    "Nathia Gali",
+                    "Khaplu",
+                    "Quetta",
+                    "Pakpattan",
+                    "Shekhupura",
+                    "Shangla",
+                    "Kalam",
+                    "Sahiwal",
+                    "Nawabshah",
+                    "Gujranwala",
+                    "Gabin Jabba",
+                    "Miandam",
+                    "Kumrat",
+                    "Dir",
+                    "Ayubia",
+                    "Hyderabad",
+                    "Gawadar",
+                    "Mardan",
+                    "Azad Kashmir",
+                    "Kaghan",
+                    "Sialkot",
+                    "Bhakar",
+                    "Badin",
+                    "Umarkot",
+                    "Sargodha",
+                    "Dera Ismail",
+                    "Mianwali",
+                    "Jhang",
+                    "Rajanpur",
+                    "Layyah",
+                    "Vehari",
+                    "Shogran",
+                    "Gwadar",
+                    "Chitral",
+                    "Kohat",
+                    "Larkana",
+                    "Pankakot",
+                    "Taftan",
+                    "Ziarat",
+                    "Birmoglasht",
+                    "Gujrat",
+                    "Bannu",
+                    "Charsada",
+                    "Neelum Valley",
+                    "Bagh",
+                    "Mithi",
+                    "Patriata",
+                    "Keran",
+                    "Rawalakot",
+                    "Mirpur Khas",
+                    "Wah Cantonment",
+                    "Shigar City",
+                    "Nankana Sahib",
+                    "Benguela",
+                    "Madyan",
+                    "Bahrain",
+                    "Malamjabba",
+                    "Kathmandu",
+                    "Morden",
+                    "Waterford",
+                    "Pokhara",
+                    "Dubai",
+                    "Dubai",
+                    "Mingora",
+                    "Bhurban",
+                    "Nagar",
+                    "Sadiqabad",
+                    "Dosso",
+                    " Lower Hutt",
+                    "San Fernando",
+                    "Sancti Sp",
+                    "El Jadida",
+                    "Khasab",
+                    "Casablanca",
+                    "As Sib",
+                    "Meyuns",
+                    "Quelimane",
+                    "Blue City",
+                    "Sohar",
+                    "Ede",
+                    "Almere",
+                    "Sur",
+                    "Kaesong",
+                    "Yaren",
+                    "Marrakesh",
+                    "Nacala",
+                    "Kamalia",
+                    "Dharan",
+                    "Batakundi",
+                    "Bourwai",
+                    "Malakandi",
+                    "Barka",
+                    "Lalitpur",
+                    "New York"
+                  ]}
+                /> */}
                 <form className="nosubmit" onSubmit={this.handleSubmit}>
                   <input
                     type="text"
@@ -373,7 +637,7 @@ export class Search extends Component {
                     <input className="nosubmit" type="search" placeholder="Enter place, hotel, or guesthouse" />
                   </form> */}
                 <div className="Sbt">
-                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-3 d-block mb-1 mBs" onClick={handleOpen}> <BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  Check-in-date <span style={{ marginLeft: '.5rem' }}> | </span> <span style={{ marginLeft: '.5rem' }}> </span><BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  Check-out-date  </button>
+                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-3 d-block mb-1 mBs" onClick={handleOpen}> <BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {chkIn} <span style={{ marginLeft: '.5rem' }}> | </span> <span style={{ marginLeft: '.5rem' }}> </span><BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {chkOut}  </button>
                   <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-2 d-block mb-3 mBs" onClick={handleOpen1}> <BsFillPeopleFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  1 room, 2 adults, 0 children </button>
                 </div>
                 {/* <button className="SearchButton mt-5 mb-3" onClick={() => History.push('/propertylisting')}>Search</button> */}
