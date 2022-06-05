@@ -35,7 +35,7 @@ export class Blogs extends Component {
             </Col>
           </Row>
           <Row className="mx-auto justify-content-center">
-            <Col xs={6} lg={3} md={3} className="text-md-center m-0 p-0 pr-2">
+            <Col xs={6} lg={3} md={3} className="text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
                   <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>
@@ -43,7 +43,7 @@ export class Blogs extends Component {
                 </div>
               </div>
             </Col>
-            <Col xs={6} lg={3} md={3} className="text-md-center m-0 p-0 pr-md-2">
+            <Col xs={6} lg={3} md={3} className="text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
                   <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>
@@ -51,7 +51,7 @@ export class Blogs extends Component {
                 </div>
               </div>
             </Col>
-            <Col lg={3} md={3} className="d-none d-md-block d-lg-block text-md-center m-0 p-0 pr-2">
+            <Col lg={3} md={3} className="d-none d-md-block d-lg-block text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
                   <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>
@@ -59,7 +59,7 @@ export class Blogs extends Component {
                 </div>
               </div>
             </Col>
-            <Col lg={3} md={3} className="d-none d-md-block d-lg-block text-md-center m-0 p-0 pr-2">
+            <Col lg={3} md={3} className="d-none d-md-block d-lg-block text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
                   <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>

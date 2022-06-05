@@ -115,7 +115,7 @@ class CustomerInformation extends Component {
     var uCity = this.state.uCity;
     var promoCode = this.state.promoCode;
     History.push(`/thankyou/${this.props.match.params.city}/${this.props.match.params.checkin}/${this.props.match.params.checkout}/${this.props.match.params.adults}/${this.props.match.params.rooms}/${this.props.match.params.nights}/${idd}/${name}/${email}/${phoneNo}/${uCity}/${promoCode}/${this.props.match.params.roomId}/${this.props.match.params.planId}/${this.props.match.params.roomq}/${this.props.match.params.rate}`)
-    // window.location.href = `https://youtube.com/${name}/${email}`;
+
   }
 
   componentDidMount() {

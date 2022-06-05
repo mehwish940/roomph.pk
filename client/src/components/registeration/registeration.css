@@ -64,3 +64,7 @@
         color: #EF4E22;
         font-size: 9px;
     }
+
+    .errMsg{
+        text-transform: capitalize;
+    }

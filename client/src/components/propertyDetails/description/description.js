@@ -279,6 +279,9 @@ function handleSelectRoom1(){
 function handleSelectRoom2(){
   roomq = 2;
 }
+function handleSelectRoom3(){
+  roomq = 3;
+}
 const Properties1 = ({ properties1 }) => {
   return (
     <div>
@@ -306,11 +309,11 @@ const Properties1 = ({ properties1 }) => {
               </Col>
               <Col xs={4}>
                 <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
-                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">0</span> <RiArrowDropDownLine /></button>
                   <div className="dropdown-content">
                     <a onClick={handleSelectRoom1} >1</a>
-                    <a onClick={handleSelectRoom2} href="">2</a>
-                    <a href="">3</a>
+                    <a onClick={handleSelectRoom2} >2</a>
+                    <a onClick={handleSelectRoom3} >3</a>
                   </div>
                 </div>
               </Col>
@@ -322,11 +325,11 @@ const Properties1 = ({ properties1 }) => {
               </Col>
               <Col xs={4}>
                 <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
-                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">0</span> <RiArrowDropDownLine /></button>
                   <div className="dropdown-content">
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
+                    <a onClick={handleSelectRoom1}>1</a>
+                    <a onClick={handleSelectRoom2}>2</a>
+                    <a onClick={handleSelectRoom3}>3</a>
                   </div>
                 </div>
               </Col>
@@ -338,11 +341,11 @@ const Properties1 = ({ properties1 }) => {
               </Col>
               <Col xs={4}>
                 <div className="dropdown float-right" style={{whiteSpace:'nowrap'}}>
-                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                  <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">0</span> <RiArrowDropDownLine /></button>
                   <div className="dropdown-content">
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
+                    <a onClick={handleSelectRoom1}>1</a>
+                    <a onClick={handleSelectRoom2}>2</a>
+                    <a onClick={handleSelectRoom3}>3</a>
                   </div>
                 </div>
               </Col>
@@ -565,11 +568,11 @@ export class Description extends Component {
             </Col>
             <Col xs={4}>
               <div className="dropdown float-right">
-                <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">0</span> <RiArrowDropDownLine /></button>
                 <div className="dropdown-content">
-                  <a href="">1</a>
-                  <a href="">2</a>
-                  <a href="">3</a>
+                  <a >1</a>
+                  <a >2</a>
+                  <a >3</a>
                 </div>
               </div>
             </Col>
@@ -581,11 +584,11 @@ export class Description extends Component {
             </Col>
             <Col xs={4}>
               <div className="dropdown float-right">
-                <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">0</span> <RiArrowDropDownLine /></button>
                 <div className="dropdown-content">
-                  <a href="">1</a>
-                  <a href="">2</a>
-                  <a href="">3</a>
+                  <a >1</a>
+                  <a >2</a>
+                  <a >3</a>
                 </div>
               </div>
             </Col>
@@ -597,11 +600,11 @@ export class Description extends Component {
             </Col>
             <Col xs={4}>
               <div className="dropdown float-right">
-                <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">1</span> <RiArrowDropDownLine /></button>
+                <button className="dropbtn" style={{ fontFamily: 'Montserrat Regular' }}>Rooms <span className="ml-2">0</span> <RiArrowDropDownLine /></button>
                 <div className="dropdown-content">
-                  <a href="">1</a>
-                  <a href="">2</a>
-                  <a href="">3</a>
+                  <a >1</a>
+                  <a >2</a>
+                  <a >3</a>
                 </div>
               </div>
             </Col>

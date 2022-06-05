@@ -20,7 +20,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 // import Autocomplete from "./Autocomplete";
-require("./styles.css");
+require("./autocomplete.css");
 
 let handleOpen = false;
 let handleClose = true;
@@ -30,6 +30,7 @@ var checkIn = '';
 var checkOut = '';
 var chkIn = 'Check-in-date';
 var chkOut = 'Check-out-date';
+var citi = '';
 var Adults = '';
 var userInput = '';
 var priceStart = ' ';
@@ -70,6 +71,7 @@ class Autocomplete extends Component {
 
   onChange = e => {
     const { suggestions } = this.props;
+
     userInput = e.currentTarget.value;
 
     // Filter our suggestions that don't contain the user's input
@@ -97,7 +99,7 @@ class Autocomplete extends Component {
 
   onKeyDown = e => {
     const { activeSuggestion, filteredSuggestions } = this.state;
-
+    citi = filteredSuggestions[activeSuggestion];
     // User pressed the enter key
     if (e.keyCode === 13) {
       this.setState({
@@ -142,11 +144,11 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul class="suggestions">
+          <ul className="suggestions">
             {filteredSuggestions.map((suggestion, index) => {
               let className;
 
-              // Flag the active suggestion with a class
+              // Flag the active suggestion with a className
               if (index === activeSuggestion) {
                 className = "suggestion-active";
               }
@@ -161,8 +163,8 @@ class Autocomplete extends Component {
         );
       } else {
         suggestionsListComponent = (
-          <div class="no-suggestions">
-            <em>No suggestions, you're on your own!</em>
+          <div className="no-suggestions">
+            <p className="mt-1"  style={{ color: "rgb(147, 148, 149)" }}>City Not Found</p>
           </div>
         );
       }
@@ -380,7 +382,7 @@ function BasicModal(props) {
         >
           <Box sx={{ ...style1, margin: 0, padding: 0, paddingLeft: 3 }}>
             <DataRange display={true} />
-            <div class="text-centerasse">
+            <div className="text-centerasse">
               <button className="dateDoneBtn mb-3" type="submit" onClick={handleClose}>Done</button>
             </div>
           </Box>
@@ -423,19 +425,27 @@ function BasicModal1(props) {
 export class Search extends Component {
   //Transfer Response between React and Nodejs
   state = {
-    paragaraph: '', image: '',
+    paragaraph: '', image: '', checkInn: 'Check-in-date', checkOutt: 'Check-out-date',
     post: '',
     responseToPost: '',
   };
 
   componentDidMount() {
+    
     this.callApi()
       .then(res => this.setState({
         paragraph: res.express.Collection.Rows[0].Description,
         image: res.express.Collection.Rows[0].Image,
       }))
       .catch(err => console.log(err));
-  }
+
+    }
+    componentDidUpdate() {
+      // Changing the state after 600ms
+      setTimeout(() => {
+        this.setState({ checkInn: checkIn, checkOutt: checkOut });
+      }, 1000);
+    }
 
   callApi = async () => {
     const response = await fetch('/api/hello');
@@ -460,7 +470,7 @@ export class Search extends Component {
     //history.push(`/propertylisting/${post.code}`);
     console.clear();
     console.log(JSON.stringify({ post: this.state.post }));
-    this.props.history.push(`/propertylisting/${this.state.post}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`);
+    this.props.history.push(`/propertylisting/${citi}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`);
 
   };
 
@@ -500,135 +510,20 @@ export class Search extends Component {
             </Row>
             <Row className="sea">
               <Col xs={10} sm={8} md={6} lg={5} className="Search mx-auto" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid white" }}>
-                {/* <Autocomplete
-                  suggestions={[
-                    "Karachi",
-                    "Islamabad",
-                    "Lahore",
-                    "Multan",
-                    "Murree",
-                    "Abbottabad",
-                    "Bahawalpur",
-                    "Faisalabad",
-                    "Rahim Yar",
-                    "Skardu",
-                    "Sukkur",
-                    "Dera Ghazi",
-                    "Rawalpindi",
-                    "Swat",
-                    "Naran",
-                    "Gilgit",
-                    "Kandhkot",
-                    "Balakot",
-                    "Hunza",
-                    "Mirpur AJK",
-                    "Mansehra city",
-                    "Peshawar",
-                    "Muzaffarabad",
-                    "Nathia Gali",
-                    "Khaplu",
-                    "Quetta",
-                    "Pakpattan",
-                    "Shekhupura",
-                    "Shangla",
-                    "Kalam",
-                    "Sahiwal",
-                    "Nawabshah",
-                    "Gujranwala",
-                    "Gabin Jabba",
-                    "Miandam",
-                    "Kumrat",
-                    "Dir",
-                    "Ayubia",
-                    "Hyderabad",
-                    "Gawadar",
-                    "Mardan",
-                    "Azad Kashmir",
-                    "Kaghan",
-                    "Sialkot",
-                    "Bhakar",
-                    "Badin",
-                    "Umarkot",
-                    "Sargodha",
-                    "Dera Ismail",
-                    "Mianwali",
-                    "Jhang",
-                    "Rajanpur",
-                    "Layyah",
-                    "Vehari",
-                    "Shogran",
-                    "Gwadar",
-                    "Chitral",
-                    "Kohat",
-                    "Larkana",
-                    "Pankakot",
-                    "Taftan",
-                    "Ziarat",
-                    "Birmoglasht",
-                    "Gujrat",
-                    "Bannu",
-                    "Charsada",
-                    "Neelum Valley",
-                    "Bagh",
-                    "Mithi",
-                    "Patriata",
-                    "Keran",
-                    "Rawalakot",
-                    "Mirpur Khas",
-                    "Wah Cantonment",
-                    "Shigar City",
-                    "Nankana Sahib",
-                    "Benguela",
-                    "Madyan",
-                    "Bahrain",
-                    "Malamjabba",
-                    "Kathmandu",
-                    "Morden",
-                    "Waterford",
-                    "Pokhara",
-                    "Dubai",
-                    "Dubai",
-                    "Mingora",
-                    "Bhurban",
-                    "Nagar",
-                    "Sadiqabad",
-                    "Dosso",
-                    " Lower Hutt",
-                    "San Fernando",
-                    "Sancti Sp",
-                    "El Jadida",
-                    "Khasab",
-                    "Casablanca",
-                    "As Sib",
-                    "Meyuns",
-                    "Quelimane",
-                    "Blue City",
-                    "Sohar",
-                    "Ede",
-                    "Almere",
-                    "Sur",
-                    "Kaesong",
-                    "Yaren",
-                    "Marrakesh",
-                    "Nacala",
-                    "Kamalia",
-                    "Dharan",
-                    "Batakundi",
-                    "Bourwai",
-                    "Malakandi",
-                    "Barka",
-                    "Lalitpur",
-                    "New York"
-                  ]}
-                /> */}
+                <div className="mt-2">
+                  <Autocomplete
+                    suggestions={["Karachi", "Islamabad", "Lahore", "Multan", "Murree", "Abbottabad", "Bahawalpur", "Faisalabad", "Rahim Yar", "Skardu", "Sukkur", "Dera Ghazi", "Rawalpindi", "Swat", "Naran", "Gilgit", "Kandhkot", "Balakot", "Hunza", "Mirpur AJK", "Mansehra city", "Peshawar", "Muzaffarabad", "Nathia Gali", "Khaplu", "Quetta", "Pakpattan", "Shekhupura", "Shangla", "Kalam", "Sahiwal", "Nawabshah", "Gujranwala", "Gabin Jabba", "Miandam", "Kumrat", "Dir", "Ayubia", "Hyderabad", "Gawadar", "Mardan", "Azad Kashmir", "Kaghan", "Sialkot", "Bhakar", "Badin", "Umarkot", "Sargodha", "Dera Ismail", "Mianwali", "Jhang", "Rajanpur", "Layyah", "Vehari", "Shogran", "Gwadar", "Chitral", "Kohat", "Larkana", "Pankakot", "Taftan", "Ziarat", "Birmoglasht", "Gujrat", "Bannu", "Charsada", "Neelum Valley", "Bagh", "Mithi", "Patriata", "Keran", "Rawalakot", "Mirpur Khas", "Wah Cantonment", "Shigar City", "Nankana Sahib", "Benguela", "Madyan", "Bahrain", "Malamjabba", "Kathmandu", "Morden", "Waterford", "Pokhara", "Dubai", "Dubai", "Mingora", "Bhurban", "Nagar", "Sadiqabad", "Dosso", " Lower Hutt", "San Fernando", "Sancti Sp", "El Jadida", "Khasab", "Casablanca", "As Sib", "Meyuns", "Quelimane", "Blue City", "Sohar", "Ede", "Almere", "Sur", "Kaesong", "Yaren", "Marrakesh", "Nacala", "Kamalia", "Dharan", "Batakundi", "Bourwai", "Malakandi", "Barka", "Lalitpur", "New York"
+                    ]}
+                  />
+                </div>
                 <form className="nosubmit" onSubmit={this.handleSubmit}>
-                  <input
+                  {/* <input
                     type="text"
                     className="nosubmit mt-3"
                     value={this.state.post}
                     placeholder="Enter place, hotel, or guesthouse"
                     onChange={e => this.setState({ post: e.target.value })}
-                  />
+                  /> */}
                   {/* <Link to='/propertylisting/islamabad'> */}
                   <button style={{ position: "absolute", top: "80px" }} className="mt-5 SearchButton" type="submit">SEARCH</button>
                   {/* </Link> */}
@@ -637,7 +532,7 @@ export class Search extends Component {
                     <input className="nosubmit" type="search" placeholder="Enter place, hotel, or guesthouse" />
                   </form> */}
                 <div className="Sbt">
-                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-3 d-block mb-1 mBs" onClick={handleOpen}> <BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {chkIn} <span style={{ marginLeft: '.5rem' }}> | </span> <span style={{ marginLeft: '.5rem' }}> </span><BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {chkOut}  </button>
+                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-3 d-block mb-1 mBs" onClick={handleOpen}> <BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkInn==''?chkIn:this.state.checkInn} <span style={{ marginLeft: '.5rem' }}> | </span> <span style={{ marginLeft: '.5rem' }}> </span><BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkOutt==''?chkOut:this.state.checkOutt}  </button>
                   <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-2 d-block mb-3 mBs" onClick={handleOpen1}> <BsFillPeopleFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  1 room, 2 adults, 0 children </button>
                 </div>
                 {/* <button className="SearchButton mt-5 mb-3" onClick={() => History.push('/propertylisting')}>Search</button> */}
