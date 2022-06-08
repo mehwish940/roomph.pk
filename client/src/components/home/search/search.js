@@ -19,7 +19,6 @@ import { BsFillCalendarEventFill } from "react-icons/bs";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
-// import Autocomplete from "./Autocomplete";
 require("./autocomplete.css");
 
 let handleOpen = false;
@@ -30,6 +29,8 @@ var checkIn = '';
 var checkOut = '';
 var chkIn = 'Check-in-date';
 var chkOut = 'Check-out-date';
+var rm = '1';
+var ad = '2';
 var citi = '';
 var Adults = '';
 var userInput = '';
@@ -201,6 +202,7 @@ function RoomsAdultsChild() {
   }
   let handleChangeAdults = (e) => {
     setAdultsNum(e.target.value);
+    Adults = e.target.value;
   }
 
 
@@ -231,6 +233,7 @@ function RoomsAdultsChild() {
   }
   let handleChangeRooms = (e) => {
     setRoomsNum(e.target.value);
+    Rooms = e.target.value;
   }
 
   return (
@@ -425,7 +428,7 @@ function BasicModal1(props) {
 export class Search extends Component {
   //Transfer Response between React and Nodejs
   state = {
-    paragaraph: '', image: '', checkInn: 'Check-in-date', checkOutt: 'Check-out-date',
+    paragaraph: '', image: '', checkInn: 'Check-in-date', checkOutt: 'Check-out-date', room: '1', adults: '2', children: '0',
     post: '',
     responseToPost: '',
   };
@@ -443,7 +446,7 @@ export class Search extends Component {
     componentDidUpdate() {
       // Changing the state after 600ms
       setTimeout(() => {
-        this.setState({ checkInn: checkIn, checkOutt: checkOut });
+        this.setState({ checkInn: checkIn, checkOutt: checkOut, room: Rooms, adults: Adults });
       }, 1000);
     }
 
@@ -533,7 +536,7 @@ export class Search extends Component {
                   </form> */}
                 <div className="Sbt">
                   <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-3 d-block mb-1 mBs" onClick={handleOpen}> <BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkInn==''?chkIn:this.state.checkInn} <span style={{ marginLeft: '.5rem' }}> | </span> <span style={{ marginLeft: '.5rem' }}> </span><BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkOutt==''?chkOut:this.state.checkOutt}  </button>
-                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-2 d-block mb-3 mBs" onClick={handleOpen1}> <BsFillPeopleFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  1 room, 2 adults, 0 children </button>
+                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-2 d-block mb-3 mBs" onClick={handleOpen1}> <BsFillPeopleFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.room==''?rm:this.state.room} room, {this.state.adults==''?ad:this.state.adults} adults, {this.state.children} children </button>
                 </div>
                 {/* <button className="SearchButton mt-5 mb-3" onClick={() => History.push('/propertylisting')}>Search</button> */}
               </Col>

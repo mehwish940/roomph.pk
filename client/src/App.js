@@ -7,6 +7,8 @@ import PropertyListing from './components/propertyListing/searchresults';
 import CustomerInformation from './components/customerInformation/customerInformation';
 import Thankyou from "./components/thankyou/thankyou";
 import Download from './components/header/download';
+import Terms from './components/termsConditions/terms';
+import AboutUs from './components/aboutus/aboutus';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +23,8 @@ render() {
                       <Route path="/propertydetails/:city/:checkin/:checkout/:adults/:rooms/:nights/:id" component={PropertyDetails} />
                       <Route path="/customerinformation/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:roomId/:planId/:roomq/:rate" component={CustomerInformation} />
                       <Route path="/thankyou/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:name/:email/:phone/:ucity/:promo/:roomId/:planId/:roomq/:rate" component={Thankyou} />
+                      <Route path="/terms" component={Terms} />
+                      <Route path="/aboutus" component={AboutUs} />
                       <Route path="/download" exact component={() => <Download />} />
                   </Switch>
           </Router>

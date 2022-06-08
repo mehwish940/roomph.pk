@@ -68,3 +68,8 @@
     .errMsg{
         text-transform: capitalize;
     }
+
+    .personIcon{
+        font-size: 100px;
+        margin-left: 100px;
+    }

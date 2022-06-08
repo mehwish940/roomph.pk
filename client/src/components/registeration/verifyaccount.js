@@ -33,7 +33,7 @@ export class VerifyAccount extends Component {
         console.log(body.result.data[0].message);
         this.setState({ responseToPost: body });
         this.setState({
-            // message: body.result.data[0].message,
+            message: body.result.data[0].message,
         })
         return body;
     }
@@ -49,6 +49,7 @@ export class VerifyAccount extends Component {
                                 <Form.Group className="mt-3 mb-2" controlId="formBasicEmail">
                                     <Form.Control className="mb-3" type="text" value={this.state.key} onChange={this.handleKeyChanged.bind(this)} placeholder="Enter Key Recieved on Email" style={{ height: "30px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Montserrat Thin", fontSize: "12px" }} />
                                 </Form.Group>
+                                <p>{this.state.message}</p>
                                 <button style={{ fontFamily: "Gotham Rounded Medium" }} className="signupBtn mb-3" type="submit" onClick={this.handleButtonClicked.bind(this)}>Verify</button>
                             </Form>
                         </Col>

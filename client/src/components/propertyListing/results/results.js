@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import './results.css';
 import history from '../../history';
 import Image from 'react-bootstrap/Image';
+import Card from 'react-bootstrap/Card';
 import { withRouter } from "react-router-dom";
 import Slider1 from "react-slick";
 import { BiMap } from "react-icons/bi";
 import Filter from './filter/filter';
+import Placeholder from 'react-bootstrap/Placeholder';
+import Spinner from 'react-bootstrap/Spinner';
 
 const data = "Hello Everyone";
 var checkIn = '';
@@ -80,7 +83,7 @@ const Properties = ({ properties }) => {
           </Col>
           <Col className="">
             <p className="dfl free mt-2" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>{properties.Cancellation} Cancellation</span></p>
-            <button className="dfl hotel mt-1 ml-md-2 ml-1" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '18px', textAlign:'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</button>
+            <button className="dfl hotel mt-1 ml-md-2 ml-1" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '18px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</button>
             <p className="m-1" style={{ fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><b className="area"> {properties.CityName}</b></p>
             <p className="reviewCount dfl ml-2 float-right">{properties.UserRating}</p><p className="rev dfl mt-1" style={{ float: 'right', whiteSpace: 'nowrap', textAlign: 'right', margin: '0', padding: '0', lineHeight: '80%' }}><span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p style={{ fontFamily: 'Gotham Rounded Book', float: 'right', margin: '0', padding: '0', fontSize: '14px' }}><u>{properties.Rating} review</u></p>
             <br />
@@ -94,7 +97,7 @@ const Properties = ({ properties }) => {
 };
 export class Results extends Component {
   state = {
-    properties: [], pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
+    loading: false,properties: [], pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
     post: '',
     responseToPost: '',
   };
@@ -109,7 +112,8 @@ export class Results extends Component {
           Count: res.Success.result[0].TotalCount,
           CityName: res.Success.result[0].CityName
           // img: res.Success.result[0].AccommodationImages[0].URL[0]
-        })
+        });
+        this.setState({ loading: true })
       })
       .catch(err => console.log(err));
   }
@@ -132,7 +136,7 @@ export class Results extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms, postPriceStart: priceStart, postPriceEnd: priceEnd, postRating: rating, postPremium: premium, postCategory: category}),
+      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms, postPriceStart: priceStart, postPriceEnd: priceEnd, postRating: rating, postPremium: premium, postCategory: category }),
     })
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -165,7 +169,6 @@ export class Results extends Component {
                 </Col>
               </Row>
             </Col>
-
             {/* For Smaller Screens */}
             <Col xs={8} className="d-md-none" style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
               <Row className="">
@@ -192,6 +195,7 @@ export class Results extends Component {
             </Col>
           </Row>
         </Container>
+       
         <Container fluid>
           <Row className="">
             <Col className="dfl">
@@ -235,7 +239,8 @@ export class Results extends Component {
               <p className="mt-lg-3 mt-2 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Only 1 Left</span> <span className="rs" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '18px' }}>Rs. 12,000</span></p>
             </Col>
           </Row> */}
-          <Properties properties={this.state.properties} />
+          {this.state.loading ? <Properties properties={this.state.properties} /> : <Spinner animation="grow" />}
+          
           <Row className="mx-lg-5 mt-3 mx-auto justify-content-center" style={{ borderRadius: "10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
             <Col xs={2} lg={2} className="dfl my-auto pt-1" >
               <Image className="imgWid1 imgwid4" src={process.env.PUBLIC_URL + "/images/Asset36.svg"} width={100} alt="" fluid />
@@ -245,7 +250,7 @@ export class Results extends Component {
                 <span style={{ fontSize: '10px', fontFamily: 'Montserrat Regular', whiteSpace: 'nowrap' }}>Get the best deal from one of our experts</span></p>
             </Col>
             <Col xs={2} lg={2} className="my-auto" >
-              <button className="chat chatBtn float-left" style={{whiteSpace:'nowrap'}}>Chat with us</button>
+              <button className="chat chatBtn float-left" style={{ whiteSpace: 'nowrap' }}>Chat with us</button>
             </Col>
           </Row>
         </Container>

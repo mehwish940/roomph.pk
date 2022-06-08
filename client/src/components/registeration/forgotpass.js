@@ -49,7 +49,7 @@ function BasicModal(props) {
                     aria-describedby="transition-modal-description"
                 >
                     <Box sx={{ ...style1, margin: 0 }}>
-                    <button onClick={handleClose} className="mt-2 ml-2" style={{border:"none", background:"none"}}><MdOutlineKeyboardArrowLeft /></button>
+                        <button onClick={handleClose} className="mt-2 ml-2" style={{ border: "none", background: "none" }}><MdOutlineKeyboardArrowLeft /></button>
                         <ChangePassword />
                         {/* <div class="text-centerasse">
                 <button className="dateDoneBtn mb-3" type="submit" onClick={handleClose}>Done</button>
@@ -87,11 +87,11 @@ export class Registration extends Component {
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
         console.log(body);
-        //     this.setState({ responseToPost: body });
-        //     this.setState({
-        //         message: body.result.data[0].message,
-        // })
-        //     return body;
+        this.setState({ responseToPost: body });
+        this.setState({
+            message: body.result.data[0].message,
+        })
+        return body;
     }
     render() {
         return (
@@ -103,14 +103,14 @@ export class Registration extends Component {
                         <Col xs={12} className="regFrom">
                             <Form>
                                 <Form.Group className="mt-3 mb-2" controlId="formBasicEmail">
-                                    <Form.Control className="mb-3" value={this.state.email} onChange={this.handleEmailChanged.bind(this)} type="email" placeholder="Enter Email" style={{ height: "30px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Montserrat Thin", fontSize: "12px" }} />
+                                    <Form.Control className="" value={this.state.email} onChange={this.handleEmailChanged.bind(this)} type="email" placeholder="Enter Email" style={{ height: "30px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Montserrat Thin", fontSize: "12px" }} />
                                 </Form.Group>
                                 <Col className="mb-1 aBtn m-0 p-0" xs={6}>
-                                    <aButton variant="text" onClick={handleOpen} style={{ border: "none", fontSize: "11px", color: "#EF4E22", backgroundColor: "white", fontFamily: "Montserrat Thin", cursor: "pointer" }}>Change Password</aButton>
+                                    <aButton className="ml-2" variant="text" onClick={handleOpen} style={{ border: "none", fontSize: "11px", color: "#EF4E22", backgroundColor: "white", fontFamily: "Montserrat Thin", cursor: "pointer" }}>Change Password</aButton>
                                 </Col>
                                 <button style={{ fontFamily: "Gotham Rounded Medium" }} className="signupBtn" type="submit" onClick={this.handleButtonClicked.bind(this)}>Reset Password</button>
                             </Form>
-
+                            <p className="mt-2">{this.state.message}</p>
                         </Col>
                     </Row>
                     <Row className="mb-3">

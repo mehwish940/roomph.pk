@@ -23,8 +23,8 @@ export class Footer extends Component {
               className="d-flex mb-1 mt-3 justify-content-center  flex-column flex-wrap as"
             >
               <h5 style={{fontFamily:"Gotham Rounded Bold", fontSize:"22px"}}><u>About Us</u></h5>
-              <Link to='/'>FAQs</Link>
-              <Link className="mt-1" style={{whiteSpace:"nowrap"}} to='/'>Terms and Conditions</Link>
+              <Link to='/aboutus'>About Us</Link>
+              <Link className="mt-1" style={{whiteSpace:"nowrap"}} to='/terms'>Terms and Conditions</Link>
               <Link className="mt-1" to='/'>Loyalty</Link>
               <Link className="mt-1" to='/'>Blog</Link>
               <Link className="mt-1" to='/'>Careers</Link>
@@ -85,9 +85,9 @@ export class Footer extends Component {
               <p className="footerC mt-3 d-lg-none d-md-none m-0 p-0" style={{ fontFamily: "Montserrat Thin" }}>2022 - All rights reserved</p>
             </Col>
           </Row>
-          <Row className="mb-2">
+          {/* <Row className="mb-2">
             <Col className="mb-2"></Col>
-          </Row>
+          </Row> */}
         </Container>
         <Container className="d-none d-md-block d-lg-block">
           <Row>

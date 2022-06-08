@@ -10,8 +10,10 @@ import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-
+import { BsPersonCircle } from "react-icons/bs";
 const aButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(purple[500]),
     backgroundColor: purple[500],
@@ -96,7 +98,7 @@ export default function Registration() {
             setFname(body.result.data[0].message);
         }
         else {
-            setFname(`${fname} you are logged in`);
+            setFname(fname);
         }
         //console.log(fname);
         return body;
@@ -113,6 +115,36 @@ export default function Registration() {
     const handleClose1 = () => {
         setOpen1(false);
     };
+    const responseGoogle = (response) => {
+        console.log(response);
+    }
+    const responseFacebook = (response) => {
+        console.log(response);
+    }
+    const componentClicked = () => {
+        console.log('Clicked');
+    }
+    const handleGoogleLogin = () => {
+        console.clear();
+        console.log('Usama')
+        // return <GoogleLogin
+        //     clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+        //     buttonText="Login"
+        //     onSuccess={responseGoogle}
+        //     onFailure={responseGoogle}
+        //     cookiePolicy={'single_host_origin'}
+        // />;
+    }
+    const handleFacebookLogin = () => {
+        console.clear();
+        console.log('fb')
+        // return <FacebookLogin
+        //     appId="1088597931155576"
+        //     autoLoad={true}
+        //     fields="name,email,picture"
+        //     onClick={componentClicked}
+        //     callback={responseFacebook} />;
+    }
     console.log(user)
     if (user) {
         if (user.result.data[0].fname == undefined) {
@@ -120,11 +152,14 @@ export default function Registration() {
             setFname("");
             setPassword("");
             localStorage.clear();
-           
+
         } else {
+            if(fname != '') window.location.reload(false);
             return (
                 <div className='p-3'>
-                    <p className="text-center" style={{ fontFamily: "Gotham Rounded Medium", fontSize: "17px" }}>{user.result.data[0].fname} you are Logged In</p>
+                    <BsPersonCircle className='personIcon mb-1' />
+                    <p className="text-center" style={{ fontFamily: "Gotham Rounded Medium", fontSize: "17px" }}>{user.result.data[0].fname}</p>
+                    <p className="text-center" style={{ fontFamily: "Gotham Rounded Medium", fontSize: "17px" }}>{user.result.data[0].email}</p>
                     <button style={{ fontFamily: "Gotham Rounded Medium" }} className="signupBtn" onClick={handleLogout}>Logout</button>
                 </div>
             );
@@ -186,10 +221,23 @@ export default function Registration() {
                 </Row>
                 <Row className="mb-3">
                     <Col xs={6}>
-                        <button className="GBtn" style={{ height: "20px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Gotham Medium" }}><FcGoogle /> {' '}<span style={{ color: "#EF4E22" }}>Google</span></button>
+                        {/* <GoogleLogin
+                            clientId="146756277436-cmj6j0tvj8vib4h6a46l9ugkf6mp5q3c.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        /> */}
+                        <button className="GBtn" style={{ height: "20px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Gotham Medium" }}><FcGoogle /> {' '}<span style={{ color: "#EF4E22" }} onClick={handleGoogleLogin}>Google</span></button>
                     </Col>
                     <Col xs={6}>
-                        <button className="FBtn" style={{ height: "20px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Gotham Medium" }}><SiFacebook /> {' '} <span style={{ color: "#EF4E22" }}>Facebook</span></button>
+                        {/* <FacebookLogin
+                            appId="1010346876405143"
+                            autoLoad={true}
+                            fields="name,email,picture"
+                            onClick={componentClicked}
+                            callback={responseFacebook} /> */}
+                        <button className="FBtn" style={{ height: "20px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Gotham Medium" }}><SiFacebook /> {' '} <span style={{ color: "#EF4E22" }} onClick={handleFacebookLogin}>Facebook</span></button>
                     </Col>
                     <Col className="text-center mt-3">
                         <p style={{ fontSize: "10px", fontFamily: "Gotham Medium" }}>By signing in, I am agreeing to Roomph’s <span style={{ color: "#EF4E22" }}>Terms & Conditions</span>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import "./Top.css";
 import Signin from '../../registeration/signin';
@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { FiUser } from "react-icons/fi";
 
 const style = {
   position: 'absolute',
@@ -23,12 +24,26 @@ const style = {
 
 export default function Topbar() {
   const [open, setOpen] = React.useState(false);
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      console.log(user);
+      setUser(user.result.data[0].fname);
+    }
+  }, []);
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
+  const handleLogout = () => {
+    setUser({});
+    localStorage.clear();
+    window.location.reload(false);
+};
 
   return (
     <section style={{ backgroundColor: "#fff"}} className="m-1"   >
@@ -55,7 +70,16 @@ export default function Topbar() {
           </Col>
           <Col xxs={8} className="">
             <div className="wrap">
-              <button className="mr-2 mt-1 signinBtn" onClick={handleOpen}>Sign in</button>
+              <button className="mr-2 mt-1 signinBtn" onClick={user==''?handleOpen:''}>
+              {user == '' ? 'Sign In': 
+              <div class="dropdownTopbar">
+              <FiUser /><span className='ml-1'>{user}</span>
+                <div class="dropdown-contentTopbar">
+                  <button className='dealsBtn' onClick={handleOpen}>Profile</button><br />
+                  <button className='dealsBtn1' onClick={handleLogout}>Logout</button>
+                </div>
+              </div>}
+              </button>
               <Link className="d-lg-none" to="/download" target="_blank">
                 <button className="d-lg-none buttonApp" >Use App</button>
               </Link>

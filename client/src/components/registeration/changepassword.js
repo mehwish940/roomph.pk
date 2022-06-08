@@ -38,7 +38,7 @@ export class ChangePassword extends Component {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ postKey:key, postPassword: password, postRePassword: rePassword }),
+            body: JSON.stringify({ postKey: key, postPassword: password, postRePassword: rePassword }),
         })
         console.clear();
         const body = await response.json();
@@ -46,8 +46,8 @@ export class ChangePassword extends Component {
         console.log(body.result.data[0].message);
         this.setState({ responseToPost: body });
         this.setState({
-            // message: body.result.data[0].message,
-    })
+            message: body.result.data[0].message,
+        })
         return body;
     }
 
@@ -65,6 +65,7 @@ export class ChangePassword extends Component {
                                     <Form.Control className="mb-3" type="text" value={this.state.key} onChange={this.handleKeyChanged.bind(this)} placeholder="Enter Key Recieved on Email" style={{ height: "30px", borderRadius: "20px 20px 20px 20px", border: "1px solid rgb(203, 203, 203)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", fontFamily: "Montserrat Thin", fontSize: "12px" }} />
                                 </Form.Group>
                                 <button style={{ fontFamily: "Gotham Rounded Medium" }} className="signupBtn mb-3" type="submit" onClick={this.handleButtonClicked.bind(this)}>Change Password</button>
+                                <p>{this.state.message}</p>
                             </Form>
                         </Col>
                     </Row>
