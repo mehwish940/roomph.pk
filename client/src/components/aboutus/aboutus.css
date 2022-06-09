@@ -49,3 +49,9 @@
   .carousel-fade .carousel-item {
     background-position: 300px 0 !important;
   }
+  .air{
+    vertical-align: text-top;
+  }
+  .wash{
+    vertical-align: text-bottom;
+  }

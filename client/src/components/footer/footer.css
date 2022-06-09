@@ -221,3 +221,10 @@
     font-weight: 600;
   }
 } */
+.fbg{
+  background-color: #575757;
+  color: #575757;
+  width: 500px;
+  position: absolute;
+  left: -30px;
+}

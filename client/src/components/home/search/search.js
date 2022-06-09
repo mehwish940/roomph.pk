@@ -31,14 +31,16 @@ var chkIn = 'Check-in-date';
 var chkOut = 'Check-out-date';
 var rm = '1';
 var ad = '2';
+var ch = '0';
 var citi = '';
 var Adults = '';
+var Children = '';
 var userInput = '';
 var priceStart = ' ';
 var priceEnd = ' ';
 var rating = ' ';
 var premium = ' ';
-var category = ' ';
+var category = '8';
 var hotel = ' ';
 var apartment = ' ';
 var guesthouse = ' ';
@@ -179,6 +181,7 @@ class Autocomplete extends Component {
           onKeyDown={onKeyDown}
           value={userInput}
           className="nosubmit"
+          placeholder="Enter place, hotel, or guesthouse"
         />
         {suggestionsListComponent}
       </Fragment>
@@ -218,6 +221,7 @@ function RoomsAdultsChild() {
   }
   let handleChangeChild = (e) => {
     setChildNum(e.target.value);
+    Children = e.target.value;
   }
 
 
@@ -254,7 +258,7 @@ function RoomsAdultsChild() {
           </Row>
 
           <Row>
-            <p hidden> {Adults = adults} {Rooms = rooms}</p>
+            <p hidden> {Adults = adults} {Rooms = rooms} {Children = child}</p>
             <Col className="mt-2">
               <div style={{ whiteSpace: 'nowrap' }}>
                 <label className="ml-1" style={{ fontFamily: "Gotham Medium", color: "#EF4E22", fontSize: "16px" }}>
@@ -446,7 +450,7 @@ export class Search extends Component {
     componentDidUpdate() {
       // Changing the state after 600ms
       setTimeout(() => {
-        this.setState({ checkInn: checkIn, checkOutt: checkOut, room: Rooms, adults: Adults });
+        this.setState({ checkInn: checkIn, checkOutt: checkOut, room: Rooms, adults: Adults, child: Children });
       }, 1000);
     }
 
@@ -536,7 +540,7 @@ export class Search extends Component {
                   </form> */}
                 <div className="Sbt">
                   <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-3 d-block mb-1 mBs" onClick={handleOpen}> <BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkInn==''?chkIn:this.state.checkInn} <span style={{ marginLeft: '.5rem' }}> | </span> <span style={{ marginLeft: '.5rem' }}> </span><BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkOutt==''?chkOut:this.state.checkOutt}  </button>
-                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-2 d-block mb-3 mBs" onClick={handleOpen1}> <BsFillPeopleFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.room==''?rm:this.state.room} room, {this.state.adults==''?ad:this.state.adults} adults, {this.state.children} children </button>
+                  <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-2 d-block mb-3 mBs" onClick={handleOpen1}> <BsFillPeopleFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.room==''?rm:this.state.room} room, {this.state.adults==''?ad:this.state.adults} adults, {this.state.child==''?ch:this.state.child} children </button>
                 </div>
                 {/* <button className="SearchButton mt-5 mb-3" onClick={() => History.push('/propertylisting')}>Search</button> */}
               </Col>

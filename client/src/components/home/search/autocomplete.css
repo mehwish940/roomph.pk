@@ -18,7 +18,7 @@
     max-height: 143px;
     overflow-y: auto;
     padding-left: 0;
-    width: 100%;
+    width: 50%;
   }
 
   .suggestions li {
@@ -28,8 +28,8 @@
 
   .suggestion-active,
   .suggestions li:hover {
-    background-color: #fff;
-    color: #EF4E22;
+    background-color: #EF4E22;
+    color: #fff;
     cursor: pointer;
     font-family: Montserrat Regular;
     z-index: 100;

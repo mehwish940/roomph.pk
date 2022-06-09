@@ -14,9 +14,9 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 var priceStart = ' ';
 var priceEnd = ' ';
-var rating = ' ';
+var rating = '3';
 var premium = ' ';
-var category = ' ';
+var category = '8';
 
 
 function Checkboxes() {
@@ -25,23 +25,23 @@ function Checkboxes() {
     category = 4;
   };
   const handleChange2 = (event) => {
-    category = 3;
+    rating = 3;
     setChecked(event.target.checked);
   };
   const handleChange3 = (event) => {
-    category = 2;
+    rating = 2;
   };
   const handleChange4 = (event) => {
-    category = 1;
+    rating = 1;
   };
   const handleChange5 = (event) => {
-    category = 'Hotel';
+    category = '8';
   };
   const handleChange6 = (event) => {
-    category = 'Apartment';
+    category = '0';
   };
   const handleChange7 = (event) => {
-    category = 'Guest house';
+    category = '5';
   };
     return (
       <div>

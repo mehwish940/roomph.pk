@@ -7,7 +7,7 @@ export class Footer extends Component {
   render() {
     return (
       <footer
-        className="site-footer"
+        className="site-footer mb-0 pb-0"
         id="contact"
         style={{ backgroundColor: "#575757", color: "white" }}
       >
@@ -83,6 +83,7 @@ export class Footer extends Component {
                 Roomph! Is now Pakistan’s largest and fastest growing hotel company focused on the budget hotel sector. We value what is most important to our customers and select only the best rooms and properties on location, value, and cleanliness. With Roomph can count on quality, consistency, and bargain prices… with strong Wi-Fi and AC every time!
               </p>
               <p className="footerC mt-3 d-lg-none d-md-none m-0 p-0" style={{ fontFamily: "Montserrat Thin" }}>2022 - All rights reserved</p>
+              <div className="fbg">Hi</div>
             </Col>
           </Row>
           {/* <Row className="mb-2">

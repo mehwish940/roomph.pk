@@ -58,14 +58,14 @@ export class AboutUs extends Component {
                 <Container fluid>
                     <Row>
                         <Col className="m-0 p-0">
-                            <h4 className="aboutUsHeading"><span className="abUsText"><span className="aboutUsText"> Quality</span> <br /> <span className="aboutUsText"> Consistency</span> <br /> <span className="aboutUsText">& Bargain</span><br /> <span className="aboutUsText">Pricess</span></span></h4>
+                            <h4 className="aboutUsHeading pt-2"><span className="abUsText"><span className="aboutUsText"> Quality</span> <br /> <span className="aboutUsText"> Consistency</span> <br /> <span className="aboutUsText">& Bargain</span><br /> <span className="aboutUsText">Pricess</span></span></h4>
                             <p className="AboutUsT mb-1 pb-1">
                                 Roomph was founded in 2019 and aims to become Pakistan’s first and largest hotel company that provides budget accommodation. Roomph has revolutionized the fragmented and legacy-driven budget hospitality space in Pakistan by enabling standardization of services to make your travel experience better, consistent and memorable every time. Our aim is to provide predictable, affordable and available budget-room accommodation to millions of travellers in Pakistan.<br /><br />
                                 All Roomph accommodations include:<br />
-                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset6.svg"} width={25} alt="" />Free Wifi</p>
-                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset7.svg"} width={25} alt="" />Air-Conditioning</p>
-                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={25} alt="" />Option to Book Now and Pay later</p>
-                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset23.svg"} width={25} alt="" />Well-maintained washrooms</p>
+                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className=" mr-2" src={process.env.PUBLIC_URL + "/images/Asset6.svg"} width={25} alt="" />Free Wifi</p>
+                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="air mr-2" src={process.env.PUBLIC_URL + "/images/Asset7.svg"} width={25} alt="" />Air-Conditioning</p>
+                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className=" mr-2" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={25} alt="" />Option to Book Now and Pay later</p>
+                                <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="wash mr-2" src={process.env.PUBLIC_URL + "/images/Asset23.svg"} width={25} alt="" />Well-maintained washrooms</p>
                             </p>
                         </Col>
                     </Row>
