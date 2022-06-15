@@ -9,6 +9,7 @@ import Thankyou from "./components/thankyou/thankyou";
 import Download from './components/header/download';
 import Terms from './components/termsConditions/terms';
 import AboutUs from './components/aboutus/aboutus';
+import Maps from './components/Maps/Maps';
 import './App.css';
 
 class App extends Component {
@@ -25,6 +26,7 @@ render() {
                       <Route path="/thankyou/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:name/:email/:phone/:ucity/:promo/:roomId/:planId/:roomq/:rate" component={Thankyou} />
                       <Route path="/terms" component={Terms} />
                       <Route path="/aboutus" component={AboutUs} />
+                      <Route path="/map/:city/:checkin/:checkout/:adults/:rooms" component={Maps} />
                       <Route path="/download" exact component={() => <Download />} />
                   </Switch>
           </Router>

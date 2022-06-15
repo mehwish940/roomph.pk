@@ -1,96 +1,242 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.App {
-  overflow: hidden;
-}
-/* img {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .App {
+        overflow: hidden;
+    }
+    
+    .position-relative {
+        position: relative!important;
+    }
+    
+    .lds-ring {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid #F04E23;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #F04E23 transparent transparent transparent;
+    }
+    
+    .lds-ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    
+    .loading-div {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        vertical-align: middle;
+        margin: auto;
+        top: 40%;
+    }
+    
+    .lds-ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    
+    .lds-ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+    
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    section {
+        display: block;
+    }
+    
+    #map_canvas {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    div#map_canvas {
+        height: calc(100vh - 51.61px);
+    }
+    
+    .w-100 {
+        width: 100%!important;
+    }
+    
+    .z-index-999 {
+        z-index: 999;
+    }
+    
+    .right-0 {
+        right: 0;
+    }
+    
+    .left-0 {
+        left: 0;
+    }
+    
+    .feature-hotel-box {
+        border-bottom: 1px solid #EBEBEB;
+        padding-bottom: 5px;
+    }
+    
+    .feature-hotel-img {
+        width: 28px;
+    }
+    
+    a {
+        text-decoration: none !important;
+        color: initial;
+    }
+    
+    .scrollbar {
+        overflow-y: auto;
+        height: 150px;
+    }
+    
+    .feature-hotel-description.float-left {
+        width: calc(100% - 38px);
+        margin-left: 10px;
+    }
+    
+    .feature-hotel-title {
+        width: calc(100% - 70px);
+    }
+    
+    .ft-12 {
+        font-size: 12px !important;
+    }
+    
+    .gr-medium {
+        font-family: 'gothamroundedmedium' !important;
+    }
+    
+    .feature-hotel-img img {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        object-fit: cover;
+    }
+    
+    .text-orange {
+        color: #ef4e22;
+    }
+    
+    .ft-10 {
+        font-size: 10px !important;
+    }
+    
+    .ft-12 {
+        font-size: 12px !important;
+    }
+    
+    .feature-hotel-star-rating {
+        width: 70px;
+    }
+    
+    .bottom-0 {
+        bottom: 0;
+    }
+    /* img {
   display: block;
   width: 100%;
   height: auto;
 } */
-
-.ReactGridGallery_title-viewport img {
-  width: 100% !important;
-  height: 100%;
-  margin-left: 0;
-}
-
-@media (min-width: 990px) {
-  .form-inline .form-control {
-    width: 90px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .form-inline .form-control {
-    width: 200px;
-  }
-}
-
-@media (max-width: 990px) {
-  .form-inline .form-control {
-    width: auto;
-    margin-top: 10px;
-  }
-  .enroll-btn {
-    margin-top: 10px;
-  }
-}
-
-.message-container {
-  display: grid;
-}
-
-.video-frame {
-  width: 100%;
-  height: 300px;
-  margin: 0;
-  padding: 0;
-}
-
-@media (min-width: 990px) {
-  .video-frame {
-    height: 260px;
-  }
-}
-
-@media (max-width: 800px) {
-  .video-frame {
-    height: 250px;
-  }
-}
-
-@media (max-width: 660px) {
-  .video-frame {
-    height: 190px;
-  }
-}
-
-@media (max-width: 575px) {
-  .video-frame {
-    height: 290px;
-  }
-}
-
-@media (max-width: 450px) {
-  .video-frame {
-    height: 230px;
-  }
-}
-
-.video-frame:hover {
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  transform: scale(0.95);
-}
-
-.btn-gallery a {
-  color: white;
-}
-
-.carousel-item img {
-  height: calc(100vh - 76px) !important;
-}
+    
+    .ReactGridGallery_title-viewport img {
+        width: 100% !important;
+        height: 100%;
+        margin-left: 0;
+    }
+    
+    @media (min-width: 990px) {
+        .form-inline .form-control {
+            width: 90px;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .form-inline .form-control {
+            width: 200px;
+        }
+    }
+    
+    @media (max-width: 990px) {
+        .form-inline .form-control {
+            width: auto;
+            margin-top: 10px;
+        }
+        .enroll-btn {
+            margin-top: 10px;
+        }
+    }
+    
+    .message-container {
+        display: grid;
+    }
+    
+    .video-frame {
+        width: 100%;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    @media (min-width: 990px) {
+        .video-frame {
+            height: 260px;
+        }
+    }
+    
+    @media (max-width: 800px) {
+        .video-frame {
+            height: 250px;
+        }
+    }
+    
+    @media (max-width: 660px) {
+        .video-frame {
+            height: 190px;
+        }
+    }
+    
+    @media (max-width: 575px) {
+        .video-frame {
+            height: 290px;
+        }
+    }
+    
+    @media (max-width: 450px) {
+        .video-frame {
+            height: 230px;
+        }
+    }
+    
+    .video-frame:hover {
+        box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+        transform: scale(0.95);
+    }
+    
+    .btn-gallery a {
+        color: white;
+    }
+    
+    .carousel-item img {
+        height: calc(100vh - 76px) !important;
+    }

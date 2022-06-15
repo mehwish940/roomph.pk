@@ -137,9 +137,9 @@ app.post('/api/world', (req, response) => {
     premium = req.body.postPremium;
     rating = req.body.postRating;
     category = req.body.postCategory;
-    console.log(rating,category,priceRangeStart,priceRangeEnd);
+    console.log(rating, category, priceRangeStart, priceRangeEnd);
     axios
-        .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/getaccommodationsearchtest?userid=10002&password=YGiDp9ex0022019&accommodationids=&agentid=1&cityname=${city}&checkin=${checkin}&checkout=${checkout}&limits=10&offset=0&Sortby=1&Sort=0&&multilanguageid=1&fullbook=1&rooms=${rooms}&adults=${adults}&pricerangestart=${priceRangeStart}&pricerangeend=${priceRangeEnd}&ratings=${rating}&propertycategory=${category}`)
+        .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/getaccommodationsearchtest?userid=10002&password=YGiDp9ex0022019&accommodationids=&agentid=1&cityname=${city}&checkin=${checkin}&checkout=${checkout}&offset=0&Sortby=1&Sort=0&&multilanguageid=1&fullbook=1&rooms=${rooms}&adults=${adults}&pricerangestart=${priceRangeStart}&pricerangeend=${priceRangeEnd}&ratings=${rating}&propertycategory=${category}`)
         .then(res => {
             var json;
             console.log(`statusCode0: ${res.status}`);
@@ -259,54 +259,12 @@ app.post('/api/book', (req, response) => {
     planId = req.body.postPlanId;
     roomQuantity = req.body.postRoomQ;
     rate = req.body.postRate;
-    console.log(rooms,roomId,planId,roomQuantity);
-    if(rooms == 2){
+    console.log(rooms, roomId, planId, roomQuantity);
+    if (rooms == 2) {
         rooms = 1;
-    axios
-        .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId}&rateplanids=${planId},${planId}&extraids=0,0&roomqty=${roomQuantity},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)   
-// http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
-        .then(res => {
-            var json;
-            console.log(`statusCode: ${res.status}`);
-            const xml = res.data;
-            xml2js.parseString(xml, (err, result) => {
-                if (err) {
-                    throw err;
-                }
-                json = JSON.stringify(result);
-                //console.log(json);
-                response.send(json);
-            });
-        })
-        .catch(error => {
-            console.error(error)
-        })}
-        else if(rooms == 1){
-            axios
-            .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)   
-    // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
-            .then(res => {
-                var json;
-                console.log(`statusCode: ${res.status}`);
-                const xml = res.data;
-                xml2js.parseString(xml, (err, result) => {
-                    if (err) {
-                        throw err;
-                    }
-                    json = JSON.stringify(result);
-                    //console.log(json);
-                    response.send(json);
-                });
-            })
-            .catch(error => {
-                console.error(error)
-            })
-        }
-        else if(rooms == 3){
-            rooms = 1;
         axios
-            .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId},${roomId}&rateplanids=${planId},${planId},${planId}&extraids=0,0&roomqty=${rooms},${rooms},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)   
-    // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
+            .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId}&rateplanids=${planId},${planId}&extraids=0,0&roomqty=${roomQuantity},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)
+            // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
             .then(res => {
                 var json;
                 console.log(`statusCode: ${res.status}`);
@@ -322,50 +280,92 @@ app.post('/api/book', (req, response) => {
             })
             .catch(error => {
                 console.error(error)
-            })}
-            else if(rooms == 4){
-                rooms = 1;
-            axios
-                .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId},${roomId},${roomId}&rateplanids=${planId},${planId},${planId},${planId}&extraids=0,0&roomqty=${rooms},${rooms},${rooms},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)   
-        // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
-                .then(res => {
-                    var json;
-                    console.log(`statusCode: ${res.status}`);
-                    const xml = res.data;
-                    xml2js.parseString(xml, (err, result) => {
-                        if (err) {
-                            throw err;
-                        }
-                        json = JSON.stringify(result);
-                        //console.log(json);
-                        response.send(json);
-                    });
-                })
-                .catch(error => {
-                    console.error(error)
-                })}
-                else if(rooms == 5){
-                    rooms = 1;
-                axios
-                    .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId},${roomId},${roomId},${roomId}&rateplanids=${planId},${planId},${planId},${planId},${planId}&extraids=0,0&roomqty=${rooms},${rooms},${rooms},${rooms},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)   
+            })
+    } else if (rooms == 1) {
+        axios
+            .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)
             // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
-                    .then(res => {
-                        var json;
-                        console.log(`statusCode: ${res.status}`);
-                        const xml = res.data;
-                        xml2js.parseString(xml, (err, result) => {
-                            if (err) {
-                                throw err;
-                            }
-                            json = JSON.stringify(result);
-                            //console.log(json);
-                            response.send(json);
-                        });
-                    })
-                    .catch(error => {
-                        console.error(error)
-                    })}
-        
+            .then(res => {
+                var json;
+                console.log(`statusCode: ${res.status}`);
+                const xml = res.data;
+                xml2js.parseString(xml, (err, result) => {
+                    if (err) {
+                        throw err;
+                    }
+                    json = JSON.stringify(result);
+                    //console.log(json);
+                    response.send(json);
+                });
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    } else if (rooms == 3) {
+        rooms = 1;
+        axios
+            .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId},${roomId}&rateplanids=${planId},${planId},${planId}&extraids=0,0&roomqty=${rooms},${rooms},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)
+            // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
+            .then(res => {
+                var json;
+                console.log(`statusCode: ${res.status}`);
+                const xml = res.data;
+                xml2js.parseString(xml, (err, result) => {
+                    if (err) {
+                        throw err;
+                    }
+                    json = JSON.stringify(result);
+                    //console.log(json);
+                    response.send(json);
+                });
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    } else if (rooms == 4) {
+        rooms = 1;
+        axios
+            .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId},${roomId},${roomId}&rateplanids=${planId},${planId},${planId},${planId}&extraids=0,0&roomqty=${rooms},${rooms},${rooms},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)
+            // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
+            .then(res => {
+                var json;
+                console.log(`statusCode: ${res.status}`);
+                const xml = res.data;
+                xml2js.parseString(xml, (err, result) => {
+                    if (err) {
+                        throw err;
+                    }
+                    json = JSON.stringify(result);
+                    //console.log(json);
+                    response.send(json);
+                });
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    } else if (rooms == 5) {
+        rooms = 1;
+        axios
+            .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId},${roomId},${roomId},${roomId},${roomId}&rateplanids=${planId},${planId},${planId},${planId},${planId}&extraids=0,0&roomqty=${rooms},${rooms},${rooms},${rooms},${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=`)
+            // http://beapi.bookingwhizz.com/Connect.svc/xml/createreservation?userid=10002&password=YGiDp9ex0022019&accommodationid=${accommodationId}&roomids=${roomId}&rateplanids=${planId}&extraids=0,0&roomqty=${rooms}&checkin=${checkin}&checkout=${checkout}&booker_firstname=${uName}&booker_lastname=test&booker_email=${email}&booker_telephone=${phoneNo}&booker_street=eeqweqweqweqweqwe&booker_zipcode=2313123&booker_city=${uCity}&booker_country=PK&guest_qtys=${adults}&guest_names=${uName}&guest_emails=test test,qeqweqwe&guest_telephones=92232131231231&comments=dfdsfsdfdf&totalprice=${rate}&ratesbydate=2.00,2.00&payment_method=&charged_amount=0&reservation_type=&channelids=&promotion_code=&pms=0&pmsids=0&discounted_price=0.00&partnerid=BW&loyaltypoints=&loyaltydiscount=&membertype=&programname=&signupdate=&statuscode=&membership_id=&converted_currency=&converted_price=0.00&sourceid=Direct&profileid=0&multilanguageid=1&cc_no=
+            .then(res => {
+                var json;
+                console.log(`statusCode: ${res.status}`);
+                const xml = res.data;
+                xml2js.parseString(xml, (err, result) => {
+                    if (err) {
+                        throw err;
+                    }
+                    json = JSON.stringify(result);
+                    //console.log(json);
+                    response.send(json);
+                });
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
 
 });
 
@@ -374,7 +374,7 @@ app.post('/api/signup', (req, response) => {
     signupEmail = req.body.postEmail;
     var password1 = req.body.postPassword;
     var phone1 = req.body.postPhoneNo;
-    console.log(fullname1,signupEmail,password1,phone1);
+    console.log(fullname1, signupEmail, password1, phone1);
     axios
         .get(`https://www.roomph.pk/api/?user=roomph&pass=kI83bp0&method=register&firstname=${fullname1}&lastname=${fullname1}&email=${signupEmail}&password=${password1}`)
         .then(res => {
@@ -401,7 +401,7 @@ app.post('/api/signup', (req, response) => {
 app.post('/api/signin', (req, response) => {
     var email = req.body.postEmail;
     var password = req.body.postPassword;
-    console.log(email,password);
+    console.log(email, password);
     axios
         .get(`https://www.roomph.pk/api/?user=roomph&pass=kI83bp0&method=login&email=${email}&password=${password}`)
         .then(res => {
@@ -453,7 +453,7 @@ app.post('/api/forgot', (req, response) => {
             //       refreshToken: '1//04oWCsHbaKGrECgYIARAAGAQSNgF-L9IraZ5iJeDuwDPMTQ94u4FwoeESHlni6cM7vD3xcfsxAiqKbTMHS335eU6ltBsejcEbwQ'
             //     }
             //   });
-            
+
             //   let mailOptions = {
             //     from: 'a7lamusama@gmail.com',
             //     to: {email},

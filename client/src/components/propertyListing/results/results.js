@@ -10,6 +10,7 @@ import { BiMap } from "react-icons/bi";
 import Filter from './filter/filter';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Spinner from 'react-bootstrap/Spinner';
+import { Link } from "react-router-dom";
 
 const data = "Hello Everyone";
 var checkIn = '';
@@ -87,17 +88,18 @@ const Properties = ({ properties }) => {
             <p className="m-1" style={{ fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><b className="area"> {properties.CityName}</b></p>
             <p className="reviewCount dfl ml-2 float-right">{properties.UserRating}</p><p className="rev dfl mt-1" style={{ float: 'right', whiteSpace: 'nowrap', textAlign: 'right', margin: '0', padding: '0', lineHeight: '80%' }}><span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p style={{ fontFamily: 'Gotham Rounded Book', float: 'right', margin: '0', padding: '0', fontSize: '14px' }}><u>{properties.Rating} review</u></p>
             <br />
-            <p className="mt-lg-3 mb-1 mt-3 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Only {properties.MinRoomsAvailable} Left</span> <span className="rs float-right mt-1" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '16px' }}>Rs. {properties.MinRate}</span></p>
+            {properties.MinRate[0] ? <p className="mt-lg-3 mb-1 mt-4 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Only {properties.MinRoomsAvailable} Left</span> <span className="rs float-right mt-1" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '14px' }}>Rs. {Number(properties.MinRate[0]).toLocaleString()}</span></p> : <p className="mt-lg-3 mb-1 mt-4 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Fully Booked</span></p>}
           </Col>
         </Row>
 
       ))}
     </div>
-  )
+  ) 
 };
+
 export class Results extends Component {
   state = {
-    loading: false,properties: [], pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
+    loading: false, properties: [], pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
     post: '',
     responseToPost: '',
   };
@@ -109,7 +111,7 @@ export class Results extends Component {
         console.log(res);
         this.setState({
           properties: res.Success.result,
-          Count: res.Success.result[0].TotalCount,
+          Count: res.Success.result.length,
           CityName: res.Success.result[0].CityName
           // img: res.Success.result[0].AccommodationImages[0].URL[0]
         });
@@ -188,14 +190,17 @@ export class Results extends Component {
               </Row>
             </Col>
             <Col className='my-auto mx-auto'>
-              <div className="iitem float-right">
+              <div className="iitem float-right" onClick={() => {
+                this.props.history.push(`/map/${this.props.match.params.city}/${checkIn}/${checkOut}/${Adults}/${Rooms}`);
+              }}>
                 <BiMap className="mapPic" />
                 <span className="ccaption">Map</span>
               </div>
             </Col>
           </Row>
         </Container>
-       
+
+
         <Container fluid>
           <Row className="">
             <Col className="dfl">
@@ -240,7 +245,7 @@ export class Results extends Component {
             </Col>
           </Row> */}
           {this.state.loading ? <Properties properties={this.state.properties} /> : <Spinner animation="grow" />}
-          
+
           <Row className="mx-lg-5 mt-3 mx-auto justify-content-center" style={{ borderRadius: "10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
             <Col xs={2} lg={2} className="dfl my-auto pt-1" >
               <Image className="imgWid1 imgwid4" src={process.env.PUBLIC_URL + "/images/Asset36.svg"} width={100} alt="" fluid />
