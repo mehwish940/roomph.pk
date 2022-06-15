@@ -72,6 +72,8 @@ function Maps() {
 
 function ReturnBody(props) {
     // console.log(props.data)
+
+
     if (props.data.length > 0) {
         return props.data.map((res, index) => {
             var Price = res.MinRate[0];
