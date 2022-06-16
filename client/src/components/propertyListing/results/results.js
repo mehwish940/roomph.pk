@@ -88,6 +88,8 @@ const Properties = ({ properties }) => {
             {/* {console.log(properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL)} */}
             <CustomArrows className="dfl" imgSrc={properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL} />
           </Col>
+
+
           <Col style={{ padding: "8px 10px" }} className='hotel-details-container'>
             <div className="m-0 p-0">
              {console.log(properties.Cancellation)}
