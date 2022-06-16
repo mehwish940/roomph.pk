@@ -30,7 +30,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "#EF4E22", borderRadius: "10px 10px 10px 10px", marginRight: '15px', zIndex: '100' }}
+      style={{ ...style, display: "block", marginRight: '15px', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -41,7 +41,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "#EF4E22", borderRadius: "10px 10px 10px 10px", marginLeft: '15px', zIndex: '100' }}
+      style={{ ...style, display: "block", marginLeft: '15px', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -83,26 +83,42 @@ const Properties = ({ properties }) => {
     <div>
       {properties.map((properties, index) => (
 
-        < Row key={index.toString()} className="mx-auto mt-3" style={{ borderRadius: "10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
-          <Col className="dfl my-auto">
+        <Row key={index.toString()} className="mx-auto mt-3 hotel-card" style={{borderRadius: "10px", boxShadow: "0px 1px 2px 1px rgb(205, 206, 206)" }}>
+          <Col className="dfl">
             {/* {console.log(properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL)} */}
-            <CustomArrows imgSrc={properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL} />
+            <CustomArrows className="dfl" imgSrc={properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL} />
           </Col>
-          <Col className="">
-            <p className="dfl free mt-2" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>{properties.Cancellation} Cancellation</span></p>
-            <a className="dfl hotel mt-1 ml-md-2 ml-1" style={{ color: '#000 !important', fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '14px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</a>
-            <p className="m-1" style={{ fontSize: '13px',fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}>
-            {
-              Array.apply(null, {length: properties.Rating ? Number(properties.Rating[0]) : 0 }).map(Number.call, Number).map((item) => {
-                return <img key={item} src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" />
-              })
+          <Col style={{ padding: "8px 10px" }} className='hotel-details-container'>
+            <div className="m-0 p-0">
+             {console.log(properties.Cancellation)}
+              {properties.Cancellation[0]  ? <p className="dfl free" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>{properties.Cancellation} Cancellation</span></p> : ''}
+              <a className="dfl hotel mt-1 ml-md-2 ml-1" style={{ color: '#000 !important', fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '15px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</a>
+              <p style={{ fontSize: '13px', fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}>
+                {
+                  Array.apply(null, { length: properties.Rating ? Number(properties.Rating[0]) : 0 }).map(Number.call, Number).map((item) => {
+                    return <img key={item} src={process.env.PUBLIC_URL + "/images/starsred.svg"} className="imgWidr" alt="" />
+                  })
+                }
+                <b style={{ fontSize: '13px', fontFamily: 'Gotham Rounded Book' }}> {properties.CityName}</b></p>
 
-            }
-              <b className="area"> {properties.CityName}</b></p>
+            </div>
 
-            <p className="reviewCount dfl ml-2 float-right">{properties.UserRating}</p><p className="rev dfl mt-1" style={{ float: 'right', whiteSpace: 'nowrap', textAlign: 'right', margin: '0', padding: '0', lineHeight: '80%' }}><span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p style={{ fontFamily: 'Gotham Rounded Book', float: 'right', margin: '0', padding: '0', fontSize: '14px' }}><u>{properties.Rating} review{properties.Rating > 1 ? "s " : ' '}</u></p>
-            <br />
-            {properties.MinRate[0] ? <p className="mt-lg-3 mb-1 mt-4 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Only {properties.MinRoomsAvailable} Left</span> <span className="rs float-right mt-1" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '14px' }}>Rs. {Number(properties.MinRate[0]).toLocaleString()}</span></p> : <p className="mt-lg-3 mb-1 mt-4 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Fully Booked</span></p>}
+            <div style={{margin:'0px', padding:'0px'}}>
+              <div className="user-rating-container">
+                <p className="reviewCount dfl ml-2 float-right">{properties.UserRating}</p>
+                <div className="very-good">
+                    <span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span>
+                    <u>{properties.Rating} review{properties.Rating > 1 ? "s " : ' '}</u></div>
+              </div>
+
+              {properties.MinRate[0] ?
+                <div className="hotel-pricing-container">
+                  <span className="hotel-pricing-container-p">Only {properties.MinRoomsAvailable} Left</span>
+                  <span style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '20px' }}>Rs. {Number(properties.MinRate[0]).toLocaleString()}</span>
+                </div>
+                : <span className="hotel-pricing-container-p">Fully Booked</span>}
+            </div>
+
           </Col>
         </Row>
 
