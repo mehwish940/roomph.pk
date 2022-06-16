@@ -5,7 +5,7 @@ import history from '../../history';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import { withRouter } from "react-router-dom";
-import Slider1 from "react-slick";
+import Slider from "react-slick";
 import { BiMap } from "react-icons/bi";
 import Filter from './filter/filter';
 import Placeholder from 'react-bootstrap/Placeholder';
@@ -47,6 +47,17 @@ function SamplePrevArrow(props) {
   );
 }
 class CustomArrows extends Component {
+  slidersCont() {
+    return this.props.imgSrc.map((img, index) => {
+      return (
+        <div key={img}>
+          <img className="sliderImgs" src={img} alt="Crupt Image" />
+          {/* <img src={this.props.moreImgs} alt="Discount" height={"260px"} /> */}
+          {/* <img className="sliderImgs" src={process.env.PUBLIC_URL + "/images/City01.png"} alt="" /> */}
+        </div>)
+    })
+  }
+
   render() {
     const settings = {
       //dots: true,
@@ -58,43 +69,47 @@ class CustomArrows extends Component {
     };
     return (
       <div>
-        <Slider1 {...settings}>
-          <div>
-            <img className="sliderImgs" src={this.props.imgSrc} alt="" />
-            {/* <img className="sliderImgs" src={process.env.PUBLIC_URL + "/images/City01.png"} alt="" /> */}
-          </div>
-          <div>
-            <img className="sliderImgs" src={this.props.imgSrc} alt="" />
-            {/* <img src={this.props.moreImgs} alt="Discount" height={"260px"} /> */}
-            {/* <img className="sliderImgs" src={process.env.PUBLIC_URL + "/images/City01.png"} alt="" /> */}
-          </div>
-        </Slider1>
+        <Slider  {...settings}>
+          {this.slidersCont()}
+        </Slider>
       </div>
     );
   }
 }
+
 const Properties = ({ properties }) => {
+
   return (
     <div>
-      {properties.map((properties) => (
+      {properties.map((properties, index) => (
 
-        <Row className="mx-auto mt-3" style={{ borderRadius: "10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
+        < Row key={index.toString()} className="mx-auto mt-3" style={{ borderRadius: "10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
           <Col className="dfl my-auto">
-            <CustomArrows imgSrc={properties.ImageURL} />
+            {/* {console.log(properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL)} */}
+            <CustomArrows imgSrc={properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL} />
           </Col>
           <Col className="">
             <p className="dfl free mt-2" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>{properties.Cancellation} Cancellation</span></p>
-            <button className="dfl hotel mt-1 ml-md-2 ml-1" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '18px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</button>
-            <p className="m-1" style={{ fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><b className="area"> {properties.CityName}</b></p>
-            <p className="reviewCount dfl ml-2 float-right">{properties.UserRating}</p><p className="rev dfl mt-1" style={{ float: 'right', whiteSpace: 'nowrap', textAlign: 'right', margin: '0', padding: '0', lineHeight: '80%' }}><span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p style={{ fontFamily: 'Gotham Rounded Book', float: 'right', margin: '0', padding: '0', fontSize: '14px' }}><u>{properties.Rating} review</u></p>
+            <a className="dfl hotel mt-1 ml-md-2 ml-1" style={{ color: '#000 !important', fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '15px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</a>
+            <p className="m-1" style={{ fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}>
+            {
+              Array.apply(null, {length: properties.Rating ? Number(properties.Rating[0]) : 0 }).map(Number.call, Number).map((item) => {
+                return <img key={item} src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" />
+              })
+
+            }
+              <b className="area"> {properties.CityName}</b></p>
+
+            <p className="reviewCount dfl ml-2 float-right">{properties.UserRating}</p><p className="rev dfl mt-1" style={{ float: 'right', whiteSpace: 'nowrap', textAlign: 'right', margin: '0', padding: '0', lineHeight: '80%' }}><span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p style={{ fontFamily: 'Gotham Rounded Book', float: 'right', margin: '0', padding: '0', fontSize: '14px' }}><u>{properties.Rating} review{properties.Rating > 1 ? "s " : ' '}</u></p>
             <br />
             {properties.MinRate[0] ? <p className="mt-lg-3 mb-1 mt-4 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Only {properties.MinRoomsAvailable} Left</span> <span className="rs float-right mt-1" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '14px' }}>Rs. {Number(properties.MinRate[0]).toLocaleString()}</span></p> : <p className="mt-lg-3 mb-1 mt-4 dfl" style={{ whiteSpace: 'nowrap' }}><span className="left" style={{ backgroundColor: '#FF334F', color: '#fff', borderRadius: '30px', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', whiteSpace: 'nowrap' }}>Fully Booked</span></p>}
           </Col>
         </Row>
 
-      ))}
-    </div>
-  ) 
+      ))
+      }
+    </div >
+  )
 };
 
 export class Results extends Component {
