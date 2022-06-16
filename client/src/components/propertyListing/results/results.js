@@ -90,8 +90,8 @@ const Properties = ({ properties }) => {
           </Col>
           <Col className="">
             <p className="dfl free mt-2" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>{properties.Cancellation} Cancellation</span></p>
-            <a className="dfl hotel mt-1 ml-md-2 ml-1" style={{ color: '#000 !important', fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '15px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</a>
-            <p className="m-1" style={{ fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}>
+            <a className="dfl hotel mt-1 ml-md-2 ml-1" style={{ color: '#000 !important', fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '14px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</a>
+            <p className="m-1" style={{ fontSize: '13px',fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}>
             {
               Array.apply(null, {length: properties.Rating ? Number(properties.Rating[0]) : 0 }).map(Number.call, Number).map((item) => {
                 return <img key={item} src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" />
