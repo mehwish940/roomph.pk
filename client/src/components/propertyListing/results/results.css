@@ -294,3 +294,86 @@
     color: #fff;
     transform: translateY(-1px);
 }
+
+
+/* sort screen */
+
+.side-popup,
+.side-search-popup,
+.side-gender-popup,
+.filter-side-popup,
+.sort-popup {
+    /* right: -200%; */
+    transition: all 0.5s linear;
+}
+
+.sort-popup-hide {
+    right: -200%;
+}
+
+.sort-popup-show {
+    right: 0;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.z-index-999 {
+    z-index: 999;
+}
+
+.line-height-21 {
+    line-height: 21px;
+}
+
+.ft-18 {
+    font-size: 18px !important;
+}
+
+.z-index-999 {
+    z-index: 999;
+}
+
+.bg-orange {
+    background-color: #ff3d00;
+}
+
+.gr-medium {
+    font-family: 'gothamroundedmedium' !important;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.custom-control-label-sort {
+    width: 85%;
+}
+
+.custom-control-label-sort:before,
+.custom-control-label-sort:after {
+    right: -1.5rem;
+    left: unset;
+    border-radius: 0 !important;
+    color: #000 !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+}
+
+.custom-checkbox .custom-control-input-sort:checked~.custom-control-label-sort::after {
+    background-image: url(https://www.roomph.pk/mobile/images/checked.svg);
+    background-size: 100%;
+}
+
+.custom-control-label-sort:before,
+.custom-control-label-sort:after {
+    right: -1.5rem;
+    left: unset;
+    border-radius: 0 !important;
+    color: #000 !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+}

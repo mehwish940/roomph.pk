@@ -2,12 +2,12 @@ import React, { Component, useState, useCallback, useMemo, Fragment } from "reac
 import { Container, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./search.css";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import History from '../../history';
+// import History from '../../history';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 import { DateRange } from 'react-date-range';
@@ -41,9 +41,11 @@ var priceEnd = ' ';
 var rating = ' ';
 var premium = ' ';
 var category = '8';
-var hotel = ' ';
-var apartment = ' ';
-var guesthouse = ' ';
+var sortType = "0";
+var sortBy = "1";
+// var hotel = ' ';
+// var apartment = ' ';
+// var guesthouse = ' ';
 var Rooms = '';
 var diffDays = '';
 var monthsArr = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -476,8 +478,7 @@ export class Search extends Component {
     //this.setState({ responseToPost: body });
     //history.push(`/propertylisting/${post.code}`);
     console.clear();
-    console.log(JSON.stringify({ post: this.state.post }));
-    this.props.history.push(`/propertylisting/${citi}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`);
+    this.props.history.push(`/propertylisting/${citi}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}/${sortType}/${sortBy}`);
 
   };
 

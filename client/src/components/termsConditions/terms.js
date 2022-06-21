@@ -5,7 +5,7 @@ import { BiMap } from "react-icons/bi";
 import Footer from "../footer/Footer";
 import './terms.css';
 
-var monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+// var monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 export class Terms extends Component {
     myFunction = () => {
         var dots = document.getElementById("dots");

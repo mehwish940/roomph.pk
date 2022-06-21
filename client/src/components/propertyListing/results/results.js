@@ -11,6 +11,7 @@ import Filter from './filter/filter';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Spinner from 'react-bootstrap/Spinner';
 import { Link } from "react-router-dom";
+import Sorting from "./Sort/Sorting";
 
 const data = "Hello Everyone";
 var checkIn = '';
@@ -23,7 +24,8 @@ var priceEnd = '';
 var rating = '';
 var premium = '';
 var category = '';
-
+var sortType1 = "0";
+var sortBy1 = "1";
 var monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -35,7 +37,6 @@ function SampleNextArrow(props) {
     />
   );
 }
-
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -83,7 +84,7 @@ const Properties = ({ properties }) => {
     <div>
       {properties.map((properties, index) => (
 
-        <Row key={index.toString()} className="mx-auto mt-3 hotel-card" style={{borderRadius: "10px", boxShadow: "0px 1px 2px 1px rgb(205, 206, 206)" }}>
+        <Row key={index.toString()} className="mx-auto mt-3 hotel-card" style={{ borderRadius: "10px", boxShadow: "0px 1px 2px 1px rgb(205, 206, 206)" }}>
           <Col className="dfl">
             {/* {console.log(properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL)} */}
             <CustomArrows className="dfl" imgSrc={properties.AccommodationImages ? properties.AccommodationImages[0].URL : properties.ImageURL} />
@@ -92,8 +93,8 @@ const Properties = ({ properties }) => {
 
           <Col style={{ padding: "8px 10px" }} className='hotel-details-container'>
             <div className="m-0 p-0">
-             {console.log(properties.Cancellation)}
-              {properties.Cancellation[0]  ? <p className="dfl free" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>{properties.Cancellation} Cancellation</span></p> : ''}
+
+              {properties.Cancellation[0] ? <p className="dfl free" style={{ fontFamily: 'Montserrat Regular' }}><img src={process.env.PUBLIC_URL + "/images/Asset19.svg"} className="imgWid0" alt="" /> <span style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>{properties.Cancellation} Cancellation</span></p> : ''}
               <a className="dfl hotel mt-1 ml-md-2 ml-1" style={{ color: '#000 !important', fontFamily: 'Gotham Rounded Bold', background: 'none', border: 'none', fontSize: '15px', textAlign: 'left' }} onClick={() => history.push(`/propertydetails/${properties.CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${properties.AccommodationId}`)}>{properties.AccommodationName}</a>
               <p style={{ fontSize: '13px', fontFamily: 'Gotham Rounded Book', whiteSpace: 'nowrap' }}>
                 {
@@ -105,12 +106,12 @@ const Properties = ({ properties }) => {
 
             </div>
 
-            <div style={{margin:'0px', padding:'0px'}}>
+            <div style={{ margin: '0px', padding: '0px' }}>
               <div className="user-rating-container">
                 <p className="reviewCount dfl ml-2 float-right">{properties.UserRating}</p>
                 <div className="very-good">
-                    <span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span>
-                    <u>{properties.Rating} review{properties.Rating > 1 ? "s " : ' '}</u></div>
+                  <span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span>
+                  <u>{properties.Rating} review{properties.Rating > 1 ? "s " : ' '}</u></div>
               </div>
 
               {properties.MinRate[0] ?
@@ -136,6 +137,12 @@ export class Results extends Component {
     post: '',
     responseToPost: '',
   };
+  setStateOfParent = (properties) => {
+    this.setState({ properties: properties});
+  }
+ setStateOfParentloading= () => {
+    this.setState({loading: !this.state.loading });
+  }
   componentDidMount() {
     this.callApi()
       .then(res => {
@@ -146,7 +153,6 @@ export class Results extends Component {
           properties: res.Success.result,
           Count: res.Success.result.length,
           CityName: res.Success.result[0].CityName
-          // img: res.Success.result[0].AccommodationImages[0].URL[0]
         });
         this.setState({ loading: true })
       })
@@ -155,7 +161,6 @@ export class Results extends Component {
 
   callApi = async () => {
     checkIn = this.props.match.params.checkin;
-    //console.log(typeof this.props.match.params.checkin)
     checkOut = this.props.match.params.checkout;
     Adults = this.props.match.params.adults;
     Rooms = this.props.match.params.rooms;
@@ -165,13 +170,28 @@ export class Results extends Component {
     premium = this.props.match.params.premium;
     rating = this.props.match.params.rating;
     category = this.props.match.params.category;
-    //console.log(this.props.match.params.city);
+    sortType1 = this.props.match.params.sortType;
+    sortBy1 = this.props.match.params.sortBy;
+    console.log(sortBy1)
     const response = await fetch('/api/world', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms, postPriceStart: priceStart, postPriceEnd: priceEnd, postRating: rating, postPremium: premium, postCategory: category }),
+      body: JSON.stringify({
+        postCity: this.props.match.params.city,
+        postCheckIn: this.props.match.params.checkin,
+        postCheckOut: this.props.match.params.checkout,
+        postAdults: this.props.match.params.adults,
+        postRooms: this.props.match.params.rooms,
+        postPriceStart: priceStart,
+        postPriceEnd: priceEnd,
+        postRating: rating,
+        postPremium: premium,
+        postCategory: category,
+        sortType: sortType1,
+        sortBy: sortBy1
+      })
     })
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -232,8 +252,6 @@ export class Results extends Component {
             </Col>
           </Row>
         </Container>
-
-
         <Container fluid>
           <Row className="">
             <Col className="dfl">
@@ -251,11 +269,15 @@ export class Results extends Component {
             </Col>
           </Row>
           <Row className="mt-3">
+
             <Col xs={3}>
-              <button className="Buttons mt-3">Sort</button>
+              {/* <button className="Buttons mt-3">Sort</button> */}
+              <Sorting properties={this.state.properties} setStateOfParentloading={this.setStateOfParentloading} setStateOfParent={this.setStateOfParent}/>
+
             </Col>
             <Col xs={4} className="mt-3 float-left">
               <Filter city={this.props.match.params.city} checkIn={this.props.match.params.checkin} checkOut={this.props.match.params.checkout} rooms={this.props.match.params.rooms} adults={this.props.match.params.adults} nights={this.props.match.params.nights} />
+
             </Col>
           </Row>
           <Row className="mt-3">
@@ -296,5 +318,6 @@ export class Results extends Component {
     );
   }
 }
+
 
 export default withRouter(Results);

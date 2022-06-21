@@ -4,7 +4,6 @@ import "./Top.css";
 import Signin from '../../registeration/signin';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { FiUser } from "react-icons/fi";
@@ -69,9 +68,9 @@ export default function Topbar() {
             </div>
           </Col>
           <Col xxs={8} className="">
-            <div className="wrap">
-              <button className="mr-2 mt-1 signinBtn" onClick={user==''?handleOpen:''}>
-              {user == '' ? 'Sign In': 
+            <div className = "wrap">
+              <button className="mr-2 mt-1 signinBtn" onClick={user===''?handleOpen:''}>
+              {user === '' ? 'Sign In': 
               <div class="dropdownTopbar">
               <FiUser /><span className='ml-1'>{user}</span>
                 <div class="dropdown-contentTopbar">

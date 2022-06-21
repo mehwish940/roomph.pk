@@ -136,9 +136,11 @@ app.post('/api/world', (req, response) => {
     premium = req.body.postPremium;
     rating = req.body.postRating;
     category = req.body.postCategory;
-    console.log(rating, category, priceRangeStart, priceRangeEnd);
-    axios
-        .get(`http://beapi.bookingwhizz.com/Connect.svc/xml/getaccommodationsearchtest?userid=10002&password=YGiDp9ex0022019&accommodationids=&agentid=1&cityname=${city}&checkin=${checkin}&checkout=${checkout}&offset=0&Sortby=1&Sort=0&&multilanguageid=1&fullbook=1&rooms=${rooms}&adults=${adults}&pricerangestart=${priceRangeStart}&pricerangeend=${priceRangeEnd}&ratings=${rating}&propertycategory=${category}`)
+    var sort = req.body.sortType;
+    var sortBy = req.body.sortBy;
+    category = req.body.postCategory;
+    console.log(sort, sortBy);
+    axios.get(`http://beapi.bookingwhizz.com/Connect.svc/xml/getaccommodationsearchtest?userid=10002&password=YGiDp9ex0022019&accommodationids=&agentid=1&cityname=${city}&checkin=${checkin}&checkout=${checkout}&offset=0&Sortby=${sortBy}&Sort=${sort}&multilanguageid=1&fullbook=1&rooms=${rooms}&adults=${adults}&pricerangestart=${priceRangeStart}&pricerangeend=${priceRangeEnd}&ratings=${rating}&propertycategory=${category}`)
         .then(res => {
             var json;
             console.log(`statusCode0: ${res.status}`);

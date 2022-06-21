@@ -68,8 +68,8 @@ export default function Topbar() {
           </Col>
           <Col xxs={8} className="">
             <div className="wrap1">
-              <button className="mr-2 mt-1 signinBtn1" onClick={user==''?handleOpen:''}>
-              {user == '' ? 'Sign In': 
+              <button className="mr-2 mt-1 signinBtn1" onClick={user===''?handleOpen:''}>
+              {user === '' ? 'Sign In': 
               <div class="dropdownTopbar">
               <FiUser /><span className='ml-1'>{user}</span>
                 <div class="dropdown-contentTopbar">
