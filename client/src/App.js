@@ -9,27 +9,35 @@ import Thankyou from "./components/thankyou/thankyou";
 import Download from './components/header/download';
 import Terms from './components/termsConditions/terms';
 import AboutUs from './components/aboutus/aboutus';
+import Blogs from './components/blogs/blogs';
+import Bookings from './components/bookings/bookings';
+import Profile from './components/registeration/profile/profile';
+import SingleBlog from './components/blogs/singleBlog';
 import Maps from './components/Maps/Maps';
 import './App.css';
 
 class App extends Component {
-  
-render() {
+
+  render() {
     return (
       <div className="App">
         <Router history={history}>
-                  <Switch>
-                      <Route path="/" exact component={Home} />
-                      <Route path="/propertylisting/:city/:checkin/:checkout/:adults/:rooms/:nights/:priceStart/:priceEnd/:premium/:rating/:category/:sortType/:sortBy" component={PropertyListing} />
-                      <Route path="/propertydetails/:city/:checkin/:checkout/:adults/:rooms/:nights/:id" component={PropertyDetails} />
-                      <Route path="/customerinformation/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:roomId/:planId/:roomq/:rate" component={CustomerInformation} />
-                      <Route path="/thankyou/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:name/:email/:phone/:ucity/:promo/:roomId/:planId/:roomq/:rate" component={Thankyou} />
-                      <Route path="/terms" component={Terms} />
-                      <Route path="/aboutus" component={AboutUs} />
-                      <Route path="/map/:city/:checkin/:checkout/:adults/:rooms" component={Maps} />
-                      <Route path="/download" exact component={() => <Download />} />
-                  </Switch>
-          </Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/propertylisting/:city/:checkin/:checkout/:adults/:rooms/:nights/:priceStart/:priceEnd/:premium/:rating/:category" component={PropertyListing} />
+            <Route path="/propertydetails/:city/:checkin/:checkout/:adults/:rooms/:nights/:price/:id/:lat/:long" component={PropertyDetails} />
+            <Route path="/customerinformation/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:roomId/:planId/:roomq/:rate" component={CustomerInformation} />
+            <Route path="/thankyou/:city/:checkin/:checkout/:adults/:rooms/:nights/:id/:name/:email/:phone/:ucity/:promo/:roomId/:planId/:roomq/:rate" component={Thankyou} />
+            <Route path="/terms" component={Terms} />
+            <Route path="/aboutus" component={AboutUs} />
+            <Route path="/blogs" component={Blogs} />
+            <Route path="/singleblog" component={SingleBlog} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/bookings" component={Bookings} />
+            <Route path="/map/:city/:checkin/:checkout/:adults/:rooms" component={Maps} />
+            <Route path="/download" exact component={() => <Download />} />
+          </Switch>
+        </Router>
       </div>
     );
   }

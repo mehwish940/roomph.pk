@@ -5,6 +5,7 @@ import Signin from '../registeration/signin';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Link } from "react-router-dom";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { FiUser } from "react-icons/fi";
 
@@ -42,7 +43,7 @@ export default function Topbar() {
     setUser({});
     localStorage.clear();
     window.location.reload(false);
-};
+  };
   return (
     <section style={{ backgroundColor: "#EF4E22" }} className="p-1"   >
       <div>
@@ -60,23 +61,30 @@ export default function Topbar() {
       </div>
       <Container fluid>
         <Row>
-          <a href="/"><img className="roomphLogo ml-2" src={process.env.PUBLIC_URL + "/images/logo3.svg"} alt="logo" /></a>
-          <Col xxs={4} className="">
-            <div className="Deals1">
-              <button className="dealsBtn1">View Deals</button>
+          <a href="/" className='roomphAT'><img className="roomphLogoH" src={process.env.PUBLIC_URL + "/images/logo3.svg"} alt="logo" /></a>
+          <Col xs={4} lg={7} className="">
+            <div className="Deals">
+              <button className="dealsBtn1 d-lg-none">View Deals</button>
             </div>
           </Col>
-          <Col xxs={8} className="">
+          <Col xs={5} lg={3} className="headerContainer">
             <div className="wrap1">
-              <button className="mr-2 mt-1 signinBtn1" onClick={user===''?handleOpen:''}>
-              {user === '' ? 'Sign In': 
-              <div class="dropdownTopbar">
-              <FiUser /><span className='ml-1'>{user}</span>
-                <div class="dropdown-contentTopbar">
-                  <button className='dealsBtn1' onClick={handleOpen}>Profile</button><br />
-                  <button className='dealsBtn' onClick={handleLogout}>Logout</button>
-                </div>
-              </div>}
+              <button className="dealsBtn1 d-none d-lg-block">View Deals</button>
+              <button className="mr-2 mt-1 signinBtn1" onClick={user == '' ? handleOpen : ''}>
+                {user == '' ? 'Sign In' :
+                  <div class="dropdownTopbar">
+                    <FiUser className='profileIcon' /> {user} <RiArrowDropDownLine className='dropDownIcon' />
+                    <div class="dropdown-contentTopbar">
+                      {/* <button className='otherBtns' onClick={handleOpen}>Profile</button><br /> */}
+                      <Link to='/profile'>
+                        <button className='profileBtn1 text-center'>Profile</button><br />
+                      </Link><br className='topBreak' />
+                      <Link to='/bookings'>
+                        <button className='profileBtn1 text-center'>Bookings</button><br />
+                      </Link><br className='topBreak' />
+                      <button className='profileBtn1' onClick={handleLogout}>Logout</button>
+                    </div>
+                  </div>}
               </button>
               <Link className="d-lg-none" to="/download" target="_blank">
                 <button className="d-lg-none buttonApp1" >Use App</button>
@@ -84,8 +92,8 @@ export default function Topbar() {
             </div>
           </Col>
         </Row>
-      </Container >
-    </section >
+      </Container>
+    </section>
   );
 
 }

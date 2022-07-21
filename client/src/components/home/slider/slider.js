@@ -10,7 +10,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "#EF4E22", borderRadius: "10px 10px 10px 10px" }}
+      style={{ ...style, display: "block", marginRight: '15px', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -21,7 +21,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "#EF4E22", borderRadius: "10px 10px 10px 10px" }}
+      style={{ ...style, display: "block", marginLeft: '15px', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -36,7 +36,7 @@ export default class CustomArrows extends Component {
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ 
+      .then(res => this.setState({
         textt: res.express.Collection.Rows[0].banner_text
       }))
       .catch(err => console.log(err));
@@ -59,15 +59,15 @@ export default class CustomArrows extends Component {
       prevArrow: <SamplePrevArrow />
     };
     return (
-      <Container className="mb-3">
+      <Container className="sliderContainer" fluid>
         <Row className="justify-content-center">
-          <Col xs={11} lg={8} className="">
+          <Col xs={12} lg={12} className="">
             <div>
               <Slider {...settings}>
                 <div>
                   <div className="Slcontainer">
-                    <img className="disPic"  src="images/discount.png" alt="discounts" style={{borderRadius: "15px 15px 15px 15px" }} />
-                    <p className="Slcentered" style={{fontFamily:"Gotham Rounded Medium",fontSize:"16px"}}>{this.state.textt}</p>
+                    <img className="disPic" src="images/discount.png" alt="discounts" style={{ borderRadius: "15px 15px 15px 15px" }} />
+                    <p className="Slcentered" style={{ fontFamily: "Gotham Rounded Medium" }}>{this.state.textt}</p>
                   </div>
                 </div>
                 <div>

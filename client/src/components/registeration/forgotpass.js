@@ -1,27 +1,15 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import './registeration.css';
-import { FcGoogle } from "react-icons/fc";
-import { SiFacebook } from "react-icons/si";
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import ChangePassword from './changepassword';
-import { styled } from '@mui/material/styles';
-import { purple } from '@mui/material/colors';
-import Button from '@mui/material/Button';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 
 let handleOpen = false;
 let handleClose = true;
 
-const aButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    '&:hover': {
-        backgroundColor: purple[700],
-    },
-}));
 const style1 = {
     position: 'absolute',
     top: '50%',
@@ -29,7 +17,7 @@ const style1 = {
     transform: 'translate(-50%, -50%)',
     width: 370,
     overflow: 'scroll',
-    height: 550,
+    height: 400,
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
@@ -49,7 +37,7 @@ function BasicModal(props) {
                     aria-describedby="transition-modal-description"
                 >
                     <Box sx={{ ...style1, margin: 0 }}>
-                        <button onClick={handleClose} className="mt-2 ml-2" style={{ border: "none", background: "none" }}><MdOutlineKeyboardArrowLeft /></button>
+                        <button onClick={handleClose} className="" style={{ border: "none", background: "none", position:'absolute', top:5, left:5 }}><MdOutlineKeyboardArrowLeft /></button>
                         <ChangePassword />
                         {/* <div class="text-centerasse">
                 <button className="dateDoneBtn mb-3" type="submit" onClick={handleClose}>Done</button>

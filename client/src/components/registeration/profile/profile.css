@@ -1,0 +1,41 @@
+.profileHeading {
+    font-family: Gotham Rounded Medium;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.profileText {
+    font-family: Gotham Rounded Book;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.hrLine {
+    color: #A9A8AD;
+    background-color: #A9A8AD;
+    border-color: #A9A8AD;
+    margin-top: 5px;
+}
+
+.profileIconP {
+    color: #BBBBBE;
+    font-size: 70px;
+    margin-top: 10px;
+}
+
+.verified {
+    height: 20px;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-top: 4px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #fff;
+    background-color: #007234;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}

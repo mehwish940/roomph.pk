@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AOS from "aos";
+import Spinner from 'react-bootstrap/Spinner';
 import "aos/dist/aos.css";
 import Topbar from "../header/Topbar";
 import Footer from "../footer/Footer";
@@ -12,6 +12,7 @@ import History from "../history";
 let checkIn = '';
 let checkOut = '';
 var Adults = '';
+var rate = '';
 var Rooms = '';
 var nights = '';
 var monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -19,54 +20,21 @@ var monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", 
 //Getting Property Details
 let idd = '';
 
-const Properties = ({ properties }) => {
+const Tax = ({ taxdetail }) => {
   return (
     <div>
-      {properties.map((properties) => {
-        if (properties.AccommodationId == idd) {
-          return <Container className="mt-2 pl-3" style={{ backgroundColor: '#f6f6f6', borderRadius: '10px' }}>
-            <Row>
-              <Col className="mt-3 pr-0" xs={5}>
-                <button className="BButton" type="button" style={{ fontFamily: 'JTMarnie Light' }}> Best Seller </button>
-                <h6 className="mt-2 m-0" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '16px' }}>{properties.AccommodationName}</h6>
-                <img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidr" alt="" />
-                <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}>
-                  <b>{properties.Address}</b>
-                </p>
-              </Col>
-              <Col className="mt-3" xs={7}>
-                <img className="" style={{ borderRadius: '15px' }} src={properties.ImageURL} alt="Room" width={"180px"} height={"110px"} />
-              </Col>
-              <Col className="" xs={12}>
-                <p className="m-0 p-0" style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px' }}>
-                  <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-in: </span> <b>{checkIn.substring(7)}th {monthsArr[checkIn.slice(5, -3) - 1]}{monthsArr[checkIn.slice(5, -2) - 1]} {checkIn.substring(0, 4)}, {(new Date(checkIn)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
-                  <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-out: </span> <b> {checkOut.substring(7)}th  {monthsArr[checkOut.slice(5, -3) - 1]}{monthsArr[checkOut.slice(5, -2) - 1]} {checkOut.substring(0, 4)}, {(new Date(checkOut)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
-                  <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}> Stay: </span>  <b> {nights} Nights, {Rooms} Rooms, {Adults} Adults</b>
-                </p>
-              </Col>
-            </Row>
-            <hr style={{ color: '#000000', backgroundColor: '#000000', borderColor: '#000000' }} />
-            <Row>
-              <Col xs={6}>
-                <p style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px', whiteSpace: 'nowrap' }}>
-                  <span style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>{Rooms} Room ({nights} Nights): </span><b>Rs. 50,500</b> <br />
-                  <span style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Tax (16% G.S.T.): </span><b> Rs. 8,800</b>
-                </p>
-              </Col>
-              <Col xs={6} className="my-auto">
-                <p className="ml-2" style={{ fontSize: '7px', fontFamily: 'JTMarnie Light', color: '#fff', whiteSpace: 'nowrap' }}><span style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f', padding: '5px' }}>Free Breakfast</span> <span style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f', padding: '5px', whiteSpace: 'nowrap' }}>Book Now Pay Later</span> </p>
-              </Col>
-            </Row>
-          </Container>;
-        }
-        return null;
-      })}
+      {taxdetail.map((tax, index) => (
+        <p key={index} className="m-0 p-0" style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px', whiteSpace: 'nowrap' }}>
+          <span style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Tax ({tax.$.TaxPercent} {tax.$.TaxName}): </span><b> Rs. {tax.$.TaxPercent * rate / 100}</b>
+        </p>
+      )
+      )}
     </div>
   )
 };
 class CustomerInformation extends Component {
   state = {
-    properties: [], name: "", email: "", reEmail: "", phoneNo: "", uCity: "", promoCode: "", pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
+    loading: false, tax: [], properties: [], loading: false, name: "", email: "", reEmail: "", phoneNo: "", uCity: "", promoCode: "", pImgs: [], CityName: '', Cancellation: '', Count: '', img: '',
     post: '',
     responseToPost: '',
   };
@@ -125,29 +93,45 @@ class CustomerInformation extends Component {
         //const json = JSON.stringify(res);
         console.log(res);
         this.setState({
-          properties: res.Success.result,
-          Count: res.Success.result[0].TotalCount,
-          CityName: res.Success.result[0].CityName
+          facilities: res.getHotels.Success[0].Result[0].hotelExtras[0].Facility,
+          logo: res.getHotels.Success[0].Result[0].LogoURL,
+          hotelName: res.getHotels.Success[0].Result[0].AccommodationName,
+          price: res.getHotels.Success[0].Result[0].Max_MinRate,
+          address: res.getHotels.Success[0].Result[0].Address,
+          rating: res.getHotels.Success[0].Result[0].Rating,
+          userRating: res.getHotels.Success[0].Result[0].UserRating,
+          description: res.getHotels.Success[0].Result[0].GeneralDescription,
+          nearby: res.getHotels.Success[0].Result[0].NearbyAreas,
+          img1: res.getHotels.Success[0].Result[0].hotelImages[0]?.Image_URLs[0].$.Image_URL,
+          img2: res.getHotels.Success[0].Result[0].hotelImages[0]?.Image_URLs[1].$.Image_URL,
+          img3: res.getHotels.Success[0].Result[0].hotelImages[0]?.Image_URLs[2].$.Image_URL,
+          img4: res.getHotels.Success[0].Result[0].hotelImages[0]?.Image_URLs[3].$.Image_URL,
+          img5: res.getHotels.Success[0].Result[0].hotelImages[0]?.Image_URLs[4].$.Image_URL,
+          tax: res.getHotels.Success[0].Result[0].hoteltaxes[0].Tax,
+          //CityName: res.Success.result[0].CityName
           // img: res.Success.result[0].AccommodationImages[0].URL[0]
-        })
+        });
+        this.setState({ loading: true });
       })
       .catch(err => console.log(err));
   }
-
   callApi = async () => {
+
     idd = this.props.match.params.id;
+    rate = this.props.match.params.rate;
     checkIn = this.props.match.params.checkin;
     checkOut = this.props.match.params.checkout;
     Adults = this.props.match.params.adults;
     Rooms = this.props.match.params.rooms;
     nights = this.props.match.params.nights;
     console.log(this.props.match.params.city);
-    const response = await fetch('/api/checkout', {
+    console.log(JSON.parse(this.props.match.params.planId))
+    const response = await fetch('/api/hotelDetails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ postCity: this.props.match.params.city, postCheckIn: this.props.match.params.checkin, postCheckOut: this.props.match.params.checkout, postAdults: this.props.match.params.adults, postRooms: this.props.match.params.rooms }),
+      body: JSON.stringify({ postHotelId: idd }),
     })
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -161,13 +145,50 @@ class CustomerInformation extends Component {
         <Topbar />
         <section className="">
           <Steps />
-          <Properties properties={this.state.properties} />
+          {/* {this.state.loading ? <Properties properties={this.state.properties} /> : <Spinner className="ml-3 mt-3" animation="grow" />} */}
           <Container className="mb-3">
             <Row>
               <Col>
                 <p className="mt-3 p-2 para" style={{ width: '100%', backgroundColor: '#FF5D47', color: '#fff', borderRadius: '10px', fontFamily: 'Montserrat Regular' }}><u>Sign up</u> and get 20% off on your first booking.</p>
               </Col>
             </Row>
+            {this.state.loading ? <Container className=" pl-1" style={{ backgroundColor: '#f6f6f6', borderRadius: '10px' }}>
+              <Row>
+                <Col className="pr-0" xs={5}>
+                  <button className="BButton" type="button" style={{ fontFamily: 'JTMarnie Light' }}> Best Seller </button>
+                  <h6 className="mt-2 m-0" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '16px' }}>{this.state.hotelName}</h6>
+                  {Array.apply(null, { length: this.state.rating ? Number(this.state.rating) : 0 }).map(Number.call, Number).map((item) => {
+                    return <img key={item} src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" />
+                  })}
+                  <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}>
+                    <b>{this.state.address}</b>
+                  </p>
+                </Col>
+                <Col className="mt-3" xs={7}>
+                  <img className="" style={{ borderRadius: '15px' }} src={this.state.img1} alt="" width={"180px"} height={"110px"} />
+                </Col>
+                <Col className="" xs={12}>
+                  <p className="m-0 p-0" style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px' }}>
+                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-in: </span> <b>{checkIn.substring(7)}th {monthsArr[checkIn.slice(5, -3) - 1]}{monthsArr[checkIn.slice(5, -2) - 1]} {checkIn.substring(0, 4)}, {(new Date(checkIn)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
+                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-out: </span> <b>{checkOut.substring(7)}th  {monthsArr[checkOut.slice(5, -3) - 1]}{monthsArr[checkOut.slice(5, -2) - 1]} {checkOut.substring(0, 4)}, {(new Date(checkOut)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
+                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}> Stay: </span>  <b> {nights} Nights, {Rooms} Rooms, {Adults} Adults</b>
+                  </p>
+                </Col>
+              </Row>
+              <hr style={{ color: '#000000', backgroundColor: '#000000', borderColor: '#000000' }} />
+              <Row>
+                <Col xs={6}>
+                  <p style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px', whiteSpace: 'nowrap' }}>
+                    <span style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>{Rooms} Room ({nights} Nights): </span><b>Rs. {this.props.match.params.rate.split('.')[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}</b> <br />
+                    <Tax taxdetail={this.state.tax} />
+                  </p>
+                </Col>
+                <Col xs={6} className="my-auto">
+                  <p className="ml-2" style={{ fontSize: '7px', fontFamily: 'JTMarnie Light', color: '#fff', whiteSpace: 'nowrap' }}><span style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f', padding: '5px' }}>Free Breakfast</span> <span style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f', padding: '5px', whiteSpace: 'nowrap' }}>Book Now Pay Later</span> </p>
+                </Col>
+              </Row>
+            </Container> : <Spinner className="mb-3" animation="grow" />}
+
             <div style={{ borderRadius: "15px 15px 30px 30px", border: "1px solid rgb(203, 203, 203)" }}>
               <Row className="mx-auto">
                 <Col xs={12} className="regFrom">

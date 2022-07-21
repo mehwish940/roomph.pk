@@ -1,17 +1,35 @@
-.upperText{
+.upperText {
     font-family: Montserrat Bold;
     font-size: 14px;
 }
-.lowerText{
+
+.lowerText {
     font-family: Montserrat Thin;
     font-size: 15px;
 }
 
 @media screen and (min-width: 500px) {
-    .upperText{
-        font-size: 20px;
+    .upperText {
+        font-size: 18px;
     }
-    .lowerText{
-        font-size: 21px;
+
+    .lowerText {
+        font-size: 19px;
     }
-  }
+}
+
+.downloadAppContainer {
+    margin-top: 25px;
+    margin-bottom: 30px;
+    margin-left: 17px;
+    margin-right: 17px;
+}
+
+@media screen and (min-width: 480px) {
+    .downloadAppContainer {
+        width: 85%;
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+
+}

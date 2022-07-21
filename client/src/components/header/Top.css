@@ -1,7 +1,9 @@
 @import "../../font.css";
+
 .roomphLogo {
   width: 80%;
 }
+
 @media screen and (min-width: 570px) {
   .roomphLogo {
     padding: 0;
@@ -31,11 +33,11 @@
 .dealsBtn1 {
   width: 80px;
   height: 21px;
-  font-size: 11px;
+  font-size: 12px;
   padding-top: 3px;
   font-family: Roboto Light;
   letter-spacing: 1px;
-  font-weight: 250;
+  font-weight: 600;
   color: #EF4E22;
   background-color: #fff;
   border: none;
@@ -45,21 +47,25 @@
   cursor: pointer;
   outline: none;
 }
+
 .dealsBtn1:focus {
   outline: none;
 }
 
 .dealsBtn1:hover {
-  background-color: #2EE59D;
+  background-color: #fca527;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   outline: none;
   transform: translateY(-1px);
 }
-@media screen and (min-width: 570px) {
+
+@media screen and (min-width: 480px) {
   .dealsBtn1 {
-    margin-left: 50px;
+    width: 100px;
     height: 25px;
+    margin-right: 15px;
+    margin-top: 5px;
   }
 }
 
@@ -68,10 +74,10 @@
   font-weight: 600;
   font-size: 12px;
   border: none;
-  color: #fff; 
-  background-color: #EF4E22; 
-  border-color: white; 
-  white-space:nowrap;
+  color: #fff;
+  background-color: #EF4E22;
+  border-color: white;
+  white-space: nowrap;
 }
 
 .signinBtn1:focus,
@@ -102,6 +108,7 @@
   cursor: pointer;
   outline: none;
 }
+
 .wrap1 a:link,
 .wrap1 a:visited {
   background-color: #EF4E22;
@@ -126,10 +133,83 @@
 .dropdown-contentTopbar {
   display: none;
   position: absolute;
-  margin-left: -7px;
+  margin-left: -5px;
   z-index: 1;
 }
 
 .dropdownTopbar:hover .dropdown-contentTopbar {
   display: block;
+}
+
+@media screen and (min-width: 480px) {
+  .dropdown-contentTopbar {
+    margin-left: 15px;
+  }
+}
+
+.dropDownIcon {
+  font-size: 16px;
+  margin-left: -5px;
+}
+
+.profileIcon {
+  font-size: 13px;
+  margin-top: -2px;
+  margin-right: -2px;
+}
+
+.profileBtn {
+  width: 80px;
+  height: 21px;
+  font-size: 12px;
+  padding-top: 3px;
+  font-family: Roboto Light;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border: none;
+  border-bottom: 1px solid #fff;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.profileBtn:focus {
+  outline: none;
+}
+
+.profileBtn:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.otherBtns {
+  width: 80px;
+  height: 21px;
+  font-size: 12px;
+  padding-top: 3px;
+  font-family: Roboto Light;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #EF4E22;
+  background-color: #fff;
+  border: none;
+  border-bottom: 2px solid #EF4E22;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.otherBtns:focus {
+  outline: none;
+}
+
+.otherBtns:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
 }

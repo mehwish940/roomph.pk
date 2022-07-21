@@ -1,112 +1,395 @@
+.hotN {
+  vertical-align: -webkit-baseline-middle;
+}
+
+.addressCont {
+  margin-top: -3px;
+}
+
 .Button {
-    width: 80px;
-    height: 20px;
-    font-size: 9px;
-    font-weight: 500;
-    color: #fff;
-    background-color: #856ac5;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    }
-  .imgWidD{
-    vertical-align: text-bottom;
-    width: 6vw;
-  }
-  .Button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-1px);
+  width: 80px;
+  height: 20px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #856ac5;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.imgWidD {
+  vertical-align: -webkit-baseline-middle;
+  width: 6vw;
+}
+
+.Button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+@media screen and (min-width: 480px) {
+  .Button {
+    margin-left: 100px;
   }
 
+  .hotN {
+    margin-left: 100px;
+  }
+
+  .PDPrice {
+    margin-right: 100px;
+  }
+}
+
+.DSearchButton {
+  position: fixed;
+  top: 95%;
+  left: 10%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 80%;
+  height: 28px;
+  font-size: 14px;
+  font-family: Gotham Rounded Bold;
+  color: #fff;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  background-color: #EF4E22;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  z-index: 1000;
+}
+
+.DSearchButton:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.newFull {
+  margin-left: 25px;
+  margin-right: 15px;
+}
+
+@media screen and (min-width: 480px) {
   .DSearchButton {
-    width: 100%;
-    height: 28px;
-    font-size: 14px;
-    font-family: Gotham Rounded Bold;
-    color: #fff;
-    margin: 0 auto;
-    padding: 0;
-    display: inline-block;
-    line-height: 30px;
-    text-align: center;
-    background-color: #EF4E22;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    }
-  
-    .DSearchButton:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-1px);
+    width: 40%;
+    margin-left: 240px;
   }
-  .facility{
-    vertical-align: middle;
-  }
-  .facility1{
-    vertical-align: text-bottom;
-  }
-  .dropbtn {
-    background-color: #fff;
-    color: black;
-    padding: 2px;
-    padding-left: 10px;
-    border-radius: 0px 10px 10px 10px;
-    border: 1px solid rgb(205, 206, 206);
-    box-shadow: 2px 2px 2px 2px rgb(205, 206, 206);
-    font-size: 12px;
-    border: none;
-    border-radius: 15px;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 85px;
-    border-radius: 10px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #b0b0b0;}
 
-  .reviewCount1{
-    background-image: url('./Asset20rev.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 5px;
-    padding-top: 10px;
-    margin-top: -4px;
-    font-size: 14px;
-    color: #ff3d00;
-    font-weight:900;
- }
- .price{
-   margin-top: 2px;
- }
+  .newFull {
+    margin-left: -150px;
+  }
+}
+
+.facility {
+  vertical-align: middle;
+}
+
+.facility1 {
+  vertical-align: text-bottom;
+}
+
+
+.dropbtn {
+  background-color: #fff;
+  color: black;
+  padding: 2px;
+  padding-left: 10px;
+  border-radius: 0px 10px 10px 10px;
+  border: 1px solid rgb(205, 206, 206);
+  box-shadow: 2px 2px 2px 2px rgb(205, 206, 206);
+  font-size: 12px;
+  border: none;
+  border-radius: 15px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 85px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: black;
+  text-align: center;
+  border: none;
+  padding-left: 50%;
+  outline: none;
+  font-family: Montserrat Regular;
+  background: none;
+  display: block;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #b0b0b0;
+}
+
+.dropbtn::after .dropdown-content {
+  display: none;
+}
+
+.reviewCount1 {
+  background-image: url('./Asset20rev.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  background-size: cover;
+  font-size: 11px;
+  color: #ff3d00;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  margin-top: -12px;
+  margin-left: -8px;
+}
+
+#popover-basic {
+  margin-top: 30px;
+}
+
+.topCitiesBtns {
+  border: none;
+  background: none;
+  display: block;
+  font-family: Montserrat Regular;
+  color: #EF4E22;
+}
+
+.mapHeading {
+  margin: 0;
+  padding: 0;
+}
+
+.availableRoomsCont {
+  padding: 0;
+}
+
+.reviewCont {
+  height: 200px;
+}
+
+@media screen and (min-width: 480px) {
+  .reviewCount1 {
+    margin-left: 100px;
+  }
+
+  .mapHeading {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .mapWidHeightPD {
+    margin-left: 100px;
+  }
+
+  .addressC {
+    margin-left: 100px;
+  }
+
+  .availableRoomsCont {
+    width: 940px;
+  }
+
+  .personIcons {
+    margin-left: 400px;
+  }
+
+  .reviewCont {
+    width: 320px;
+  }
+}
+
+.price {
+  margin-top: 2px;
+}
+
+.roomBottom {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: -20px;
+}
+
+.revText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+
+
+.priceContain {
+  margin-top: 0px;
+}
+
+.mapPic {
+  color: #fff;
+  margin-right: 18px;
+}
+
+.mapp {
+  background-image: linear-gradient(to right, rgba(6, 33, 82, .4), rgba(6, 33, 82, .4)), url('./map.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid rgb(205, 206, 206);
+  border-radius: 25px 25px 25px 25px;
+}
+
+.ccaption {
+  color: #fff;
+  font-weight: 900;
+  margin-right: 16px;
+  margin-top: -5px;
+  height: 20px;
+}
+
+.CarouselImg {
+  height: 200px;
+}
+
+.vAllBtn {
+  margin-left: 15px;
+}
+
+@media screen and (min-width: 480px) {
+  .mapp {
+    height: 70px;
+  }
+
+  .mapPic {
+    margin-top: 10px;
+    margin-left: -25px;
+    font-size: 30px;
+  }
+
+  .ccaption {
+    margin-right: 45px;
+  }
+
+  .CarouselImg {
+    height: 300px;
+  }
+
+  .CarouselImg1 {
+    height: 100px;
+  }
+
+  .vAllBtn {
+    margin-left: 120px;
+  }
+}
+
+
+
+/* Dropdown */
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+.dropdown-btn {
+  font-size: 12px;
+  background: none;
+  border-radius: 15px;
+  border: 1px solid rgb(205, 206, 206);
+  box-shadow: 2px 2px 2px 2px rgb(205, 206, 206);
+  padding-left: 5px;
+  height: 20px;
+  cursor: pointer;
+  font-family: Montserrat Regular;
+}
+
+.ddicon {
+  padding-bottom: 3px;
+}
+
+.dropdown-btn:hover,
+.dropdown-btn:focus {
+  background: #f2f2f2;
+}
+
+.dropdown-items {
+  position: absolute;
+  font-family: Montserrat Regular;
+  background-color: #f1f1f1;
+  min-width: 85px;
+  border-radius: 10px;
+  margin-left: -5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-item {
+  padding-top: 0px;
+  text-align: center;
+  padding-bottom: 0px;
+  cursor: pointer;
+  font-family: Montserrat Regular;
+}
+
+.dropdown-item:not(first-child) {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.dropdown-item:not(last-child) {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.isVisible {
+  visibility: visible;
+}
+
+.isHidden {
+  visibility: hidden;
+}
+
+.revD {
+  margin-top: -6px;
+  margin-left: -8px;
+}

@@ -13,11 +13,11 @@ class PropertDetails extends React.Component {
   }
   render() {
     return (
-        <div className="SearchResultsPage">
-          <Topbar />
-          <Description />
-          <Footer />
-        </div>
+      <div className="SearchResultsPage">
+        <Topbar />
+        <Description />
+        <Footer />
+      </div>
     );
   }
 }

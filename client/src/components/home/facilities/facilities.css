@@ -1,79 +1,149 @@
 @import "../../../font.css";
+
 .All {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 480px) {
+  .All {
+    margin-top: -10px;
+    margin-left: -60px;
   }
-  .Fc h5{
-    font-family: Montserrat Bold;
-    font-size: 22px;
-    white-space: nowrap;
-  }
-  .fcolumn {
-    float: center;
-    width: 70%;
-    padding: 5px;
+}
+
+.Fc h5 {
+  font-family: Montserrat Bold;
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+.fcolumn {
+  float: center;
+  width: 70%;
+  padding: 5px;
+}
+
+.FT {
+  font-family: Gotham Medium;
+  font-size: 18px;
+}
+
+.Constit {
+  font-family: Montserrat Bold;
+  font-size: 16px;
+}
+
+/* Clearfix (clear floats) */
+.frow::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.column {
+  float: left;
+  width: 10.33%;
+}
+
+.starPict {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.column p {
+  text-align: left;
+  width: 670%;
+  height: 100%;
+  margin-left: 5px;
+  font-family: Montserrat Thin;
+  font-size: 15px;
+  align-items: top;
+}
+
+@media screen and (min-width:480px) {
+  .ncolo {
+    margin-right: -40px;
   }
 
-  .FT{
-    font-family: Gotham Medium;
+  .column p {
     font-size: 18px;
   }
-  .Constit {
-    font-family: Montserrat Bold;
-    font-size: 16px;
+
+  .facCont1 {
+    margin-left: 50px;
+    margin-top: -15px;
   }
-  /* Clearfix (clear floats) */
-  .frow::after {
-    content: "";
-    clear: both;
-    display: table;
+
+  .FT {
+    font-size: 15px;
+    margin-left: -10px;
   }
-  .column {
-    float: left;
-    width: 10.33%;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#borderM {
+  border: 1px solid rgb(201, 201, 201);
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  height: 42px;
+}
+
+@media screen and (min-width:470px) {
+  #borderM {
+    height: 100%;
   }
-  .starPict{
-    display: block;
-    width: 100%;
-    height: auto;
+}
+
+.hrLine {
+  color: rgb(179, 179, 179);
+  border-color: rgb(179, 179, 179);
+}
+
+.hrLineOrange {
+  color: #FF9400;
+  border-color: #FF9400;
+}
+
+@media screen and (min-width:480px) {
+  .hrLine {
+    color: rgb(179, 179, 179);
+    border-color: rgb(179, 179, 179);
+    width: 85%;
+    margin-left: 80px;
   }
-  @media screen and (max-width:480px) {
-    .column p{
-      text-align: left;
-      width: 670%;
-      height: 100%;
-      margin-left: 5px;
-      font-family: Montserrat Thin;
-      font-size: 15px;
-      align-items: top;
-    }
-  }
-  @media screen and (min-width:480px) {
-    .column p{
-      text-align: left;
-      width: 670%;
-      height: 100%;
-      margin-left: 5px;
-      display: flex;
-      font-family: Gotham Rounded Book;
-      justify-content: left;
-      align-items: center;
-    }
-  }
-  /* Clearfix (clear floats) */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  #borderM{
-    border: 1px solid rgb(201, 201, 201);
-    border-left: none; 
-    border-top: none; 
+
+  .hrLineOrange {
+    color: #FF9400;
+    border: 2px solid#FF9400;
+    border-left: none;
+    border-right: none;
     border-bottom: none;
-    height:42px;
+    width: 900px;
+    margin-left: 130px;
   }
-  @media screen and (min-width:470px) {
-    #borderM{
-      height:100%;
-    }
+
+  .facilitiesContainer {
+    margin-top: 45px;
+    margin-bottom: 6px;
   }
+
+  .column img {
+    width: 60%;
+  }
+
+  .sp1 {
+    margin-left: 60px;
+  }
+
+  .sp2 {
+    margin-left: 30px;
+  }
+}

@@ -4,14 +4,14 @@ import './blog.css';
 
 export class Blogs extends Component {
   state = {
-    blogImage: '',ShortDescription: '',
+    blogImage: '', ShortDescription: '',
     post: '',
     responseToPost: '',
   };
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ 
+      .then(res => this.setState({
         blogImage: res.express.Collection.Rows[0].Image,
         ShortDescription: res.express.Collection.Rows[0].ShortDescription
       }))
@@ -28,49 +28,49 @@ export class Blogs extends Component {
   render() {
     return (
       <section className="mb-3 mt-2">
-        <Container className="">
+        <Container className="" fluid>
           <Row>
-            <Col className="blH text-center mb-3">
-              <h4>Get Inspiration</h4>
+            <Col className="blH text-center mb-2 mt-lg-2">
+              <h4 className="mt-lg-2 mb-lg-4">Get Inspiration</h4>
             </Col>
           </Row>
-          <Row className="mx-auto justify-content-center">
-            <Col xs={6} lg={3} md={3} className="text-md-center m-0 p-0">
+          <Row className="RRR justify-content-center">
+            <Col xs={6} lg={4} md={4} className="text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
-                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>
-                  <a href="/"><p className="mt-1">{this.state.ShortDescription}</p></a>
+                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar" />
+                  <a href="/singleblog"><p className="mt-1">{this.state.ShortDescription}</p></a>
                 </div>
               </div>
             </Col>
-            <Col xs={6} lg={3} md={3} className="text-md-center m-0 p-0">
+            <Col xs={6} lg={4} md={4} className="text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
-                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>
-                  <a href="/"><p className="mt-1">{this.state.ShortDescription}</p></a>
+                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar" />
+                  <a href="/singleblog"><p className="mt-1">{this.state.ShortDescription}</p></a>
                 </div>
               </div>
             </Col>
-            <Col lg={3} md={3} className="d-none d-md-block d-lg-block text-md-center m-0 p-0">
+            <Col lg={4} md={4} className="d-none d-md-block d-lg-block text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
-                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>
-                  <a href="/"><p className="mt-1">{this.state.ShortDescription}</p></a>
+                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar" />
+                  <a href="/singleblog"><p className="mt-1">{this.state.ShortDescription}</p></a>
                 </div>
               </div>
             </Col>
-            <Col lg={3} md={3} className="d-none d-md-block d-lg-block text-md-center m-0 p-0">
+            {/* <Col lg={4} md={4} className="d-none d-md-block d-lg-block text-md-center m-0 p-0">
               <div className="bcard">
                 <div className="bcontainer">
-                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar"/>
-                  <a href="/"><p className="mt-1">{this.state.ShortDescription}</p></a>
+                  <img className="imh" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Avatar" />
+                  <a href="/singleblog"><p className="mt-1">{this.state.ShortDescription}</p></a>
                 </div>
               </div>
-            </Col>
+            </Col> */}
           </Row>
           <Row>
-            <Col className="text-center bl mt-3">
-              <a href="/" className="viewAllBtn"><u>View All</u></a>
+            <Col className="text-center bl">
+              <a href="/blogs" className="viewAllBtn"><u>View All</u></a>
             </Col>
           </Row>
 

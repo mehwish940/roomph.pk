@@ -6,8 +6,8 @@ import './download.css';
 export class DownloadApp extends Component {
   render() {
     return (
-      <section className="mb-3 mt-3 ml-3 mr-3" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid rgb(203, 203, 203)" }}>
-        <Container>
+      <section className="downloadAppContainer mx-lg-auto" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid rgb(203, 203, 203)" }}>
+        <Container className="">
           <Row>
             <Col xs={12} className="text-center mt-3">
               <h6 className="upperText">Download the app to unlock member deals</h6>

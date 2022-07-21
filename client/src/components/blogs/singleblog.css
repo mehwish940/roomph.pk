@@ -1,0 +1,13 @@
+.blogDescription {
+    text-align: justify;
+    font-family: Montserrat Regular;
+    font-size: 13px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.imh2 {
+    display: block;
+    width: 100%;
+    height: auto;
+}

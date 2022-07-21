@@ -1,9 +1,13 @@
 .terms{
-    background-image: linear-gradient(to right, rgba(6, 33, 82, .3), rgba(6, 33, 82, .3)),url('./terms.jpg');
+    background-image: linear-gradient(to right, rgba(6, 33, 82, .5), rgba(6, 33, 82, .5)),url('./terms.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 150px;
+    height: 160px;
+    padding-top: 17%;
+    padding-left: 20px;
+    font-size: 22px;
+    text-align: center;
     font-family: Gotham Rounded Medium;
     color: #fff;
 }
@@ -19,7 +23,7 @@
     text-align: justify;
     padding: 20px;
     font-family: Montserrat Regular;
-    font-size: 16px;
+    font-size: 13px;
 }
 #more {display: none;}
 .readMore{

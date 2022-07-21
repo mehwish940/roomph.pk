@@ -1,13 +1,20 @@
 @import "../../../font.css";
-.roomphLogo {
+
+.roomphLogoH {
   width: 80%;
+  margin-left: 10px;
 }
-@media screen and (min-width: 570px) {
-  .roomphLogo {
-    padding: 0;
-    width: 150%;
+
+@media screen and (min-width: 480px) {
+  .roomphLogoH {
+    width: 100%;
+  }
+
+  .roomphAT {
+    margin-left: 30px;
   }
 }
+
 
 .arrowBtn {
   border: none;
@@ -28,13 +35,26 @@
   justify-content: right;
 }
 
+.headerContainer {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 480px) {
+  .headerContainer {
+    margin-left: 80px;
+  }
+}
+
 .dealsBtn {
   width: 80px;
   height: 21px;
-  font-size: 11px;
+  font-size: 12px;
+  padding-top: 3px;
   font-family: Roboto Light;
   letter-spacing: 1px;
-  font-weight: 250;
+  font-weight: 600;
   color: #fff;
   background-color: #EF4E22;
   border: none;
@@ -44,21 +64,32 @@
   cursor: pointer;
   outline: none;
 }
+
 .dealsBtn:focus {
   outline: none;
 }
 
 .dealsBtn:hover {
-  background-color: #2EE59D;
+  background-color: #fca527;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   outline: none;
   transform: translateY(-1px);
 }
-@media screen and (min-width: 570px) {
+
+@media screen and (min-width: 480px) {
   .dealsBtn {
-    margin-left: 50px;
+    width: 100px;
     height: 25px;
+    margin-right: 15px;
+    margin-top: 5px;
+  }
+
+  .topBreak {
+    content: "";
+    margin: -6px;
+    display: block;
+    font-size: -10%;
   }
 }
 
@@ -67,10 +98,10 @@
   font-weight: 600;
   font-size: 12px;
   border: none;
-  color: #EF4E22; 
-  background-color: white; 
-  border-color: white; 
-  white-space:nowrap;
+  color: #EF4E22;
+  background-color: white;
+  border-color: white;
+  white-space: nowrap;
 }
 
 .signinBtn:focus,
@@ -83,8 +114,6 @@
     font-size: 18px;
   }
 }
-
-
 
 .buttonApp {
   width: 80px;
@@ -102,6 +131,7 @@
   cursor: pointer;
   outline: none;
 }
+
 .wrap a:link,
 .wrap a:visited {
   background-color: #fff;
@@ -115,5 +145,68 @@
 
 .wrap a:hover,
 .wrap a:active {
-  background-color: #EF4E22;
+  background-color: #fca527;
+}
+
+
+.profileBtn1 {
+  width: 80px;
+  height: 21px;
+  font-size: 12px;
+  font-family: Roboto Light;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #EF4E22;
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #b3b3b3;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.profileBtn1:focus {
+  outline: none;
+}
+
+.profileBtn1:hover {
+  background-color: #fca527;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.otherBtns1 {
+  width: 80px;
+  height: 21px;
+  font-size: 12px;
+  padding-top: 3px;
+  padding-right: 20px;
+  font-family: Roboto Light;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border: none;
+  border-bottom: 2px solid #A9A8AD;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.otherBtns1:focus {
+  outline: none;
+}
+
+.otherBtns1:hover {
+  background-color: #fca527;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+@media screen and (min-width: 480px) {
+  .profileBtn1 {
+    padding-top: 3px;
+  }
 }

@@ -1,16 +1,43 @@
 .Slcontainer {
-    position: relative;
-    text-align: center;
-    color: white;
-  }
-  .disPic{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.disPic {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.sliderContainer {
+  margin-bottom: 15px;
+  width: 97%;
+}
+
+@media screen and (min-width: 480px) {
+  .disPic {
+    height: 200px;
   }
+
+  .sliderContainer {
+    margin-top: 60px;
+    margin-bottom: 25px;
+    width: 86%;
+  }
+
+}
+
+.Slcentered {
+  position: absolute;
+  top: 50%;
+  font-size: 16px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 480px) {
   .Slcentered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    font-size: 20px;
   }
+}

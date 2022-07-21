@@ -1,48 +1,91 @@
 @import "../../../font.css";
-.mpD{
+
+.mpD {
     font-family: Montserrat Bold;
     font-size: 22px;
     white-space: nowrap;
 }
-.aligned a, .cities a{
-   color:black;
-   font-family: Montserrat Bold;
-   text-transform: capitalize;
-   font-size: 17px;
+
+@media screen and (min-width: 480px) {
+    .fulContDest {
+        width: 1000px;
+        margin: auto;
+    }
+
+    .destContFullD {
+        margin-top: 40px;
+    }
+
+    .mpD {
+        margin-bottom: 30px;
+    }
 }
 
-.RP{
+.aligned a,
+.cities a {
+    color: black;
+    font-family: Montserrat Bold;
+    text-transform: capitalize;
+    font-size: 17px;
+}
+
+.RP {
     font-family: Montserrat Thin;
 }
-.viewAllBtn a{
-    color:black;
+
+.viewAllBtn a {
+    color: black;
     font-size: 15px;
 }
+
 .aligned {
     display: flex;
     align-items: center;
+    border-radius: 10px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: 1px solid #b3b3b3;
+    box-shadow: 0px 2px 0px 0px #b3b3b3;
 }
 
 .aligned span {
     width: 500px;
-    
 }
 
-.cityPic{
-    width:100px;
-    margin-top: 10px;
-    height:55px;
+.cityPic {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    margin-right: -4px;
 }
-.cityA{
+
+@media screen and (min-width: 480px) {
+    .aligned {
+        width: 300px;
+        height: 70px;
+        margin-bottom: 15px;
+    }
+
+    .cityPic {
+        height: 69px;
+    }
+}
+
+
+
+
+.cityA {
     float: left;
     margin-left: 20px;
     padding-top: 4px;
 }
-.cityC{
+
+.cityC {
     float: left;
 }
-.cityNameCountt{
+
+.cityNameCountt {
     height: 55px;
     width: 100px;
 }
-

@@ -47,29 +47,35 @@
     margin-right: -50%;
 }
 
-.GBtn, .FBtn {
+.GBtn,
+.FBtn {
     width: 100%;
     height: 22px;
     font-size: 11px;
     letter-spacing: 1px;
     font-weight: 500;
-    color:blue;
+    color: blue;
     background-color: #fff;
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    }
+}
 
-    .aBtn a{
-        color: #EF4E22;
-        font-size: 9px;
-    }
+.aBtn a {
+    color: #EF4E22;
+    font-size: 9px;
+}
 
-    .errMsg{
-        text-transform: capitalize;
-    }
+.errMsg {
+    text-transform: capitalize;
+}
 
-    .personIcon{
-        font-size: 100px;
-        margin-left: 100px;
-    }
+.personIcon {
+    font-size: 100px;
+    margin-left: 100px;
+}
+
+.signinSuccessIcons {
+    font-size: 40px;
+    margin-left: 140px;
+}

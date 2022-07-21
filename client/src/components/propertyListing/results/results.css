@@ -3,8 +3,122 @@
     display: inline-block;
 }
 
+.fullBanner {
+    padding: 8px;
+}
+
+.caption {
+    position: absolute;
+    top: 20px;
+    width: 70px;
+    border: 1px solid white;
+    border-radius: 5px 30px 30px 5px;
+    background-color: #fff;
+}
+
+.caption1 {
+    position: absolute;
+    top: 86%;
+    width: 100%;
+    height: 40px;
+    left: 50%;
+    background-color: rgba(6, 10, 6, 0.5);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+}
+
+.buttonsSFContainer {
+    margin-top: 10px;
+}
+
+.filtButn {
+    margin-top: 20px;
+}
+
+.showingSignCont {
+    margin-top: 20px;
+}
+
+.resWhatsapp {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.resLoader {
+    margin-bottom: 10px;
+}
+
+.caption img {
+    width: 60px;
+}
+
+@media screen and (min-width: 480px) {
+    .featuredImg {
+        width: 1200px;
+    }
+
+    .caption1 {
+        height: 50px;
+        top: 94%;
+    }
+
+    .buttonsSFContainer {
+        margin-top: 20px;
+        margin-left: 90px;
+    }
+
+    .filtButn {
+        margin-left: -150px;
+    }
+
+    .showingSignCont {
+        margin-left: 65px;
+        width: 970px;
+    }
+
+    .resLoader {
+        margin-left: 100px;
+        margin-bottom: 20px;
+    }
+
+    .resWhatsapp {
+        width: 980px;
+        margin: auto;
+        height: 90px;
+    }
+
+    .caption {
+        width: 120px;
+        height: 45px;
+    }
+
+    .caption img {
+        width: 100px;
+    }
+
+}
+
+
+
 .imgWid0 {
     width: 3vw;
+}
+
+#popover-basic1 {
+    margin-top: 30px;
+}
+
+@media screen and (min-width: 480px) {
+    .fullBanner {
+        padding: 15px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .imgWid0 {
+        width: 20px;
+    }
 }
 
 .hotel-details-container {
@@ -19,6 +133,12 @@
     width: 5vw;
 }
 
+@media screen and (min-width: 480px) {
+    .imgWidr {
+        width: 30px;
+    }
+}
+
 .area {
     vertical-align: text-top;
 }
@@ -28,11 +148,11 @@
     padding: 0 !important;
 }
 
-.slick-slide img {
+/* .slick-slide img {
     display: inline-block;
     padding: 0;
     margin: 0;
-}
+} */
 
 
 /* Arrows */
@@ -42,7 +162,7 @@
     font-size: 0;
     line-height: 0;
     position: absolute;
-    top: 50%;
+    top: 47%;
     display: block;
     padding: 0;
     -webkit-transform: translate(50, -50%);
@@ -88,7 +208,12 @@
 }
 
 .slick-prev:before {
-    content: '\f053';
+    background-image: url('./angle-left-solid.svg');
+    background-repeat: no-repeat;
+    height: 9px;
+    color: white;
+    margin-top: 5.5px;
+    margin-left: 7px;
 }
 
 .slick-next {
@@ -103,7 +228,12 @@
 }
 
 .slick-next:before {
-    content: '\f054';
+    background-image: url('./angle-right-solid.svg');
+    background-repeat: no-repeat;
+    height: 11px;
+    color: white;
+    margin-top: 4.5px;
+    margin-left: 7.5px;
 }
 
 .slick-prev:hover,
@@ -116,15 +246,34 @@
 }
 
 .hotel-card {
+    margin: auto;
     box-sizing: content-box;
-    max-height: 164px;
+    padding-bottom: 10px;
+    max-height: 140px;
+}
+
+@media screen and (min-width: 480px) {
+    .hotel-card {
+        width: 710px;
+        max-height: 190px;
+        margin: auto;
+        margin-left: 350px;
+    }
+
 }
 
 .sliderImgs {
     width: 100%;
-    height: 164px;
+    height: 150px;
     object-fit: cover;
     object-position: bottom;
+}
+
+@media screen and (min-width: 480px) {
+    .sliderImgs {
+        height: 200px;
+    }
+
 }
 
 .hotel-pricing-container-p {
@@ -134,11 +283,28 @@
     padding: 2px 10px 2px 10px;
     border-radius: 20px;
     font-size: 10px;
+    padding-right: 5px;
     white-space: nowrap;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+}
+
+@media screen and (min-width: 480px) {
+    .hotel-pricing-container-p {
+        font-size: 15px;
+        padding-top: 3px;
+        padding-right: 10px;
+    }
+}
+
+.hotel-pricing-container-p1 {
+    color: white;
+    margin: 15px;
+    z-index: 0;
+    opacity: 0.1;
+    height: 30px;
 }
 
 .very-good span {
@@ -153,25 +319,37 @@
     font-size: 11px;
 }
 
+@media screen and (min-width: 480px) {
+    .very-good span {
+        font-size: 16px;
+        margin-right: 5px;
+    }
+
+    .very-good u {
+        font-size: 16px;
+    }
+}
+
 .hotel-pricing-container {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     padding: 0px;
     margin: 0px;
+    margin-top: -30px;
 }
 
 .very-good {
     display: flex;
     flex-direction: column;
     margin-right: 3px;
+    margin-top: -8px;
 }
 
 .user-rating-container {
     display: flex;
     flex-direction: row-reverse;
     margin-bottom: 5px;
-    align-items: flex-end;
 }
 
 .reviewCount {
@@ -188,42 +366,136 @@
     font-size: 11px;
     color: #ff3d00;
     font-weight: 700;
+    margin: 0;
+    padding: 0;
+    margin-top: -15px;
 }
 
 .imgwid4 {
     margin-left: -19px;
 }
 
+@media screen and (min-width: 480px) {
+    .reviewCount {
+        width: 42px;
+        height: 42px;
+        padding-top: 6px;
+        font-size: 16px;
+    }
+}
+
+
 .chattxt {
     margin-left: -29px;
+}
+
+@media screen and (min-width: 480px) {
+    .chattxt {
+        margin-top: -5px;
+        line-height: 100%;
+    }
+
+    .getText {
+        line-height: 120%;
+    }
+
+    .searchLogo {
+        width: 100px;
+    }
+
+}
+
+.imgwiddd {
+    margin-top: 10px;
+}
+
+.chatBtn {
+    border: none;
+    background-color: #7ed34f;
+    padding: 3px;
+    margin-left: .1px;
+    color: white;
+    border-radius: 20px;
+}
+
+.para2 {
+    font-size: 13px;
+}
+
+@media screen and (min-width: 480px) {
+    .chatBtn {
+        margin-top: -8px;
+        padding-top: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+
+    .para2 {
+        font-size: 18px;
+    }
+
 }
 
 @media screen and (max-width: 480px) {
     .rev {
         font-size: 3.9vw;
     }
+
     .left {
         font-size: 3vw;
     }
+
     .rs {
         font-size: 3vw;
     }
+
     .free {
         font-size: 3vw;
     }
+
     .hotel {
         font-size: 3.6vw;
     }
+
     .area {
         font-size: 3.9vw;
         vertical-align: text-top;
     }
+
     .imgWid1 {
         width: 12vw;
         vertical-align: text-top;
     }
+
     .chat {
         font-size: 2.5vw;
+    }
+}
+
+.freepartTxt {
+    font-size: 10px;
+}
+
+.hotel {
+    margin-left: 2px;
+}
+
+@media screen and (min-width: 480px) {
+    .imgWid1 {
+        width: 70px;
+        margin-top: 12px;
+    }
+
+    .freepartTxt {
+        font-size: 15px;
+    }
+
+    .hotel {
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 5px;
     }
 }
 
@@ -240,38 +512,16 @@
     }
 }
 
+.VAL {
+    vertical-align: text-bottom;
+}
+
 @media screen and (max-width: 380px) {
     .para {
         font-size: 12px;
     }
 }
 
-.caption {
-    position: absolute;
-    top: 20px;
-    width: 70px;
-    border: 1px solid white;
-    border-radius: 5px 30px 30px 5px;
-    background-color: #fff;
-}
-
-.caption1 {
-    position: absolute;
-    top: 86%;
-    width: 100%;
-    height: 50px;
-    left: 50%;
-    background-color: rgba(6, 10, 6, 0.5);
-    transform: translate(-50%, -50%);
-    color: white;
-    font-weight: bold;
-}
-
-@media screen and (max-width: 480px) {
-    .caption1 {
-        height: 40px;
-    }
-}
 
 .Buttons {
     width: 80px;
@@ -294,7 +544,6 @@
     color: #fff;
     transform: translateY(-1px);
 }
-
 
 /* sort screen */
 
@@ -343,7 +592,7 @@
     font-family: 'gothamroundedmedium' !important;
 }
 
-a {
+.sort-popup a {
     color: #007bff;
     text-decoration: none;
     background-color: transparent;
@@ -376,4 +625,90 @@ a {
     color: #000 !important;
     border-color: transparent !important;
     background-color: transparent !important;
+}
+
+.cityStar {
+    vertical-align: text-top;
+    font-size: 13px;
+}
+
+.priceRs {
+    font-size: 18px;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
+@media screen and (min-width: 480px) {
+    .cityStar {
+        font-size: 15px;
+    }
+
+    .priceRs {
+        font-size: 22px;
+        margin-top: -10px;
+    }
+}
+
+
+.priceRs1 {
+    color: #FF334F;
+    margin-top: -25px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    z-index: 1000;
+}
+
+.changeDatebtn {
+    background-image: url('./Asset 21.png');
+    background-position: center top;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    width: 70px;
+    font-size: 8px;
+    border: 1px solid #b3b3b3;
+    border-radius: 10px;
+    padding: 5px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.changeDateContainer {
+    margin-top: -55px;
+
+}
+
+@media screen and (min-width: 480px) {
+    .changeDatebtn {
+        margin-left: -120px;
+        width: 150px;
+        font-size: 15px;
+    }
+
+    .priceRs1 {
+        font-size: 20px;
+    }
+}
+
+.sortFilterLg {
+    width: 250px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px 1px rgb(205, 206, 206);
+    border: 1px solid #b3b3b3;
+    margin-top: 20px;
+    margin-bottom: -520px;
+    margin-left: 80px;
+}
+
+.pkr1 {
+    border: 2px solid #ff3d00;
+    border-radius: 10px;
+    padding: 3px;
+    width: 50px;
+    font-size: 12px;
+    box-shadow: 1px 1px 1px rgb(205, 206, 206);
+}
+
+.priceRangeLP {
+    margin-left: 20px;
 }

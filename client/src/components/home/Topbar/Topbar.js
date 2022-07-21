@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import "./Top.css";
 import Signin from '../../registeration/signin';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Link } from "react-router-dom";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { FiUser } from "react-icons/fi";
 
@@ -42,10 +43,10 @@ export default function Topbar() {
     setUser({});
     localStorage.clear();
     window.location.reload(false);
-};
+  };
 
   return (
-    <section style={{ backgroundColor: "#fff"}} className="m-1"   >
+    <section style={{ backgroundColor: "#fff" }} className="m-1"   >
       <div>
         <Modal
           aria-labelledby="transition-modal-title"
@@ -61,23 +62,30 @@ export default function Topbar() {
       </div>
       <Container fluid>
         <Row>
-          <a href="/"><img className="roomphLogo ml-2" src="images/logo.svg" alt="logo" /></a>
-          <Col xxs={4} className="">
+          <a href="/" className='roomphAT'><img className="roomphLogoH" src="images/logo.svg" alt="logo" /></a>
+          <Col xs={4} lg={7} className="">
             <div className="Deals">
-              <button className="dealsBtn">View Deals</button>
+              <button className="dealsBtn d-lg-none">View Deals</button>
             </div>
           </Col>
-          <Col xxs={8} className="">
-            <div className = "wrap">
-              <button className="mr-2 mt-1 signinBtn" onClick={user===''?handleOpen:''}>
-              {user === '' ? 'Sign In': 
-              <div class="dropdownTopbar">
-              <FiUser /><span className='ml-1'>{user}</span>
-                <div class="dropdown-contentTopbar">
-                  <button className='dealsBtn' onClick={handleOpen}>Profile</button><br />
-                  <button className='dealsBtn1' onClick={handleLogout}>Logout</button>
-                </div>
-              </div>}
+          <Col xs={5} lg={3} className="headerContainer">
+            <div className="wrap">
+              <button className="dealsBtn d-none d-lg-block">View Deals</button>
+              <button className="mr-2 mt-1 signinBtn" onClick={user == '' ? handleOpen : ''}>
+                {user == '' ? 'Sign In' :
+                  <div class="dropdownTopbar">
+                    <FiUser className='profileIcon' /> {user} <RiArrowDropDownLine className='dropDownIcon' />
+                    <div class="dropdown-contentTopbar">
+                      {/* <button className='otherBtns' onClick={handleOpen}>Profile</button><br /> */}
+                      <Link to='/profile'>
+                        <button className='profileBtn1 text-center'>Profile</button><br />
+                      </Link><br className='topBreak' />
+                      <Link to='/bookings'>
+                        <button className='profileBtn1 text-center'>Bookings</button><br />
+                      </Link><br className='topBreak' />
+                      <button className='profileBtn1' onClick={handleLogout}>Logout</button>
+                    </div>
+                  </div>}
               </button>
               <Link className="d-lg-none" to="/download" target="_blank">
                 <button className="d-lg-none buttonApp" >Use App</button>

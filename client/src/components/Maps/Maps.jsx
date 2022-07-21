@@ -6,11 +6,13 @@ import GoogleMapContainer from './GoogleMapContainer';
 function useFetchData() {
     const params = useParams();
     const cityDetails = [{
-        name: 'Karachi', lat:24.9056, long: 67.0822
+        name: 'Karachi', lat: 24.9056, long: 67.0822
     }, {
         name: 'Islamabad', long: 73.0551, lat: 33.69
-    },{
+    }, {
         name: 'Rawalpindi', long: 73.071442, lat: 33.626057
+    }, {
+        name: 'Lahore', long: 74.329376, lat: 31.582045
     }]
     const [loading, setLoading] = useState([]);
     const [responseData, setData] = useState("");
@@ -20,7 +22,7 @@ function useFetchData() {
         setLoading(true);
         console.log("Executed only once!");
         console.log(params.city)
-        setcityDet(cityDetails.find(cd=>cd.name.toLowerCase()==params.city.toLowerCase()));
+        setcityDet(cityDetails.find(cd => cd.name.toLowerCase() == params.city.toLowerCase()));
         const response = await fetch('/api/world', {
             method: 'POST',
             headers: {
@@ -36,18 +38,18 @@ function useFetchData() {
 
     }, []);
     console.log(responseData);
-       // console.log(cityDet);
-    return { loading, responseData , cityDet };
+    // console.log(cityDet);
+    return { loading, responseData, cityDet };
 }
 function Maps() {
-    const { loading, responseData , cityDet} = useFetchData();
+    const { loading, responseData, cityDet } = useFetchData();
     if (loading) {
         return (
-     <>
-     <div className='loading-div'>
-	<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-	<div class="gr-medium">Loading map..</div></div></>
-)
+            <>
+                <div className='loading-div'>
+                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                    <div class="gr-medium">Loading map..</div></div></>
+        )
     } else {
         return (
             <section className="position-relative ">
@@ -60,7 +62,7 @@ function Maps() {
                                 </div>
                             </div></div></div></div>
                 <div id="map_canvas" className="w-100">
-                    <GoogleMapContainer className="w-100" data={responseData} cityDetail={cityDet}/>
+                    <GoogleMapContainer className="w-100" data={responseData} cityDetail={cityDet} />
                 </div>
             </section>
         )
@@ -92,7 +94,7 @@ function ReturnBody(props) {
                             </p>
                         </div>
                         <div className="feature-hotel-star-rating float-left">
-                            <p className="mb-0 text-orange ft-12">Rs. {Price?Number(Price).toLocaleString():"Fully Booked"}</p>
+                            <p className="mb-0 text-orange ft-12">Rs. {Price ? Number(Price).toLocaleString() : "Fully Booked"}</p>
                             <p className="mb-0 roboto-light ft-10">avg. per night</p>
                         </div>
                     </div>

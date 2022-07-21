@@ -9,9 +9,9 @@ export default class Steps extends Component {
         <Container>
           <Row className="justify-content-center">
             <Col className="mx-5">
-              <button className="step1">1<p className="CI mt-1">{' '}Customer Information</p></button>
+              <button className="step1">1<p className="CI">{' '}Customer Information</p></button>
               <hr class="mb-1 p-0" style={{ display: 'inline-block', width: '78%', borderTop: '1px solid #ff3d00' }} />
-              <button className="step2"><SiNike /><p className="CI mt-1">{' '}Customer Information</p></button>
+              <button className="step2"><SiNike /><p className="CI">{' '}Booking Confirmed</p></button>
             </Col>
           </Row>
         </Container>

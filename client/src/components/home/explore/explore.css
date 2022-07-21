@@ -1,34 +1,54 @@
 @import "../../../font.css";
 
-.section {
+.exploreSection {
   background-color: #EF4E22;
 }
 
 .explore h6 {
   color: white;
+  text-align: center;
   font-family: Montserrat Thin;
   font-size: 17px;
 }
 
+@media screen and (max-width: 480px) {
+  .explore h6 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .explore h6 {
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: left;
+    margin-left: 21px;
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+}
+
 .roomph {
   font-family: Montserrat Bold;
-  color: white; 
-  font-size:20px;
-  font-weight: 800; 
-  margin: 0; 
-  padding: 0; 
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
   line-height: 18px;
 }
+
 @media screen and (max-width: 380px) {
   .roomph {
-    font-size:16px;
+    font-size: 16px;
   }
 }
 
 .explore p {
   color: white;
   font-family: Montserrat Thin;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .All {
@@ -47,4 +67,66 @@
   content: "";
   clear: both;
   display: table;
+}
+
+.ecolumn img {
+  width: 130%;
+}
+
+.exploreContainer {
+  margin: 0;
+  padding: 0;
+}
+
+.hrLineOrangeExplore {
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  color: #FF9400;
+  border-color: #FF9400;
+}
+
+.expCont {
+  padding-left: 13px;
+  padding-top: 40px;
+}
+
+@media screen and (min-width: 480px) {
+  .exploreCityImage {
+    padding-left: 20px;
+  }
+
+
+  .expCont {
+    padding-top: 60px;
+  }
+
+  .ecolumn img {
+    width: 100%;
+  }
+
+  .exploreContainer {
+    margin: 0;
+    padding: 0;
+    margin-left: -20px;
+  }
+
+  .hrLineOrangeExplore {
+    color: #FF9400;
+    border: 1px solid#FF9400;
+    width: 900px;
+    margin-left: 30px;
+  }
+
+  .strpc {
+    margin-left: -5px;
+  }
+
+  .strpc1 {
+    margin-left: -20px;
+  }
+
+  .strpc2 {
+    margin-left: 10px;
+  }
 }

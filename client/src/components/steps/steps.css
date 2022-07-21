@@ -1,34 +1,36 @@
-.step1{
-    border: none;
-    border-radius: 50%;
-    padding: 1px;
-    color: white;
-    background-color: #ff8e00;
-    width: 15px;
-    height: 20px;
-    font-weight: 700;
-    margin-left: 15px;
-    font-size: 12px;
-    box-shadow: 2px 2px 2px rgb(205, 206, 206);
-  }
-  .CI{
-    font-size: 10px;
-    color: red;
-    font-family: Roboto Light;
-    line-height: 90%;
-    margin-left: -15px;
-    text-indent: 4px;
-  }
-  .step2{
-    border: none;
-    border-radius: 50%;
-    padding: 1px;
-    color: #ff8e00;
-    background-color: #fff;
-    width: 15px;
-    height: 20px;
-    padding-left: 4px;
-    font-weight: 700;
-    font-size: 12px;
-    box-shadow: 2px 2px 2px rgb(205, 206, 206);
-  }
+.step1 {
+  border: none;
+  border-radius: 50%;
+  color: white;
+  background-color: #ff8e00;
+  width: 15px;
+  height: 17px;
+  font-weight: 700;
+  margin-left: 15px;
+  font-size: 12px;
+  box-shadow: 2px 2px 2px rgb(205, 206, 206);
+}
+
+.CI {
+  font-size: 10px;
+  color: red;
+  font-family: Roboto Light;
+  line-height: 90%;
+  margin-left: -15px;
+  margin-top: 2px;
+  text-indent: 4px;
+}
+
+.step2 {
+  border: none;
+  border-radius: 50%;
+
+  color: #ff8e00;
+  background-color: #fff;
+  width: 15px;
+  height: 17px;
+  padding-left: 2px;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 2px 2px 2px rgb(205, 206, 206);
+}

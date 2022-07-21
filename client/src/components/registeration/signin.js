@@ -5,22 +5,11 @@ import { FcGoogle } from "react-icons/fc";
 import { SiFacebook } from "react-icons/si";
 import Signup from './signup';
 import ForgetPass from './forgotpass';
+import { GrStatusGood } from "react-icons/gr";
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-import { purple } from '@mui/material/colors';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
-import { GoogleLogin } from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
+// import { GoogleLogin } from 'react-google-login';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-import { BsPersonCircle } from "react-icons/bs";
-const aButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    '&:hover': {
-        backgroundColor: purple[700],
-    },
-}));
 
 const style = {
     position: 'absolute',
@@ -94,7 +83,7 @@ export default function Registration() {
         localStorage.setItem("user", JSON.stringify(body));
 
         var fname = body.result.data[0].fname;
-        if (fname == undefined) {
+        if (fname === undefined) {
             setFname(body.result.data[0].message);
         }
         else {
@@ -115,15 +104,7 @@ export default function Registration() {
     const handleClose1 = () => {
         setOpen1(false);
     };
-    const responseGoogle = (response) => {
-        console.log(response);
-    }
-    const responseFacebook = (response) => {
-        console.log(response);
-    }
-    const componentClicked = () => {
-        console.log('Clicked');
-    }
+
     const handleGoogleLogin = () => {
         console.clear();
         console.log('Usama')
@@ -147,20 +128,21 @@ export default function Registration() {
     }
     console.log(user)
     if (user) {
-        if (user.result.data[0].fname == undefined) {
+        if (user.result.data[0].fname === undefined) {
             setUser({});
             setFname("");
             setPassword("");
             localStorage.clear();
 
         } else {
-            if(fname != '') window.location.reload(false);
+            if (fname !== '') window.location.reload(false);
             return (
                 <div className='p-3'>
-                    <BsPersonCircle className='personIcon mb-1' />
+                    <GrStatusGood className="signinSuccessIcons" />
+                    {/* <BsPersonCircle className='personIcon mb-1' />
                     <p className="text-center" style={{ fontFamily: "Gotham Rounded Medium", fontSize: "17px" }}>{user.result.data[0].fname}</p>
                     <p className="text-center" style={{ fontFamily: "Gotham Rounded Medium", fontSize: "17px" }}>{user.result.data[0].email}</p>
-                    <button style={{ fontFamily: "Gotham Rounded Medium" }} className="signupBtn" onClick={handleLogout}>Logout</button>
+                    <button style={{ fontFamily: "Gotham Rounded Medium" }} className="signupBtn" onClick={handleLogout}>Logout</button> */}
                 </div>
             );
         }
@@ -174,9 +156,8 @@ export default function Registration() {
                     onClose={handleClose1}
                     aria-labelledby="transition-modal-title"
                     aria-describedby="transition-modal-description"
-
                 >
-                    <Box sx={{ ...style, width: 350, height: 500, margin: 0, padding: 0 }}>
+                    <Box sx={{ ...style, width: 350, height: 400, margin: 0, padding: 0 }}>
                         <button onClick={handleClose1} className="mt-2 ml-2" style={{ border: "none", background: "none" }}><MdOutlineKeyboardArrowLeft /></button>
                         <ForgetPass />
                     </Box>
@@ -189,7 +170,7 @@ export default function Registration() {
                     aria-labelledby="transition-modal-title"
                     aria-describedby="transition-modal-description"
                 >
-                    <Box sx={{ ...style1, width: 350, margin: 0, padding: 0, height: 500 }}>
+                    <Box sx={{ ...style1, width: 350, margin: 0, padding: 0, height: 600 }}>
                         <button onClick={handleClose} className="mt-2 ml-2" style={{ border: "none", background: "none" }}><MdOutlineKeyboardArrowLeft /></button>
                         <Signup />
                     </Box>
