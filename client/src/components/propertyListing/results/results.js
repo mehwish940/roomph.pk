@@ -326,9 +326,13 @@ function Checkboxes() {
       <Checkbox checked={checked} onChange={handleChange2} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
       <Checkbox onChange={handleChange3} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
       <Checkbox onChange={handleChange4} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
-      <p className="m-0 p-0"><Checkbox onChange={handleChange5} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Bold' }}>Hotel</span><br /></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange6} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Bold' }}>Apartment</span><br /></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Bold' }}>Guest House</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange5} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Hotel</span><br /></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange6} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Apartment</span><br /></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Guest House</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Lowest Price</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Highest Price</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Lowest Rating</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Highest Rating</span></p>
     </div>
   );
 }
@@ -404,7 +408,7 @@ function CustomizedSlider() {
     setValue(newValue);
   };
   return (
-    <Box sx={{ width: 150 }}>
+    <Box sx={{ width: 200 }}>
       <AirbnbSlider
         components={{ Thumb: AirbnbThumbComponent }}
         getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
@@ -415,11 +419,11 @@ function CustomizedSlider() {
         min={0}
         max={30000}
       />
-      {/* <p className='m-0 p-0 ml-1' style={{ fontFamily: 'Gotham Rounded Bold' }}>Min <span className="float-right" style={{ fontFamily: 'Gotham Rounded Bold' }}>Max</span></p>
-      <button className="pkr1">PKR <span className='ml-2'>{value[0]}</span></button>
+      {/* <p className='m-0 p-0 ml-1' style={{ fontFamily: 'Gotham Rounded Bold' }}>Min <span className="float-right" style={{ fontFamily: 'Gotham Rounded Bold' }}>Max</span></p> */}
+      <button className="pkr1">PKR <br /><span className=''>{value[0]}</span></button>
       <p hidden>{priceStart = value[0]}{priceEnd = value[1]}</p>
-      <hr className="dottedLine p-0" style={{ display: 'inline-block', width: '40px', borderTop: '1px dotted #F53500' }} />
-      <button className="pkr1">PKR {value[1]}</button> */}
+      <hr className="dottedLineResult p-0" style={{ display: 'inline-block', width: '100px', borderTop: '1px dotted #F53500' }} />
+      <button className="pkr1 mb-3">PKR {value[1]}</button>
     </Box>
   );
 }
@@ -440,7 +444,7 @@ const PropertiesListing = ({ properties }) => {
         <button className="dateDoneBtn mx-auto mb-3" onClick={() => { history.push(`/propertylisting/${this.props.city}/${this.props.checkIn}/${this.props.checkOut}/${this.props.adults}/${this.props.rooms}/${this.props.nights}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`); window.location.reload(false); }}>Done</button>
       </Modal>
       <div className="sortFilterLg d-none d-lg-block">
-        <div className="priceRangeLP"><CustomizedSlider /></div>
+        <CustomizedSlider />
         <Checkboxes />
       </div>
       {properties.map((properties, index) => (
@@ -467,7 +471,7 @@ const PropertiesListing = ({ properties }) => {
 
               <div style={{ margin: '0px', padding: '0px' }}>
                 <div className="user-rating-container">
-                  <p className="reviewCount float-right">{properties.UserRating}</p>
+                  <p className="reviewCount float-right">{Math.round(properties.UserRating * 10) / 10}</p>
                   <div className="very-good">
                     <span style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span>
                     <u>{properties.Rating} review{properties.Rating > 1 ? "s " : ' '}</u></div>
@@ -679,7 +683,7 @@ export class Results extends Component {
             <Col xs={1}>
 
             </Col>
-            <Col xs={3} lg={2} className='mapp my-auto mx-auto'>
+            <Col xs={3} lg={2} className='mapp my-auto'>
               <div className="iitem float-right" onClick={() => {
                 this.props.history.push(`/map/${this.props.match.params.city}/${checkIn}/${checkOut}/${Adults}/${Rooms}`);
               }}>
@@ -717,7 +721,7 @@ export class Results extends Component {
           <Row className="showingSignCont">
             <Col>
               <p className="para2 mt-lg-3 mb-lg-4" style={{ fontFamily: 'Montserrat Regular' }}><u>Showing {this.state.Count} properties - {this.state.CityName}</u></p>
-              <p className="p-2 para" style={{ width: '103%', backgroundColor: '#FF5D47', color: '#fff', borderRadius: '10px', fontFamily: 'Montserrat Regular' }}><u>Sign up</u> and get 20% off on your first booking.</p>
+              <p className="p-2 para signUpCapsule" style={{ backgroundColor: '#FF5D47', color: '#fff', borderRadius: '10px', fontFamily: 'Montserrat Regular' }}><u>Sign up</u> and get 20% off on your first booking.</p>
             </Col>
           </Row>
           {/* <Row className="mx-auto" style={{ borderRadius: "10px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>

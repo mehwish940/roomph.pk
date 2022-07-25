@@ -18,7 +18,19 @@
   }
 }
 
-@media screen and (min-width: 480px) {
+
+@media screen and (min-width: 990px) {
+  .exploreSection {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .exploreWid {
+    width: 104% !important;
+    margin: auto;
+    margin-left: -15px;
+  }
+
   .explore h6 {
     font-size: 20px;
     margin-top: 10px;
@@ -26,6 +38,33 @@
     margin-left: 21px;
     margin-bottom: 0;
     font-weight: 600;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .exploreWid {
+    width: 95% !important;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .exploreWid {
+    width: 101% !important;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .exploreWid {
+    margin-left: -40px;
+    width: 105% !important;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .exploreWid {
+    margin-left: -60px;
+    width: 109% !important;
   }
 }
 

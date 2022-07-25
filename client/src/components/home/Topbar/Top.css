@@ -51,7 +51,6 @@
   width: 80px;
   height: 21px;
   font-size: 12px;
-  padding-top: 3px;
   font-family: Roboto Light;
   letter-spacing: 1px;
   font-weight: 600;
@@ -74,7 +73,7 @@
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   outline: none;
-  transform: translateY(-1px);
+  /* transform: translateY(-1px); */
 }
 
 @media screen and (min-width: 480px) {
@@ -87,7 +86,7 @@
 
   .topBreak {
     content: "";
-    margin: -6px;
+    margin: -2px;
     display: block;
     font-size: -10%;
   }
@@ -111,7 +110,7 @@
 
 @media screen and (min-width: 570px) {
   .signinBtn {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 
@@ -174,7 +173,7 @@
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   outline: none;
-  transform: translateY(-1px);
+  /* transform: translateY(-1px); */
 }
 
 .otherBtns1 {
@@ -202,7 +201,7 @@
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   outline: none;
-  transform: translateY(-1px);
+  /* transform: translateY(-1px); */
 }
 
 @media screen and (min-width: 480px) {

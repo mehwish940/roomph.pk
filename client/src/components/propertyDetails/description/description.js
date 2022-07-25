@@ -39,9 +39,9 @@ if (window.innerWidth < 480) {
 }
 else {
   containerStyle = {
-    width: '940px',
+    width: '88%',
     height: '400px',
-    marginLeft: '20px'
+    margin: 'auto'
   };
 }
 
@@ -483,10 +483,12 @@ class LightboxExample extends Component {
 
     return (
       <div>
-        <Container className="mt-3">
+        <Container className="mt-3" fluid>
           <Row>
             <Col xs={12}>
-              <AsNavFor imgSrc={mulImgs} />
+              <div className="imagesContainerPD">
+                <AsNavFor imgSrc={mulImgs} />
+              </div>
             </Col>
           </Row>
         </Container>
@@ -587,7 +589,7 @@ const AvailableRooms = ({ properties1 }) => {
                 <CustomArrows imgSrc={[properties1.RoomImages[0].RoomImage ? properties1.RoomImages[0].RoomImage[0] : null]} />
               </Col>
               <Col className="mt-1">
-                <p className="m-1 p-0" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '16px' }}><b>{properties1.RoomName}</b></p>
+                <p className="m-1 p-0 roomNamePD" style={{ fontFamily: 'Gotham Rounded Medium' }}><b>{properties1.RoomName}</b></p>
                 {/* <p hidden>{splitString = (properties1.RoomFacilityName[0]).split(" "); {splitString[1]}}</p> */}
                 <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset6.svg"} width={15} alt="" />Free Wifi</p>
                 <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset26.svg"} width={15} alt="" />1 double bed</p>
@@ -596,10 +598,10 @@ const AvailableRooms = ({ properties1 }) => {
                 <p className="m-1 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src={process.env.PUBLIC_URL + "/images/Asset23.svg"} width={15} alt="" />Shower</p>
               </Col>
               <Col className="mt-3" xs={12}>
-                <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>{properties1.RatePlanDetails[0].RatePlans[0]?.RatePlanName ? properties1.RatePlanDetails[0].RatePlans[0]?.RatePlanName : null} - <i>{properties1.RatePlanDetails[0].RatePlans[0]?.BookingPolicy == '100% will be charged at the time of booking.\n\n' ? 'Pay Later' : 'Pay Now'}</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset28.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>{properties1.RatePlanDetails[0].RatePlans[0]?.CancellationPolicyType ? properties1.RatePlanDetails[0].RatePlans[0]?.CancellationPolicyType : null} Cancellation</span> <span className="float-right" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. {properties1.RatePlanDetails[0].RatePlans[0]?.MaxPerson ? properties1.RatePlanDetails[0].RatePlans[0]?.MaxPerson : null} <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
+                <p> <span className="roomDetailsText" style={{ fontFamily: 'Montserrat Regular' }}><b>{properties1.RatePlanDetails[0].RatePlans[0]?.RatePlanName ? properties1.RatePlanDetails[0].RatePlans[0]?.RatePlanName : null} - <i>{properties1.RatePlanDetails[0].RatePlans[0]?.BookingPolicy == '100% will be charged at the time of booking.\n\n' ? 'Pay Later' : 'Pay Now'}</i></b></span> <img className="cancelImage pt-1" src={process.env.PUBLIC_URL + "/images/Asset28.svg"} alt="" /> <span className="cancelText" style={{ fontFamily: 'Montserrat Regular' }}>{properties1.RatePlanDetails[0].RatePlans[0]?.CancellationPolicyType ? properties1.RatePlanDetails[0].RatePlans[0]?.CancellationPolicyType : null} Cancellation</span> <span className="float-right maxText" style={{ fontFamily: 'Montserrat Regular' }}>max. {properties1.RatePlanDetails[0].RatePlans[0]?.MaxPerson ? properties1.RatePlanDetails[0].RatePlans[0]?.MaxPerson : null} <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
               </Col>
               <Col xs={8}>
-                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties1.RatePlanDetails[0].RatePlans[0]?.Rate ? Number(properties1.RatePlanDetails[0].RatePlans[0]?.Rate).toLocaleString() : null}</span>  </p>
+                <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span className="priceRoomAvPD" style={{ color: 'red' }}>{properties1.RatePlanDetails[0].RatePlans[0]?.Rate ? Number(properties1.RatePlanDetails[0].RatePlans[0]?.Rate).toLocaleString() : null}</span>  </p>
               </Col>
               <Col xs={4}>
                 <DropDown setData={setData} data={data} roomId={properties1.RoomId[0]} planId={properties1.RatePlanDetails[0].RatePlans[0]?.RatePlanId[0]} roomRate={properties1.RatePlanDetails[0].RatePlans[0]?.Rate[0]} />
@@ -651,7 +653,7 @@ const AvailableRooms = ({ properties1 }) => {
               </div>
             </Col> */}
               <Col className="mx-auto">
-                <button className="DSearchButton mb-3" onClick={() => History.push(`/customerinformation/${CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${idd}/${properties1.RoomId}/${JSON.stringify(data)}/${roomq}/${properties1.RatePlanDetails[0].RatePlans[0].Rate}`)}>Book Now</button>
+                <button className="DSearchButton" onClick={() => History.push(`/customerinformation/${CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${nights}/${idd}/${properties1.RoomId}/${JSON.stringify(data)}/${roomq}/${properties1.RatePlanDetails[0].RatePlans[0].Rate}`)}>BOOK NOW</button>
               </Col>
             </Row>
           </Container>
@@ -954,7 +956,7 @@ export class Description extends Component {
             <Col xs={1}>
 
             </Col>
-            <Col xs={3} lg={2} className='mapp my-auto mx-auto'>
+            <Col xs={3} lg={2} className='mapp my-auto'>
               <div className="iitem float-right" onClick={() => {
                 this.props.history.push(`/map/${this.props.match.params.city}/${checkIn}/${checkOut}/${Adults}/${Rooms}`);
               }}>
@@ -1000,31 +1002,31 @@ export class Description extends Component {
                   })
                 }
               </p> */}
-              <p className="PDPrice" style={{ fontSize: '20px', fontFamily: 'Gotham Rounded Bold', whiteSpace: 'nowrap', lineHeight: '50%' }}><span className="price float-right priceContain"><span style={{ fontSize: '14px', color: 'red' }}>Rs.</span> <span style={{ color: 'red' }}>{this.props.match.params.price}</span> <br /><span style={{ fontSize: '10px', marginLeft: '5px' }}>avg. per night</span></span></p>
+              <p className="PDPrice" style={{ fontFamily: 'Gotham Rounded Bold', whiteSpace: 'nowrap', lineHeight: '50%' }}><span className="price float-right priceContain"><span style={{ fontSize: '14px', color: 'red' }}>Rs.</span> <span style={{ color: 'red' }}>{this.props.match.params.price}</span> <br /><span style={{ fontSize: '10px', marginLeft: '5px' }}>avg. per night</span></span></p>
               <Row>
                 <Col xs={2}>
                   <p className="reviewCount1">{this.state.userRating}</p>
                 </Col>
                 <Col className="revD">
-                  <p className="ml-2 rev dfl" style={{ whiteSpace: 'nowrap', margin: '0', padding: '0', lineHeight: '50%' }}><span style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '14px' }}>Very Good</span></p><p style={{ fontFamily: 'Gotham Rounded Book', margin: '0', padding: '0', fontSize: '14px' }}><span><u>{this.state.rating} review{this.state.rating > 1 ? "s " : ' '}</u></span></p>
+                  <p className="ml-2 rev dfl" style={{ whiteSpace: 'nowrap', margin: '0', padding: '0', lineHeight: '50%' }}><span className="vg" style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p className="vg" style={{ fontFamily: 'Gotham Rounded Book', margin: '0', padding: '0' }}><span><u>{this.state.rating} review{this.state.rating > 1 ? "s " : ' '}</u></span></p>
                 </Col>
               </Row>
             </Col>
           </Row>
           <Row className="">
-            <Col className="mapHeading" xs={12}>
-              <h6 className="ml-3 mt-3" style={{ fontFamily: 'Montserrat Bold' }}>Location</h6>
-              <MapComponent nlat={this.props.match.params.lat} nlong={this.props.match.params.long} />
+            <Col className="" xs={12}>
+              <h6 className="locationHeading" style={{ fontFamily: 'Montserrat Bold' }}>Location</h6>
+              <div className="mapContPD"><MapComponent nlat={this.props.match.params.lat} nlong={this.props.match.params.long} /></div>
             </Col>
           </Row>
           <Row>
             <Col className="addressC" xs={12}>
-              <p className="mt-2 addressCont" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '14px' }}><BiMap className="addressCont" /> {this.state.address}</p>
+              <p className="mt-2 addressCont" style={{ fontFamily: 'Gotham Rounded Medium' }}><BiMap className="addressCont" /> {this.state.address}</p>
             </Col>
           </Row>
           <Row>
             <Col xs={12} className="dfl ml-3">
-              <h6 className="ml-3 mr-2" style={{ fontSize: '18px', fontFamily: 'Gotham Rounded Medium', fontWeight: '600' }}>Reviews For {this.state.hotelName}</h6>
+              <h6 className="reviewsHeadingPD" style={{ fontSize: '18px', fontFamily: 'Gotham Rounded Medium', fontWeight: '600' }}>Reviews For {this.state.hotelName}</h6>
             </Col>
             <Col xs={12} className="dfl">
               {this.state.loading ? <Reviews userAllReviews={this.state.userReviews} /> : <Spinner className="ml-3" animation="border" />}
@@ -1044,30 +1046,31 @@ export class Description extends Component {
 
           <Row className="mt-3 mapHeading">
             <Col xs={12}>
-              <h6 style={{ fontFamily: 'Gotham Rounded Medium', margin: '0', padding: '0', fontSize: '18px' }}>Know More About {this.state.hotelName}</h6>
+              <h6 className="knowMore" style={{ fontFamily: 'Gotham Rounded Medium' }}>Know More About {this.state.hotelName}</h6>
             </Col>
             <Col xs={12}>
-              <p className="mt-1" style={{ textAlign: "justify", fontFamily: 'Gotham Rounded Book', fontSize: '13px' }}>{this.state.description} <span className="float-right"></span> </p>
+              <p className="mt-1 knowMoreDesc" style={{ textAlign: "justify", fontFamily: 'Gotham Rounded Book' }}>{this.state.description} <span className="float-right"></span> </p>
               {/* <br /><b><u>See More</u></b> */}
             </Col>
           </Row>
           <Child1 />
-          <Row className="mapHeading">
+          {this.state.nearby == null ? <Row className="mapHeading">
             <Col className="" xs={12}>
-              <h6 style={{ fontFamily: 'Gotham Rounded Medium', margin: '0', padding: '0', fontSize: '18px' }}>Popular Landmarks</h6>
-              <p className="mt-2" style={{ margin: '0', padding: '0', fontFamily: 'Gotham Rounded Book', fontSize: '13px' }}>{this.state.nearby} </p>
+              <h6 className="knowMore1" style={{ fontFamily: 'Gotham Rounded Medium' }}>Popular Landmarks</h6>
+              <p className="mt-2 knowMoreDesc" style={{ margin: '0', padding: '0', fontFamily: 'Gotham Rounded Book' }}>{this.state.nearby} </p>
               {/* <span className="float-right">4.65km</span></p>
     <p style={{ margin: '0', padding: '0', fontFamily: 'Gotham Rounded Book', fontSize: '13px' }}>West End Plaza <span className="float-right">4.93 km</span></p>
     <p style={{ margin: '0', padding: '0', fontFamily: 'Gotham Rounded Book', fontSize: '13px' }}>Libra Jewellers <span className="float-right">5.29 km</span></p> */}
             </Col>
-          </Row>
+          </Row> : null}
+
           <Row className="mt-3 mapHeading">
             <Col xs={12}>
               <p>
                 <b>
-                  <h6 style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '18px' }}>Some Helpful Information</h6>
+                  <h6 className="knowMore2" style={{ fontFamily: 'Gotham Rounded Medium' }}>Some Helpful Information</h6>
                 </b>
-                <p style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}>Check-in from 10:30 am <span style={{ color: 'red' }}><i>until</i></span>  01:30 pm <br />
+                <p className="knowMoreDesc" style={{ fontFamily: 'Gotham Rounded Medium' }}>Check-in from 10:30 am <span style={{ color: 'red' }}><i>until</i></span>  01:30 pm <br />
                   Check-out from 11:00 am <span style={{ color: 'red' }}><i>until</i></span> 12:30 pm</p>
               </p>
             </Col>

@@ -7,7 +7,7 @@ export class Explore extends Component {
     return (
       <section className="exploreSection mb-3">
         <Container>
-          <Row className="mb-2" style={{ paddingRight: "10px" }}>
+          <Row className="mb-2 exploreWid" style={{ paddingRight: "10px" }}>
             <Col className="expCont" xs={3} lg={2}>
               <p className="exploreContainer" style={{ color: "white", fontSize: "14px", lineHeight: "18px" }}>Explore</p>
               <p className="exploreContainer roomph" >Roomph</p>

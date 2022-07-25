@@ -58,6 +58,10 @@
         width: 1200px;
     }
 
+    .signUpCapsule {
+        width: 100%;
+    }
+
     .caption1 {
         height: 50px;
         top: 94%;
@@ -73,8 +77,8 @@
     }
 
     .showingSignCont {
-        margin-left: 65px;
-        width: 970px;
+        width: 89%;
+        margin: auto;
     }
 
     .resLoader {
@@ -99,7 +103,17 @@
 
 }
 
+@media screen and (min-width: 1200px) {
+    .featuredImg {
+        width: 1400px;
+    }
+}
 
+@media screen and (min-width: 1400px) {
+    .featuredImg {
+        width: 1600px;
+    }
+}
 
 .imgWid0 {
     width: 3vw;
@@ -254,13 +268,46 @@
 
 @media screen and (min-width: 480px) {
     .hotel-card {
-        width: 710px;
+        width: 62%;
         max-height: 190px;
-        margin: auto;
         margin-left: 350px;
     }
 
 }
+
+@media screen and (min-width: 1200px) {
+    .hotel-card {
+        margin-left: 375px;
+    }
+
+}
+
+@media screen and (min-width: 1300px) {
+    .hotel-card {
+        margin-left: 400px;
+    }
+
+}
+
+@media screen and (min-width: 1400px) {
+    .hotel-card {
+        margin-left: 430px;
+    }
+
+    .sortFilterLg {
+        margin-left: 90px;
+    }
+
+}
+
+@media screen and (min-width: 1500px) {
+    .hotel-card {
+        margin-left: 460px;
+    }
+
+}
+
+
 
 .sliderImgs {
     width: 100%;
@@ -319,17 +366,6 @@
     font-size: 11px;
 }
 
-@media screen and (min-width: 480px) {
-    .very-good span {
-        font-size: 16px;
-        margin-right: 5px;
-    }
-
-    .very-good u {
-        font-size: 16px;
-    }
-}
-
 .hotel-pricing-container {
     display: flex;
     justify-content: space-between;
@@ -339,17 +375,38 @@
     margin-top: -30px;
 }
 
+@media screen and (min-width: 480px) {
+    .very-good span {
+        font-size: 16px;
+        margin-right: 5px;
+    }
+
+    .hotel-pricing-container {
+        width: 30%;
+        margin-top: -43px;
+        padding-bottom: 10px;
+    }
+
+    .very-good u {
+        font-size: 16px;
+    }
+}
+
+
+
 .very-good {
     display: flex;
     flex-direction: column;
     margin-right: 3px;
     margin-top: -8px;
+
 }
 
 .user-rating-container {
     display: flex;
     flex-direction: row-reverse;
     margin-bottom: 5px;
+
 }
 
 .reviewCount {
@@ -381,6 +438,10 @@
         height: 42px;
         padding-top: 6px;
         font-size: 16px;
+    }
+
+    .user-rating-container {
+        margin-left: 120px;
     }
 }
 
@@ -424,8 +485,6 @@
 
 @media screen and (min-width: 480px) {
     .chatBtn {
-        margin-top: -8px;
-        padding-top: 5px;
         padding-left: 8px;
         padding-right: 8px;
     }
@@ -674,10 +733,13 @@
 
 .changeDateContainer {
     margin-top: -55px;
-
 }
 
 @media screen and (min-width: 480px) {
+    .changeDateContainer {
+        margin-top: -40px;
+    }
+
     .changeDatebtn {
         margin-left: -120px;
         width: 150px;
@@ -690,14 +752,33 @@
 }
 
 .sortFilterLg {
-    width: 250px;
-    height: 500px;
+    width: 22%;
+    padding: 20px;
+    height: 550px;
     border-radius: 10px;
     box-shadow: 0px 1px 2px 1px rgb(205, 206, 206);
     border: 1px solid #b3b3b3;
     margin-top: 20px;
-    margin-bottom: -520px;
+    margin-bottom: -570px;
     margin-left: 80px;
+}
+
+@media screen and (min-width: 1400px) {
+    .sortFilterLg {
+        margin-left: 90px;
+    }
+
+}
+
+@media screen and (min-width: 1500px) {
+    .sortFilterLg {
+        margin-left: 100px;
+    }
+
+}
+
+.dottedLineResult {
+    margin-bottom: 1.5px;
 }
 
 .pkr1 {
@@ -705,6 +786,7 @@
     border-radius: 10px;
     padding: 3px;
     width: 50px;
+    height: 50px;
     font-size: 12px;
     box-shadow: 1px 1px 1px rgb(205, 206, 206);
 }

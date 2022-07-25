@@ -15,7 +15,7 @@
   width: 97%;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 700px) {
   .disPic {
     height: 200px;
   }
@@ -36,7 +36,7 @@
   transform: translate(-50%, -50%);
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 990px) {
   .Slcentered {
     font-size: 20px;
   }

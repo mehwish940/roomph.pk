@@ -8,7 +8,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", marginRight: '90px', zIndex: '100' }}
+      style={{ ...style, display: "block", marginRight: '2%', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -19,7 +19,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", marginLeft: '100px', zIndex: '100' }}
+      style={{ ...style, display: "block", marginLeft: '2%', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -75,16 +75,16 @@ export class Reviews extends Component {
       <div>
         <Row>
           <Col xs={12} className="Fc text-center">
-            <h5 className="mb-2 mb-lg-3">Traveler Reviews</h5>
+            <h5 className="reviewsHeading">Traveler Reviews</h5>
           </Col>
         </Row>
-        <Slider {...settings}>
-          <div className="Ful1">
-            <section className="mb-3 ml-4 ml-lg-0">
+        <Slider {...settings} className="revSliderContainerNew">
+          <div className="Ful1" >
+            <section className="mb-3 ml-4 ml-lg-0 revContNeww">
               <Container className="fulContReviews" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} lg={3} className="mt-3">
-                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
+                    <img className="revHotelPic" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
@@ -92,23 +92,23 @@ export class Reviews extends Component {
                 </Row>
                 <Row className="mt-2 reviewText">
                   <Col xs={12}>
-                    <p style={{ margin: "0", padding: "0", fontFamily: "Montserrat Thin", textAlign: 'justify' }}>“{this.state.review}”</p>
+                    <p style={{ margin: "0", padding: "0", fontFamily: "Montserrat Thin", textAlign: 'left' }}>“{this.state.review}”</p>
                   </Col>
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "10px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>
             </section>
           </div>
           <div className="Ful2 Ful1">
-            <section className="mb-3 ml-4 ml-lg-0">
+            <section className="mb-3 ml-4 ml-lg-0 revContNeww">
               <Container className="fulContReviews" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} lg={3} className="mt-3">
-                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
+                    <img className="revHotelPic" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
@@ -121,18 +121,18 @@ export class Reviews extends Component {
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "10px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>
             </section>
           </div>
           <div className="Ful3 Ful1">
-            <section className="mb-3 ml-4 ml-lg-0">
+            <section className="mb-3 ml-4 ml-lg-0 revContNeww">
               <Container className="fulContReviews" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} lg={3} className="mt-3">
-                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
+                    <img className="revHotelPic" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
@@ -145,18 +145,18 @@ export class Reviews extends Component {
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "10px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>
             </section>
           </div>
           <div className="Ful1">
-            <section className="mb-3 ml-4 ml-lg-0">
+            <section className="mb-3 ml-4 ml-lg-0 revContNeww">
               <Container className="fulContReviews" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} lg={3} className="mt-3">
-                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
+                    <img className="revHotelPic" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
@@ -169,18 +169,18 @@ export class Reviews extends Component {
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "10px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>
             </section>
           </div>
           <div className="Ful2 Ful1">
-            <section className="mb-3 ml-4 ml-lg-0">
+            <section className="mb-3 ml-4 ml-lg-0 revContNeww">
               <Container className="fulContReviews" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} lg={3} className="mt-3">
-                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
+                    <img className="revHotelPic" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
@@ -193,18 +193,18 @@ export class Reviews extends Component {
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "10px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>
             </section>
           </div>
           <div className="Ful3 Ful1">
-            <section className="mb-3 ml-4 ml-lg-0">
+            <section className="mb-3 ml-4 ml-lg-0 revContNeww">
               <Container className="fulContReviews" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
                 <Row className="">
                   <Col xs={3} sm={3} lg={3} className="mt-3">
-                    <img className="revHotelPic mt-1" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
+                    <img className="revHotelPic" src={this.state.thumbnail} alt="Room" style={{ borderRadius: "40%" }} />
                   </Col>
                   <Col xs={8} sm={8} className="hotel mt-3">
                     <h5 className="hotelName" style={{ color: "#414042" }}>{this.state.AccommodationName}</h5>
@@ -217,7 +217,7 @@ export class Reviews extends Component {
                 </Row>
                 <Row className="mt-2">
                   <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
+                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "10px" }}>- {this.state.fullName} from {this.state.cityName} on {this.state.reviewDate}</p>
                   </Col>
                 </Row>
               </Container>

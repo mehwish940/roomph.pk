@@ -381,12 +381,11 @@ export class Search extends Component {
   render() {
     return (
       <>
-        <section id="section" style={{ backgroundImage: `linear-gradient(to right, rgba(6, 33, 82, .5), rgba(6, 33, 82, .5)),url(https://www.roomph.pk/${this.state.image})` }} className="selection py-5 mb-3">
+        <section id="section" style={{ backgroundImage: `linear-gradient(to right, rgba(6, 33, 82, .5), rgba(6, 33, 82, .5)),url(https://www.roomph.pk/${this.state.image})` }} className="selection mb-3">
           <BasicModal display={true} />
           <BasicModal1 display={true} />
           <Container fluid>
-            <p>{this.state.count}</p>
-            <Row>
+            <Row className="bestDealsContainer">
               <Col xs={10} className="mx-auto text-center selection-h">
                 <h6>
                   {this.state.paragraph}
@@ -395,7 +394,7 @@ export class Search extends Component {
               </Col>
             </Row>
             <Row className="sea">
-              <Col xs={10} sm={8} md={6} lg={5} className="Search mx-auto" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid white" }}>
+              <Col xs={10} sm={8} md={6} lg={5} className="Search ns mx-auto" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid white" }}>
                 <AutoSuggestions />
                 <form className="nosubmit" onSubmit={this.handleSubmit}>
                   <button className="SearchButton" type="submit">SEARCH</button>

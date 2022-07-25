@@ -31,7 +31,7 @@ export class Blogs extends Component {
         <Container className="" fluid>
           <Row>
             <Col className="blH text-center mb-2 mt-lg-2">
-              <h4 className="mt-lg-2 mb-lg-4">Get Inspiration</h4>
+              <h4 className="blogHeagingNew">Get Inspiration</h4>
             </Col>
           </Row>
           <Row className="RRR justify-content-center">
