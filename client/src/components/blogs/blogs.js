@@ -12,6 +12,7 @@ export class Blogs extends Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.callApi()
       .then(res => this.setState({
         blogName: res.express.Collection.Rows[0].Name,
@@ -61,17 +62,27 @@ export class Blogs extends Component {
           </Container> */}
           <Row>
             <Col className="blH text-center">
-              <h4>Get Inspiration</h4>
+              <h4 className="blogHeaddingb">Get Inspiration</h4>
             </Col>
           </Row>
-          <Row className="RRR justify-content-center">
-            <Col xs={11} lg={11} md={11} className="text-md-center m-0 p-0">
+          <Row className="RRR blogContb justify-content-center m-lg-0 p-lg-0">
+            <Col xs={11} lg={5} md={5} className="mr-lg-3 text-md-center m-0 p-0">
               <div className="bcard1">
                 <div className="bcontainer1">
                   <img className="imh1" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Blogs" />
                   <button className="travelTipsBtn" style={{ fontSize: '14px', width: '100px' }} type="button"> Travel Tips </button>
-                  <h6 className="blogName"><a href="/singleblog">{this.state.blogName}</a></h6>
-                  <a href="/"><p className="">{this.state.ShortDescription}</p></a>
+                  <h6 className="blogName blogNameb"><a href="/singleblog">{this.state.blogName}</a></h6>
+                  <a href="/"><p className="blogtxtb">{this.state.ShortDescription}</p></a>
+                </div>
+              </div>
+            </Col>
+            <Col xs={11} lg={5} md={5} className="d-none d-lg-block text-md-center m-0 p-0">
+              <div className="bcard1">
+                <div className="bcontainer1">
+                  <img className="imh1" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Blogs" />
+                  <button className="travelTipsBtn" style={{ fontSize: '14px', width: '100px' }} type="button"> Travel Tips </button>
+                  <h6 className="blogName blogNameb"><a href="/singleblog">{this.state.blogName}</a></h6>
+                  <a href="/"><p className="blogtxtb">{this.state.ShortDescription}</p></a>
                 </div>
               </div>
             </Col>

@@ -5,6 +5,9 @@ import Footer from "../footer/Footer";
 import './terms.css';
 
 export class Terms extends Component {
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     myFunction = () => {
         var dots = document.getElementById("dots");
         var moreText = document.getElementById("more");
@@ -20,7 +23,7 @@ export class Terms extends Component {
             moreText.style.display = "inline";
         }
     }
-    
+
     render() {
         return (
             <section className="">
@@ -30,7 +33,7 @@ export class Terms extends Component {
                         <Col className="m-0 p-0">
                             <h4 className="terms">Terms and
                                 Conditions</h4>
-                            <p className="termsConditions mb-1 pb-1">The terms “we”, “us”, “our”, “Company” and “Roomph” refers to Tech Pvt. Ltd, a company registered under the Corporate Laws of Pakistan, having its Registered Office at No.7, Third Floor, Meridian Software Technology, Opposite Rehmanabad Main Metro Station, Murree Road, Rawalpindi and Principal Office at 13-Y, Chaudhry Plaza, Jinnah Super, F-7 Markaz, Islamabad., its affiliates and/or their respective suppliers and providers and “you”, “User(s)”, “your” and/or “yourself” refers to the individual person creating an account with us and/or the customer booking a reservation though us directly through this website, or indirectly through any of our affiliates through whom we provide services.<br />
+                            <p className="textContainerT termsConditions mb-1 pb-1">The terms “we”, “us”, “our”, “Company” and “Roomph” refers to Tech Pvt. Ltd, a company registered under the Corporate Laws of Pakistan, having its Registered Office at No.7, Third Floor, Meridian Software Technology, Opposite Rehmanabad Main Metro Station, Murree Road, Rawalpindi and Principal Office at 13-Y, Chaudhry Plaza, Jinnah Super, F-7 Markaz, Islamabad., its affiliates and/or their respective suppliers and providers and “you”, “User(s)”, “your” and/or “yourself” refers to the individual person creating an account with us and/or the customer booking a reservation though us directly through this website, or indirectly through any of our affiliates through whom we provide services.<br />
                                 The Terms shall govern the use of the website, mobile application, call centers (collectively referred to as “ROOMPH Platform/Platform”) which enables the User to connect with us in relation to the services offered through the ROOMPH Platform (“Services”).<br /><br />
                                 <b>PLEASE READ THESE TERMS CAREFULLY BEFORE ACCESSING, USING, OBTAINING OR AVAILING ANY PRODUCTS OR SERVICES BY ROOMPH. BY ACCESSING AND/OR USING THE ROOMPH PLATFORM (OTHER THAN TO READ THESE TERMS OF USE FOR THE FIRST TIME) YOU ARE AGREEING TO COMPLY WITH THESE TERMS OF USE, WHICH MAY BE CHANGED/MODIFIED FROM TIME TO TIME WITHOUT ANY NOTICE AT SOLE DISCRETION OF ROOMPH. USE OF PLATFORM BY YOU SIGNIFY YOUR ACCEPTANCE TO ALL SUCH TERMS, CONDITIONS, AND NOTICES. IF YOU DO NOT AGREE TO BE BOUND BY THESE TERMS OF USE, YOU MAY DISCONTINUE ACCESS OR USE OF THE PLATFORM.THESE CONDITIONS MUST BE READ IN CONJUNCTION WITH ANY OTHER APPLICABLE TERMS AND CONDITIONS GOVERNING THE USE OF ROOMPH PLATFORM AND SERVICES.</b><br /><br />
                                 You agree that these Terms of Use are supported by good and valuable consideration the receipt and sufficiency of which you hereby acknowledge. Such consideration includes your use of the Platform and the information and content available on the same.<br />

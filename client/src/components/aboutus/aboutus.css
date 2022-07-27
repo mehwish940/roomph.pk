@@ -63,3 +63,34 @@
 .wash {
   vertical-align: text-bottom;
 }
+
+.ltAU {
+  font-size: 13px;
+}
+
+@media screen and (min-width: 990px) {
+  .aboutUsCitiesContainer {
+    width: 86%;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .cityFontSizeAU {
+    font-size: 22px;
+  }
+
+  .textContainerAU {
+    width: 84%;
+    margin: auto;
+    font-size: 16px;
+  }
+
+  .aboutUsHeading {
+    padding-top: 15%;
+    height: 400px;
+  }
+
+  .ltAU {
+    font-size: 16px;
+  }
+}

@@ -43,7 +43,7 @@ export class Facilities extends Component {
             </Col>
             <Col lg={8} className="d-lg-none">
               <Row className="" >
-                <Col xs={12} className="text-center mt-3 mb-3">
+                <Col xs={12} className="mt-3 mb-3">
                   <h6 className="Constit">Consistency and a Good Night Sleep</h6>
                 </Col>
                 <Col className="All mb-3" xs={12} lg={12}>

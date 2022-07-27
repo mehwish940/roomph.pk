@@ -1,5 +1,5 @@
-.terms{
-    background-image: linear-gradient(to right, rgba(6, 33, 82, .5), rgba(6, 33, 82, .5)),url('./terms.jpg');
+.terms {
+    background-image: linear-gradient(to right, rgba(6, 33, 82, .5), rgba(6, 33, 82, .5)), url('./terms.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -11,25 +11,46 @@
     font-family: Gotham Rounded Medium;
     color: #fff;
 }
-.termsText{
+
+.termsText {
     margin-top: 45px;
     padding-right: 20px;
     float: right;
 }
-.conditionText{
+
+.conditionText {
     float: right;
 }
-.termsConditions{
+
+.termsConditions {
     text-align: justify;
     padding: 20px;
     font-family: Montserrat Regular;
     font-size: 13px;
 }
-#more {display: none;}
-.readMore{
+
+#more {
+    display: none;
+}
+
+.readMore {
     border: none;
     background-color: #fff;
     font-size: 14px;
     margin: 0 auto;
     display: block;
+}
+
+@media screen and (min-width: 990px) {
+
+    .textContainerT {
+        width: 84%;
+        margin: auto;
+        font-size: 16px;
+    }
+
+    .terms {
+        padding-top: 15%;
+        height: 400px;
+    }
 }

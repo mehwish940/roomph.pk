@@ -47,6 +47,7 @@ export default class Bookings extends Component {
     };
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.callApi()
             .then(res => {
                 this.setState({

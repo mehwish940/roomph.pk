@@ -66,7 +66,7 @@ export class Reviews extends Component {
       slidesToScroll: window.innerWidth < 480 ? 1 : 3,
       // autoplay: true,
       pauseOnHover: true,
-      speed: 4000,
+      speed: 5000,
       // autoplaySpeed: 4000,
       cssEase: "linear"
     };

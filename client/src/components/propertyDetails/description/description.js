@@ -39,7 +39,7 @@ if (window.innerWidth < 480) {
 }
 else {
   containerStyle = {
-    width: '88%',
+    width: '85%',
     height: '400px',
     margin: 'auto'
   };
@@ -341,7 +341,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", marginRight: '15px', zIndex: '100' }}
+      style={{ ...style, display: "block", marginRight: '1.5%', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -352,7 +352,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", marginLeft: '15px', zIndex: '100' }}
+      style={{ ...style, display: "block", marginLeft: '1.5%', zIndex: '100' }}
       onClick={onClick}
     />
   );
@@ -520,53 +520,76 @@ class LightboxExample extends Component {
   }
 }
 //Lightbox End
+function SampleNextArrowNew(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", marginRight: '2%', zIndex: '100' }}
+      onClick={onClick}
+    />
+  );
+}
 
+function SamplePrevArrowNew(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", marginLeft: '2%', zIndex: '100' }}
+      onClick={onClick}
+    />
+  );
+}
 //Getting Property Details
 let idd = '';
 
 const Reviews = ({ userAllReviews }) => {
+  let reviewCount = userAllReviews;
   const settings = {
     dots: false,
+    nextArrow: window.innerWidth > 480 ? <SampleNextArrowNew /> : '',
+    prevArrow: window.innerWidth > 480 ? <SamplePrevArrowNew /> : '',
     infinite: true,
     // infinite: properties.length < 2 ? false : true,
-    slidesToShow: window.innerWidth < 480 ? 1.1 : 3,
-    slidesToScroll: window.innerWidth < 480 ? 1 : 2,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 4000,
+    slidesToShow: window.innerWidth < 480 ? 1.1 : reviewCount.length == 2 ? 2 : reviewCount.length >= 3 ? 3 : 1,
+    // slidesToScroll: window.innerWidth < 480 ? 1 : 2,
+    // autoplay: true,
+    speed: 3000,
+    autoplaySpeed: 3000,
     cssEase: "linear"
   };
   if (userAllReviews == null) return <p className="mx-5">"No Reviews"</p>;
   else return (
     <div>
-      <Slider {...settings}>
+      <Slider {...settings} className="revSliderContainerNew">
         {userAllReviews.map((userReviews, index) => (
-          <div key={index} className="Ful1">
-            <section className="mb-3 newFull">
-              <Container className="reviewCont" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
-                <Row>
-                  <Col xs={3} sm={3} lg={3} className="mt-3">
-                    <img className="revHotelPic" src={logoUrl} alt="" style={{ borderRadius: "40%" }} />
-                  </Col>
-                  <Col xs={8} sm={8} className="hotel mt-3">
-                    <h5 className="hotelName" style={{ color: "#414042" }}>{hotName}</h5>
-                  </Col>
-                </Row>
-                <Row className="mt-2 reviewText">
-                  <Col xs={12}>
-                    <p className="revText" style={{ margin: "0", padding: "0", fontFamily: "Montserrat Thin", textAlign: 'justify' }}>“{userReviews.review}”</p>
-                  </Col>
-                </Row>
-                <Row className="mt-2">
-                  <Col xs={12}>
-                    <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "12px" }}>- {userReviews.fullname}</p>
-                  </Col>
-                </Row>
-              </Container>
-            </section>
+          <div>
+            <div key={index} className="Ful1" >
+              <section className="mb-3 ml-4 ml-lg-0 revContNeww revContDesc">
+                <Container className="fulContReviews fullContainerReviewPD" style={{ border: "1px solid rgb(205, 206, 206)", borderRadius: "15px 15px 15px 15px", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
+                  <Row className="">
+                    <Col xs={3} sm={3} lg={3} className="mt-3">
+                      <img className="revHotelPic" src={logoUrl} alt="logo" style={{ borderRadius: "40%" }} />
+                    </Col>
+                    <Col xs={8} sm={8} className="hotel mt-3">
+                      <h5 className="hotelName" style={{ color: "#414042" }}>{hotName}</h5>
+                    </Col>
+                  </Row>
+                  <Row className="mt-2 reviewText">
+                    <Col xs={12}>
+                      <p style={{ margin: "0", padding: "0", fontFamily: "Montserrat Thin", textAlign: 'left' }}>“{userReviews.review}”</p>
+                    </Col>
+                  </Row>
+                  <Row className="mt-2">
+                    <Col xs={12}>
+                      <p style={{ fontFamily: "Montserrat Thin", fontStyle: "italic", fontSize: "10px" }}>- {userReviews.fullname}</p>
+                    </Col>
+                  </Row>
+                </Container>
+              </section>
+            </div>
           </div>
-
-
         ))}
       </Slider>
     </div>
@@ -608,7 +631,7 @@ const AvailableRooms = ({ properties1 }) => {
               </Col>
               {properties1.RatePlanDetails[0].RatePlans[1]?.RatePlanName ? <Row className="roomBottom">
                 <Col className="mt-3" xs={12}>
-                  <p> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '10px' }}><b>{properties1.RatePlanDetails[0].RatePlans[1]?.RatePlanName ? properties1.RatePlanDetails[0].RatePlans[1]?.RatePlanName : null} - <i>{properties1.RatePlanDetails[0].RatePlans[1]?.BookingPolicy == '100% will be charged at the time of booking.\n\n' ? 'Pay Later' : 'Pay Now'}</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>{properties1.RatePlanDetails[0].RatePlans[1]?.CancellationPolicyType ? properties1.RatePlanDetails[0].RatePlans[1]?.CancellationPolicyType : null} Cancellation</span> <span className="float-right personIcons" style={{ fontFamily: 'Montserrat Regular', fontSize: '8px' }}>max. {properties1.RatePlanDetails[0].RatePlans[1]?.MaxPerson ? properties1.RatePlanDetails[0].RatePlans[1]?.MaxPerson : null} <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
+                  <p> <span className="roomDetailsText" style={{ fontFamily: 'Montserrat Regular' }}><b>{properties1.RatePlanDetails[0].RatePlans[1]?.RatePlanName ? properties1.RatePlanDetails[0].RatePlans[1]?.RatePlanName : null} - <i>{properties1.RatePlanDetails[0].RatePlans[1]?.BookingPolicy == '100% will be charged at the time of booking.\n\n' ? 'Pay Later' : 'Pay Now'}</i></b></span> <img className="facility pt-1" src={process.env.PUBLIC_URL + "/images/Asset19.svg"} width={10} alt="" /> <span className="cancelText" style={{ fontFamily: 'Montserrat Regular' }}>{properties1.RatePlanDetails[0].RatePlans[1]?.CancellationPolicyType ? properties1.RatePlanDetails[0].RatePlans[1]?.CancellationPolicyType : null} Cancellation</span> <span className="float-right personIcons maxText" style={{ fontFamily: 'Montserrat Regular' }}>max. {properties1.RatePlanDetails[0].RatePlans[1]?.MaxPerson ? properties1.RatePlanDetails[0].RatePlans[1]?.MaxPerson : null} <img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /><img className="facility1" src={process.env.PUBLIC_URL + "/images/Asset22.svg"} width={10} alt="" /></span> </p>
                 </Col>
                 <Col xs={8}>
                   <p style={{ marginTop: '6px', fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}> Rs. <span style={{ fontSize: '16px', color: 'red' }}>{properties1.RatePlanDetails[0].RatePlans[1]?.Rate ? Number(properties1.RatePlanDetails[0].RatePlans[1]?.Rate).toLocaleString() : null}</span>  </p>
@@ -759,6 +782,7 @@ export class Description extends Component {
     responseToPost: '',
   };
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.callApi()
       .then(res => {
         //console.clear();
@@ -906,7 +930,7 @@ export class Description extends Component {
           <Row className="fullBanner" style={{ backgroundColor: "white", borderRadius: "0px 0px 20px 20px", border: "1px solid rgb(205, 206, 206)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)" }}>
             {/* For Larger Screens */}
             <Col className="d-none d-md-block" xs={10} lg={8} style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
-              <Row className="p-1">
+              <Row className="p-1 p-lg-0">
                 <Col>
                   <button className="topbarBtn pt-lg-1" style={{ fontFamily: 'Gotham Rounded Bold', background: 'none' }}>{this.props.match.params.city}</button>
                   <div >
@@ -953,7 +977,7 @@ export class Description extends Component {
                 </Col>
               </Row>
             </Col>
-            <Col xs={1}>
+            <Col xs={1} lg={2}>
 
             </Col>
             <Col xs={3} lg={2} className='mapp my-auto'>
@@ -1005,7 +1029,7 @@ export class Description extends Component {
               <p className="PDPrice" style={{ fontFamily: 'Gotham Rounded Bold', whiteSpace: 'nowrap', lineHeight: '50%' }}><span className="price float-right priceContain"><span style={{ fontSize: '14px', color: 'red' }}>Rs.</span> <span style={{ color: 'red' }}>{this.props.match.params.price}</span> <br /><span style={{ fontSize: '10px', marginLeft: '5px' }}>avg. per night</span></span></p>
               <Row>
                 <Col xs={2}>
-                  <p className="reviewCount1">{this.state.userRating}</p>
+                  <p className="reviewCount1">{Math.round(this.state.userRating * 10) / 10}</p>
                 </Col>
                 <Col className="revD">
                   <p className="ml-2 rev dfl" style={{ whiteSpace: 'nowrap', margin: '0', padding: '0', lineHeight: '50%' }}><span className="vg" style={{ fontFamily: 'Gotham Rounded Bold' }}>Very Good</span></p><p className="vg" style={{ fontFamily: 'Gotham Rounded Book', margin: '0', padding: '0' }}><span><u>{this.state.rating} review{this.state.rating > 1 ? "s " : ' '}</u></span></p>
@@ -1118,7 +1142,7 @@ export class Description extends Component {
               <Slider />
             </Col>
             <Col className="mt-3">
-              <p className="m-0 p-0" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}><b>Deluxe Double Room</b></p>
+              <p className="m-0 p-0" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}><b>Deluxe Double logo</b></p>
               <p className="m-0 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src="images/Asset6.svg" width={15} alt="" />Free Wi-Fi</p>
               <p className="m-0 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src="images/Asset26.svg" width={15} alt="" />1 double bed</p>
               <p className="m-0 p-0" style={{ fontFamily: 'Montserrat Regular', fontSize: '14px' }}><img className="facility mr-2" src="images/Asset25.svg" width={15} alt="" />80m2/861 ft2</p>

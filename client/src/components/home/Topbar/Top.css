@@ -70,14 +70,13 @@
 
 .dealsBtn:hover {
   background-color: #fca527;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
   outline: none;
   /* transform: translateY(-1px); */
 }
 
 @media screen and (min-width: 480px) {
   .dealsBtn {
+    padding-top: 3px;
     width: 100px;
     height: 25px;
     margin-right: 15px;
@@ -170,10 +169,6 @@
 
 .profileBtn1:hover {
   background-color: #fca527;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  outline: none;
-  /* transform: translateY(-1px); */
 }
 
 .otherBtns1 {
@@ -198,10 +193,6 @@
 
 .otherBtns1:hover {
   background-color: #fca527;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  outline: none;
-  /* transform: translateY(-1px); */
 }
 
 @media screen and (min-width: 480px) {

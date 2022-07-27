@@ -125,7 +125,7 @@
 
 @media screen and (min-width: 480px) {
     .fullBanner {
-        padding: 15px;
+        padding: 10px;
         padding-left: 100px;
         padding-right: 100px;
     }
@@ -461,6 +461,7 @@
     }
 
     .searchLogo {
+        margin-top: 5px;
         width: 100px;
     }
 
@@ -598,10 +599,7 @@
 }
 
 .Buttons:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-1px);
+    background-color: #fca527;
 }
 
 /* sort screen */
@@ -741,26 +739,33 @@
     }
 
     .changeDatebtn {
+        background-position: center 5px;
+        background-size: 30px;
+        padding-top: 35px;
         margin-left: -120px;
         width: 150px;
+        height: 100px;
         font-size: 15px;
     }
 
     .priceRs1 {
+        margin-top: -50px;
         font-size: 20px;
     }
 }
 
-.sortFilterLg {
-    width: 22%;
-    padding: 20px;
-    height: 550px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 2px 1px rgb(205, 206, 206);
-    border: 1px solid #b3b3b3;
-    margin-top: 20px;
-    margin-bottom: -570px;
-    margin-left: 80px;
+@media screen and (min-width: 900px) {
+    .sortFilterLg {
+        width: 22%;
+        padding: 20px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0px 1px 2px 1px rgb(205, 206, 206);
+        border: 1px solid #b3b3b3;
+        margin-top: 20px;
+        margin-bottom: -570px;
+        margin-left: 80px;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -775,6 +780,10 @@
         margin-left: 100px;
     }
 
+}
+
+.chkBoxTextN {
+    margin-left: 10px !important;
 }
 
 .dottedLineResult {

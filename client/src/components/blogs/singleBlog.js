@@ -12,6 +12,7 @@ export class SingleBlog extends Component {
     };
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.callApi()
             .then(res => this.setState({
                 blogName: res.express.Collection.Rows[0].Name,
@@ -36,9 +37,11 @@ export class SingleBlog extends Component {
                     <Row>
                         <Col className="m-0 p-0">
                             <img className="imh2" src={`https://www.roomph.pk/${this.state.blogImage}`} alt="Blogs" />
-                            <button className="travelTipsBtn" style={{ fontSize: '14px', width: '100px' }} type="button"> Travel Tips </button>
-                            <h6 className="blogName"><a href="/singleblog">{this.state.blogName}</a></h6>
-                            <a href="/"><p className="blogDescription">{this.state.ShortDescription}</p></a>
+                            <div className="singleBlogContn">
+                                <button className="travelTipsBtn" style={{ fontSize: '14px', width: '100px' }} type="button"> Travel Tips </button>
+                                <h6 className="blogName"><a href="/singleblog">{this.state.blogName}</a></h6>
+                                <a href="/"><p className="blogtxtb blogDescription">{this.state.ShortDescription}</p></a>
+                            </div>
                         </Col>
                     </Row>
                 </Container>

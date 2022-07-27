@@ -322,17 +322,17 @@ function Checkboxes() {
   };
   return (
     <div>
-      <Checkbox onChange={handleChange1} inputProps={{ 'aria-label': 'controlled' }} className='m-0 p-0 ml-1 mt-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset16.png"} width={80} alt="" /><br />
-      <Checkbox checked={checked} onChange={handleChange2} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
-      <Checkbox onChange={handleChange3} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
-      <Checkbox onChange={handleChange4} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
-      <p className="m-0 p-0"><Checkbox onChange={handleChange5} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Hotel</span><br /></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange6} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Apartment</span><br /></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Guest House</span></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Lowest Price</span></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Highest Price</span></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Lowest Rating</span></p>
-      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText' style={{ fontFamily: 'Gotham Rounded Medium' }}>Highest Rating</span></p>
+      <Checkbox onChange={handleChange1} inputProps={{ 'aria-label': 'controlled' }} className='m-0 p-0 ml-1 mt-1' color="success" /><img className="chkBoxTextN" src={process.env.PUBLIC_URL + "/images/Asset16.png"} width={80} alt="" /><br />
+      <Checkbox checked={checked} onChange={handleChange2} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr chkBoxTextN" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
+      <Checkbox onChange={handleChange3} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr chkBoxTextN" alt="" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr" alt="" /><br />
+      <Checkbox onChange={handleChange4} className='mt-1 p-0 ml-1' color="success" /><img src={process.env.PUBLIC_URL + "/images/Asset99.svg"} className="imgWidr chkBoxTextN" alt="" /><br />
+      <p className="m-0 p-0"><Checkbox onChange={handleChange5} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText chkBoxTextN' style={{ fontFamily: 'Gotham Rounded Medium' }}>Hotel</span><br /></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange6} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText chkBoxTextN' style={{ fontFamily: 'Gotham Rounded Medium' }}>Apartment</span><br /></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText chkBoxTextN' style={{ fontFamily: 'Gotham Rounded Medium' }}>Guest House</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText chkBoxTextN' style={{ fontFamily: 'Gotham Rounded Medium' }}>Lowest Price</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText chkBoxTextN' style={{ fontFamily: 'Gotham Rounded Medium' }}>Highest Price</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText chkBoxTextN' style={{ fontFamily: 'Gotham Rounded Medium' }}>Lowest Rating</span></p>
+      <p className="m-0 p-0"><Checkbox onChange={handleChange7} className='mt-1 chkBoxText p-0 ml-1' color="success" /><span className='chkBoxText chkBoxTextN' style={{ fontFamily: 'Gotham Rounded Medium' }}>Highest Rating</span></p>
     </div>
   );
 }
@@ -543,7 +543,7 @@ export class Results extends Component {
       .catch(err => console.log(err));
   }
   componentDidMount() {
-    this._div.scrollTop = 0;
+    window.scrollTo(0, 0);
     this.callApi()
       .then(res => {
         //console.clear();
@@ -589,10 +589,7 @@ export class Results extends Component {
 
   render() {
     return (
-      <section className="mb-3" ref={(ref) => this._div = ref}>
-        {/* <p>{this.state.count}</p>
-        <p>{this.state.Cancellation}</p>
-        <img src={this.state.img} alt="" /> */}
+      <section className="mb-3">
         <Modal show={this.state.showHide} centered>
           <div style={{ backgroundColor: 'white', width: '350px', height: '75px', position: 'absolute', zIndex: '100' }}>
             <button onClick={() => this.handleModalShowHide()} className="mt-2 ml-3" style={{ border: "none", background: "none", paddingRight: '400px' }}><MdOutlineKeyboardArrowLeft /></button>
@@ -614,8 +611,8 @@ export class Results extends Component {
         <Container fluid>
           <Row className="fullBanner" style={{ backgroundColor: "white", borderRadius: "0px 0px 0px 0px", border: "1px solid rgb(205, 206, 206)", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)" }}>
             {/* For larger Screens */}
-            <Col className="d-none d-md-block" xs={10} lg={8} style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
-              <Row className="p-1">
+            <Col className="fbA d-none d-md-block" xs={10} lg={8} style={{ borderRadius: "30px", border: "1px solid rgb(205, 206, 206)", boxShadow: "2px 2px 2px 2px rgb(205, 206, 206)" }}>
+              <Row className="p-1 p-lg-0">
                 <Col>
                   <OverlayTrigger
                     placement="right"
@@ -680,7 +677,7 @@ export class Results extends Component {
                 </Col>
               </Row>
             </Col>
-            <Col xs={1}>
+            <Col xs={1} lg={2}>
 
             </Col>
             <Col xs={3} lg={2} className='mapp my-auto'>
@@ -748,7 +745,7 @@ export class Results extends Component {
                 <span className="getText" style={{ fontFamily: 'Montserrat Regular', whiteSpace: 'nowrap' }}>Get the best deal from one of our experts</span></p>
             </Col>
             <Col xs={2} lg={2} className="my-auto" >
-              <button className="chat chatBtn float-left" style={{ whiteSpace: 'nowrap' }}>Chat with us</button>
+              <a className="chat chatBtn float-left" style={{ whiteSpace: 'nowrap' }} target="_blank" rel="noopener noreferrer" href="https://wa.me/+923016441046">Chat with us</a>
             </Col>
           </Row>
         </Container>

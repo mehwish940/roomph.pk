@@ -11,3 +11,17 @@
     width: 100%;
     height: auto;
 }
+
+@media screen and (min-width: 990px) {
+    .imh2 {
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .singleBlogContn {
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+        width: 86%;
+        margin: auto;
+    }
+}

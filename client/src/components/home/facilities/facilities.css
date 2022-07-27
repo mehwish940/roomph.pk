@@ -76,6 +76,7 @@
   }
 
   .Constit {
+    text-align: left;
     margin-top: 10px;
     margin-bottom: 5px;
   }
@@ -150,7 +151,7 @@
 
   .facilitiesContainer {
     margin-top: 45px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
 
   .column img {

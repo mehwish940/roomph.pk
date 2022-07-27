@@ -163,7 +163,7 @@ const style1 = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 370,
+  width: window.innerWidth > 990 ? 380 : 370,
   overflow: 'scroll',
   height: 450,
   bgcolor: 'background.paper',
@@ -206,7 +206,7 @@ function DataRange(props) {
     // }
     return <div>
       <div className="dateRangeCont" style={{ backgroundColor: 'white', width: '340px', height: '75px', position: 'absolute', zIndex: '100' }}>
-        <button onClick={handleClose} className="mt-2 ml-1" style={{ border: "none", background: "none", zIndex: '200', marginLeft: '-10px' }}><MdOutlineKeyboardArrowLeft /></button>
+        <button onClick={handleClose} className="mt-2 ml-1" style={{ border: "none", background: "none", zIndex: '200', marginLeft: '-10px', outline: 'none' }}><MdOutlineKeyboardArrowLeft /></button>
         {/* <p className="" style={{ position: 'absolute', top: '45px', right: '4px', fontFamily: 'Roboto Medium' }}>{new Date(from.toISOString()).toLocaleString('en-pk', { month: 'long' })}{' '}{from.getFullYear()}</p> */}
       </div>
       {/* <div style={{ backgroundColor: 'white', width: '330px', top: '350px', height: '35px', position: 'absolute', zIndex: '100' }}>
@@ -249,7 +249,7 @@ function BasicModal(props) {
           <Box sx={{ ...style1, margin: 0, padding: 0, paddingLeft: 3 }}>
             <DataRange display={true} />
             <div className="">
-              <button className="dateDoneBtn mb-3" type="submit" onClick={handleClose}>Done</button>
+              <button style={{ outline: 'none' }} className="dateDoneBtn mb-3" type="submit" onClick={handleClose}>Done</button>
             </div>
           </Box>
         </Modal>
@@ -328,7 +328,7 @@ export class Search extends Component {
   };
 
   componentDidMount() {
-
+    window.scrollTo(0, 0);
     this.callApi()
       .then(res => this.setState({
         paragraph: res.express.Collection.Rows[0].Description,
@@ -369,10 +369,10 @@ export class Search extends Component {
     //console.log(citi[0].CityId);
     //console.log(JSON.stringify({ post: this.state.post }));
     if (citi[0].AccommodationId === undefined) {
-      this.props.history.push(`/propertylisting/${citi[0].label}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`);
+      this.props.history.push(`/propertylisting/${citi[0].label}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays}/${priceStart}/${priceEnd}/${premium}/${rating}/${category}`);
     }
     else {
-      this.props.history.push(`/propertydetails/${citi[0].CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays + 1}/ /${citi[0].AccommodationId}/0/0`);
+      this.props.history.push(`/propertydetails/${citi[0].CityName}/${checkIn}/${checkOut}/${Adults}/${Rooms}/${diffDays}/ /${citi[0].AccommodationId}/0/0`);
     }
 
 
@@ -394,10 +394,12 @@ export class Search extends Component {
               </Col>
             </Row>
             <Row className="sea">
-              <Col xs={10} sm={8} md={6} lg={5} className="Search ns mx-auto" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid white" }}>
+              <Col xs={10} sm={8} md={6} lg={4} className="Search ns mx-auto" style={{ borderRadius: "15px 15px 15px 15px", border: "1px solid white" }}>
                 <AutoSuggestions />
                 <form className="nosubmit" onSubmit={this.handleSubmit}>
-                  <button className="SearchButton" type="submit">SEARCH</button>
+                  <div className="sbtN">
+                    <button className="SearchButton" type="submit">SEARCH</button>
+                  </div>
                 </form>
                 <div className="Sbt">
                   <button style={{ border: "none", background: "none", color: "rgb(147, 148, 149)" }} className="mt-3 d-block mb-1 mBs" onClick={handleOpen}> <BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkInn === '' ? chkIn : this.state.checkInn} <span style={{ marginLeft: '.5rem' }}> | </span> <span style={{ marginLeft: '.5rem' }}> </span><BsFillCalendarEventFill /> <span style={{ marginLeft: '.5rem' }}>  </span>  {this.state.checkOutt === '' ? chkOut : this.state.checkOutt}  </button>

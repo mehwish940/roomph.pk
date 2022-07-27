@@ -5,6 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Footer from "../footer/Footer";
 import { Container, Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+import './thankyou.css';
 
 let checkIn = '';
 var rate = '';
@@ -39,6 +40,7 @@ class Thankyou extends Component {
     responseToPost: '',
   };
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.callApi()
       .then(res => {
         //console.clear();
@@ -129,11 +131,10 @@ class Thankyou extends Component {
         <Topbar />
         <Steps />
         <section className="">
-
-          {this.state.loading ? <Container> <Row>
-            <Col xs={12} sm={6} className="mt-3">
-              <h6 style={{ fontFamily: 'Montserrat Bold', fontSize: '12px', fontWeight: '900' }}>Thank you, {this.props.match.params.name}! Your booking is now complete.</h6>
-              <ul className="ml-3" style={{ fontFamily: 'Gotham Rounded Book', fontSize: '12px' }}>
+          {this.state.loading ? <Container fluid> <Row>
+            <Col xs={12} sm={6} className="mt-3 bookingContainerTY">
+              <h6 className="bookingIdText" style={{ fontFamily: 'Montserrat Bold', fontWeight: '900' }}>Thank you, {this.props.match.params.name}! Your booking is now complete.</h6>
+              <ul className="ml-3 bookingIdText" style={{ fontFamily: 'Gotham Rounded Book' }}>
                 <li style={{ color: 'red' }}><span style={{ color: 'black' }}>You chose to pay at the property. Roomph will not charge your credit card.</span></li>
                 <li style={{ color: 'red', marginTop: '5px' }}><span style={{ color: 'black' }}>In the next 10 minutes, you will receive an email containing your booking details.</span></li>
                 <li style={{ color: 'red', marginTop: '5px' }}><span style={{ color: 'black' }}>Your Booking ID is {this.state.bookingId}.</span></li>
@@ -142,39 +143,39 @@ class Thankyou extends Component {
               </ul>
             </Col>
           </Row>
-            <Container className="m-0 p-0 pl-1" style={{ backgroundColor: '#f6f6f6', borderRadius: '10px' }}>
+            <Container className="pl-1 CICont TYCont" style={{ backgroundColor: '#f6f6f6', borderRadius: '10px' }} fluid>
               <Row>
-                <Col className="pr-0" xs={5}>
+                <Col className="pr-0" xs={5} lg={9}>
                   <button className="BButton" type="button" style={{ fontFamily: 'JTMarnie Light' }}> Best Seller </button>
-                  <h6 className="mt-2 m-0" style={{ fontFamily: 'Gotham Rounded Bold', fontSize: '16px' }}>{this.state.hotelName}</h6>
+                  <h6 className="mt-2 m-0 hotelNameCI" style={{ fontFamily: 'Gotham Rounded Bold' }}>{this.state.hotelName}</h6>
                   {Array.apply(null, { length: this.state.rating ? Number(this.state.rating) : 0 }).map(Number.call, Number).map((item) => {
-                    return <img key={item} src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD" alt="" />
+                    return <img key={item} src={process.env.PUBLIC_URL + "/images/Asset100.svg"} className="imgWidD imgStarsCI" alt="" />
                   })}
-                  <p className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '12px' }}>
+                  <p className="mt-1 addressCI" style={{ fontFamily: 'Gotham Rounded Medium' }}>
                     <b>{this.state.address}</b>
                   </p>
                 </Col>
-                <Col className="mt-3" xs={7}>
-                  <img className="" style={{ borderRadius: '15px' }} src={this.state.img1} alt="" width={"180px"} height={"110px"} />
+                <Col className="mt-3" xs={7} lg={3}>
+                  <img className="hotelImgCI" style={{ borderRadius: '15px' }} src={this.state.img1} alt="" />
                 </Col>
                 <Col className="" xs={12}>
-                  <p className="m-0 p-0" style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px' }}>
-                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-in: </span> <b>{checkIn.substring(7)}th {monthsArr[checkIn.slice(5, -3) - 1]}{monthsArr[checkIn.slice(5, -2) - 1]} {checkIn.substring(0, 4)}, {(new Date(checkIn)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
-                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>Check-out: </span> <b> {checkOut.substring(7)}th  {monthsArr[checkOut.slice(5, -3) - 1]}{monthsArr[checkOut.slice(5, -2) - 1]} {checkOut.substring(0, 4)}, {(new Date(checkOut)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
-                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}> Stay: </span>  <b> {nights} Nights, {Rooms} Rooms, {Adults} Adults</b>
+                  <p className="m-0 p-0 CIS" style={{ fontFamily: 'Gotham Rounded Light' }}>
+                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium' }}>Check-in: </span> <b>{checkIn.substring(7)}th {monthsArr[checkIn.slice(5, -3) - 1]}{monthsArr[checkIn.slice(5, -2) - 1]} {checkIn.substring(0, 4)}, {(new Date(checkIn)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
+                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium' }}>Check-out: </span> <b>{checkOut.substring(7)}th  {monthsArr[checkOut.slice(5, -3) - 1]}{monthsArr[checkOut.slice(5, -2) - 1]} {checkOut.substring(0, 4)}, {(new Date(checkOut)).toLocaleString('en-pk', { weekday: 'long' })}</b><br />
+                    <span className="mt-1" style={{ fontFamily: 'Gotham Rounded Medium' }}> Stay: </span>  <b> {nights} Nights, {Rooms} Rooms, {Adults} Adults</b>
                   </p>
                 </Col>
               </Row>
               <hr style={{ color: '#000000', backgroundColor: '#000000', borderColor: '#000000' }} />
               <Row>
                 <Col xs={6}>
-                  <p style={{ fontFamily: 'Gotham Rounded Light', fontSize: '11px', whiteSpace: 'nowrap' }}>
-                    <span style={{ fontFamily: 'Gotham Rounded Medium', fontSize: '13px' }}>{Rooms} Room ({nights} Nights): </span><b>Rs. {this.props.match.params.rate.split('.')[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}</b> <br />
+                  <p className="RTX" style={{ fontFamily: 'Gotham Rounded Light', whiteSpace: 'nowrap' }}>
+                    <span className="RTXR" style={{ fontFamily: 'Gotham Rounded Medium' }}>{Rooms} Room ({nights} Nights): </span><b>Rs. {this.props.match.params.rate.split('.')[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}</b> <br />
                     <Tax1 taxdetail1={this.state.tax1} />
                   </p>
                 </Col>
                 <Col xs={6} className="my-auto">
-                  <p className="ml-2" style={{ fontSize: '7px', fontFamily: 'JTMarnie Light', color: '#fff', whiteSpace: 'nowrap' }}><span style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f', padding: '5px' }}>Free Breakfast</span> <span style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f', padding: '5px', whiteSpace: 'nowrap' }}>Book Now Pay Later</span> </p>
+                  <p className="ml-2 freeBook" style={{ fontFamily: 'JTMarnie Light', color: '#fff', whiteSpace: 'nowrap' }}><span className="FBBtn" style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f' }}>Free Breakfast</span> <span className="FBBtn" style={{ borderRadius: "45px", boxShadow: "1px 1px 1px 1px rgb(205, 206, 206)", backgroundColor: '#7ed34f', whiteSpace: 'nowrap' }}>Book Now Pay Later</span> </p>
                 </Col>
               </Row>
             </Container>  </Container> : <Spinner className="m-3" animation="grow" />}

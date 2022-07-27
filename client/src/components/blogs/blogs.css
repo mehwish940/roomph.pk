@@ -98,3 +98,22 @@
     cursor: pointer;
     outline: none;
 }
+
+@media screen and (min-width: 990px) {
+    .blogHeaddingb {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    .blogContb {
+        width: 100%;
+    }
+
+    .blogNameb {
+        font-size: 22px;
+    }
+
+    .blogtxtb {
+        font-size: 15px !important;
+    }
+}
